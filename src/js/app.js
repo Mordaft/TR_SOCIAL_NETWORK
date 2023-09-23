@@ -53,7 +53,7 @@ require('./header/header.dropdown');
 /*-------------
     SIDEBAR 
 -------------*/
-const sidebar = require('./sidebar/sidebar');
+require('./sidebar/sidebar');
 
 /*-----------------
     USER AVATAR 
@@ -142,6 +142,28 @@ function showScreen(screen) {
     }    
     window.dispatchEvent(new Event('resize'));
 }
+
+window.onload = function () {
+    console.log('window.onload');
+    document.querySelectorAll(".menu-item", function (el) {
+        console.log('list of menu-items', el);
+    });
+
+    // document.querySelectorAll(".menu-item", function (el) {
+    //     console.log('list of menu-items', el);
+    //     el.forEach(function (item) {
+    //         console.log('set event', item);
+    //         item.addEventListener('click', function (e) {
+    //             console.log('click', e);
+    //             e.preventDefault();
+    //             document.querySelector(".menu-item active", function (el) {
+    //                 el.classList.remove('active');
+    //             });
+    //             e.classList.add('active');
+    //         });
+    //     });
+    // });
+};
 
 
     
