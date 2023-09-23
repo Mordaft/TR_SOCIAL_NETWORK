@@ -23,9 +23,6 @@ app.querySelector('.content-grid', function (el) {
           navigationWidth = sidebar.navigation.active ? sidebar.navigation.maxWidth : sidebar.navigation.minWidth,
           availableWidth = document.body.clientWidth - contentGrid.offsetWidth - chatWidth - navigationWidth,
           offsetX = (availableWidth / 2) + navigationWidth;
-
-          console.log(chatWidth, navigationWidth, availableWidth, offsetX);
-
     contentGrid.style.transform = `translate(${offsetX}px, 0)`;
   };
 

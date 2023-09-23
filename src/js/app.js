@@ -90,8 +90,6 @@ import Navigo from 'navigo';
 
 const router = new Navigo('/');
 hideAllScreens();
-document.querySelector('#newsfeed').classList.remove('hiddenScreen');
-
 
 /* routes */
 router.on('newsfeed', function () {
@@ -127,8 +125,9 @@ router.on('profile-timeline', function () {
     showScreen('#profile-timeline');
 });
 
-
 /* /routes */
+
+router.navigate('newsfeed');
 
 function hideAllScreens() {
     document.querySelectorAll('.content-grid').forEach(function (screen) {
@@ -138,8 +137,9 @@ function hideAllScreens() {
 
 function showScreen(screen) {
     let elmnt = document.querySelector(screen);
-    elmnt.classList.remove('hiddenScreen');
-    //sidebar.updateGridPosition(elmnt);
+    if (elmnt !== null && elmnt !== undefined) {
+        elmnt.classList.remove('hiddenScreen');
+    }    
     window.dispatchEvent(new Event('resize'));
 }
 
