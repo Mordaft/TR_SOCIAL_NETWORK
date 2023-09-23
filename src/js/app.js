@@ -143,29 +143,22 @@ function showScreen(screen) {
     window.dispatchEvent(new Event('resize'));
 }
 
-window.onload = function () {
-    console.log('window.onload');
-    document.querySelectorAll(".menu-item", function (el) {
-        console.log('list of menu-items', el);
+window.addEventListener("load", function () {
+    
+    let menuItems = document.querySelectorAll(".menu-item-link");
+    menuItems.forEach(function (item) {
+        console.log('item', item);   
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            let menuItemClicked = e.target;
+            console.log('click on', this, menuItemClicked.parentElement.parentElement); 
+            let activeMenu = this.parentElement.parentElement.querySelector(".active");                
+            console.log('menuItem', activeMenu.classList); 
+            activeMenu.classList.remove('active');
+            this.parentElement.classList.add('active');
+        });
     });
-
-    // document.querySelectorAll(".menu-item", function (el) {
-    //     console.log('list of menu-items', el);
-    //     el.forEach(function (item) {
-    //         console.log('set event', item);
-    //         item.addEventListener('click', function (e) {
-    //             console.log('click', e);
-    //             e.preventDefault();
-    //             document.querySelector(".menu-item active", function (el) {
-    //                 el.classList.remove('active');
-    //             });
-    //             e.classList.add('active');
-    //         });
-    //     });
-    // });
-};
-
-
+});
     
 
 
