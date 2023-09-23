@@ -38,10 +38,10 @@
 
 ### Lista de pantallas (y acciones en cada pantalla)
 
-- Acceso a la aplicación 
+- Acceso a la aplicación (landing.html)
     - Se autentica con Google (te da a acceso a la aplicación en modo local únicamente)
     - Se valida contra una lista blanca (si el usuario está en la lista: te da acceso al modo online , puedes enviar tu información y recibir la del resto de la comunidad, todos los servicios validan contra la lista blanca).
-- Newsfeed
+- Newsfeed (partials/newsfeed.html)
     - Crear Post
     - Acciones sobre lista de Post de otros (Reaccionar / Comentar)
 - Group (Teams / Seguidores / Aficciones )

@@ -92,7 +92,9 @@ const router = new Navigo('/');
 hideAllScreens();
 document.querySelector('#newsfeed').classList.remove('hiddenScreen');
 
-router.on('newsfeed.html', function () {
+
+/* routes */
+router.on('newsfeed', function () {
     hideAllScreens();
     document.querySelector('#newsfeed').classList.remove('hiddenScreen');
 });
@@ -100,6 +102,23 @@ router.on('groups', function () {
     hideAllScreens();
     document.querySelector('#groups').classList.remove('hiddenScreen');
 });
+router.on('badges', function () {
+    hideAllScreens();
+    document.querySelector('#badges').classList.remove('hiddenScreen');
+});
+
+router.on('events', function () {
+    hideAllScreens();
+    document.querySelector('#events').classList.remove('hiddenScreen');
+});
+
+router.on('profile-timeline', function () {
+    hideAllScreens();
+    document.querySelector('#profile-timeline').classList.remove('hiddenScreen');
+});
+
+
+/* /routes */
 
 function hideAllScreens() {
     document.querySelectorAll('.content-grid').forEach(function (screen) {
