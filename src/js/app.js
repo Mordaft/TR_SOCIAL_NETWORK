@@ -53,7 +53,7 @@ require('./header/header.dropdown');
 /*-------------
     SIDEBAR 
 -------------*/
-require('./sidebar/sidebar');
+const sidebar = require('./sidebar/sidebar');
 
 /*-----------------
     USER AVATAR 
@@ -96,25 +96,35 @@ document.querySelector('#newsfeed').classList.remove('hiddenScreen');
 /* routes */
 router.on('newsfeed', function () {
     hideAllScreens();
-    document.querySelector('#newsfeed').classList.remove('hiddenScreen');
+    showScreen('#newsfeed');
 });
 router.on('groups', function () {
     hideAllScreens();
-    document.querySelector('#groups').classList.remove('hiddenScreen');
+    showScreen('#groups');
 });
 router.on('badges', function () {
     hideAllScreens();
-    document.querySelector('#badges').classList.remove('hiddenScreen');
+    showScreen('#badges');
+});
+
+router.on('members', function () {
+    hideAllScreens();
+    showScreen('#members');
 });
 
 router.on('events', function () {
     hideAllScreens();
-    document.querySelector('#events').classList.remove('hiddenScreen');
+    showScreen('#events');
+});
+
+router.on('quests', function () {
+    hideAllScreens();
+    showScreen('#quests');
 });
 
 router.on('profile-timeline', function () {
     hideAllScreens();
-    document.querySelector('#profile-timeline').classList.remove('hiddenScreen');
+    showScreen('#profile-timeline');
 });
 
 
@@ -122,9 +132,15 @@ router.on('profile-timeline', function () {
 
 function hideAllScreens() {
     document.querySelectorAll('.content-grid').forEach(function (screen) {
-        console.log(screen);
         screen.classList.add('hiddenScreen');
     });
+}
+
+function showScreen(screen) {
+    let elmnt = document.querySelector(screen);
+    elmnt.classList.remove('hiddenScreen');
+    //sidebar.updateGridPosition(elmnt);
+    window.dispatchEvent(new Event('resize'));
 }
 
 
