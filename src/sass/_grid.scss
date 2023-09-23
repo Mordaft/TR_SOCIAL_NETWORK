@@ -572,3 +572,16 @@ $col-6_9: calc($col-6-width / $grid-width_9) * 100%;
     }
   }
 }
+
+/*------------
+  Hidden strutural elements for SPA transitions
+------------*/
+
+.hiddenScreen {
+  display: none !important;
+}
+
+.activeScreen {
+  display: block !important;
+}
+

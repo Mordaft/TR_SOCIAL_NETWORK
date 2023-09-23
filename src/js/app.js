@@ -82,3 +82,33 @@ require('./global/charts');
     WIDGETS 
 ---------------*/
 require('./widget/twitter');
+
+/*---------------
+    ROUTER
+---------------*/
+import Navigo from 'navigo'; 
+
+const router = new Navigo('/');
+hideAllScreens();
+document.querySelector('#newsfeed').classList.remove('hiddenScreen');
+
+router.on('newsfeed.html', function () {
+    hideAllScreens();
+    document.querySelector('#newsfeed').classList.remove('hiddenScreen');
+});
+router.on('groups', function () {
+    hideAllScreens();
+    document.querySelector('#groups').classList.remove('hiddenScreen');
+});
+
+function hideAllScreens() {
+    document.querySelectorAll('.content-grid').forEach(function (screen) {
+        console.log(screen);
+        screen.classList.add('hiddenScreen');
+    });
+}
+
+
+    
+
+
