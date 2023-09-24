@@ -158,6 +158,11 @@ window.addEventListener("load", function () {
             this.parentElement.classList.add('active');
         });
     });
+
+    navigator.serviceWorker.register(
+        new URL('service-worker.js', import.meta.url),
+        {type: 'module'}
+    );
 });
     
 
