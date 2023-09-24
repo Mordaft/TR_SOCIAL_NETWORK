@@ -1,27 +1,25 @@
+/*---------------
+    MULTILANGUAJE
+---------------*/
+const i18ns = require('./utils/i18ns');
+i18ns.loadTranslations().then(function () {    
+    i18ns.refreshTraslations();
+});    
+
 /*-----------------
     PAGE LOADER 
 -----------------*/
 require('./global/page-loader');
+
+
+
 
 /*----------------
     SCROLLBARS 
 ----------------*/
 require('simplebar');
 
-/*---------------
-    TOOLTIPS 
----------------*/
-require('./global/tooltips');
 
-/*---------------
-    POPUPS 
----------------*/
-require('./global/popups');
-
-/*-----------------
-    ACCORDIONS
------------------*/
-require('./global/accordions');
 
 /*------------
     UTILS 
@@ -30,63 +28,13 @@ require('./utils/svg-loader');
 require('./utils/liquidify');
 require('./utils/demo-icons');
 
-/*------------
-    FORM 
-------------*/
-require('./form/form-rating');
-require('./form/form-counter');
-require('./form/form-switch');
-require('./form/form-input');
-require('./form/interactive-input');
-
-/*--------------
-    LANDING 
---------------*/
-require('./landing/landing.tabs');
-
-/*-------------
-    HEADER 
--------------*/
-require('./header/header.progressBar');
-require('./header/header.dropdown');
-
-/*-------------
-    SIDEBAR 
--------------*/
-require('./sidebar/sidebar');
-
-/*-----------------
-    USER AVATAR 
------------------*/
-require('./global/user-avatar.hexagons');
-
-/*----------
-    MAPS 
-----------*/
-require('./global/maps');
-
-/*---------------
-    CONTENT 
----------------*/
-require('./content/content.progressBar');
-require('./content/content.slider');
-require('./content/content.dropdown');
-require('./content/content.tab');
-
-/*-------------
-    CHARTS
--------------*/
-require('./global/charts');
-
-/*---------------
-    WIDGETS 
----------------*/
-require('./widget/twitter');
 
 /*---------------
     ROUTER
 ---------------*/
 import Navigo from 'navigo'; 
+
+
 
 const router = new Navigo('/');
 hideAllScreens();
@@ -143,27 +91,101 @@ function showScreen(screen) {
     window.dispatchEvent(new Event('resize'));
 }
 
-window.addEventListener("load", function () {
-    
+function registerMenuEvents() {
     let menuItems = document.querySelectorAll(".menu-item-link");
     menuItems.forEach(function (item) {
-        console.log('item', item);   
         item.addEventListener('click', function(e) {
             e.preventDefault();
             let menuItemClicked = e.target;
-            console.log('click on', this, menuItemClicked.parentElement.parentElement); 
             let activeMenu = this.parentElement.parentElement.querySelector(".active");                
-            console.log('menuItem', activeMenu.classList); 
             activeMenu.classList.remove('active');
             this.parentElement.classList.add('active');
         });
     });
+}
 
+window.addEventListener("load", function () {
+    registerMenuEvents();
+
+    /*---------------
+        TOOLTIPS 
+    ---------------*/
+    require('./global/tooltips');
+
+    /*---------------
+        POPUPS 
+    ---------------*/
+    require('./global/popups');
+
+    /*-----------------
+        ACCORDIONS
+    -----------------*/
+    require('./global/accordions');
+
+    /*------------
+        FORM 
+    ------------*/
+    require('./form/form-rating');
+    require('./form/form-counter');
+    require('./form/form-switch');
+    require('./form/form-input');
+    require('./form/interactive-input');
+
+    /*--------------
+        LANDING 
+    --------------*/
+    require('./landing/landing.tabs');
+
+    /*-------------
+        HEADER 
+    -------------*/
+    require('./header/header.progressBar');
+    require('./header/header.dropdown');
+
+    /*-------------
+        SIDEBAR 
+    -------------*/
+    require('./sidebar/sidebar');
+
+    /*-----------------
+        USER AVATAR 
+    -----------------*/
+    require('./global/user-avatar.hexagons');
+
+    /*----------
+        MAPS 
+    ----------*/
+    require('./global/maps');
+
+    /*---------------
+        CONTENT 
+    ---------------*/
+    require('./content/content.progressBar');
+    require('./content/content.slider');
+    require('./content/content.dropdown');
+    require('./content/content.tab');
+
+    /*-------------
+        CHARTS
+    -------------*/
+    require('./global/charts');
+
+    /*---------------
+        WIDGETS 
+    ---------------*/
+    require('./widget/twitter');
+
+
+});
+    
+
+function registerServiceWorker() {
     navigator.serviceWorker.register(
         new URL('service-worker.js', import.meta.url),
         {type: 'module'}
     );
-});
-    
+}
+registerServiceWorker();
+
 
 

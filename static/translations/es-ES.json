@@ -1,0 +1,25 @@
+{
+    "es": {
+        "application": {
+            "title": "IPSeSports",
+            "long-title": "IPSE Comunidad eSports"
+        },
+        "menus": {
+            "newsfeed": "Publicaciones",
+            "groups": "Grupos",
+            "members": "Mienbros",
+            "events": "Eventos",
+            "badges": "Logros",
+            "quests": "Misiones"
+        },
+        "header": {
+            "messages": "Mensajes",
+            "friend-requests": "Solicitudes de amistad"
+        },
+        "avatar": {
+            "post": "Publicaciones",
+            "friends": "Amigos",
+            "visits": "Visitas"
+        }
+    }
+}
