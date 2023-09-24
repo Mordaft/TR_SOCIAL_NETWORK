@@ -1,7 +1,6 @@
 {
   "plugins": {
     "posthtml-include": {
-      "useless-option": true
     }
   }
 }
