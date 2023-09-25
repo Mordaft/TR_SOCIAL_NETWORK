@@ -84,11 +84,14 @@ Utilización con un navegador en un dispositivo movil o tableta:
 - Forum: Se pueden crear Post de Topics concretos, que se pueden consultar con esta forma de acceso. (muy interesante para el futuro)
 - MarketPlace: Monetización de tu actividad en la Comunidad. (muy complejo y también muy alejado de una comunidad juvenil). El proveedor de la red social cobra una comisión en el marketplace que sirve para financiar la plataforma.
 
+Nota.- Estas cuatro secciones en el diseño original suponen decenas de pantallas y acciones adicionales que debo descartar desde un inicio del MVP para poder centrar mis esfuerzos en lo que he considerado más importante. 
+
+
 #### Otros elementos que decidimos eliminar:
 
-- Menus superiores 
-- Cesta de la compra
-- Notificaciones (interesante para el futuro, pero lo despriorizamos por todo el trabajo que añade de gestión de eventos)
+- Menus superiores: (Opciones adicionales para mostrar otros tipos de servicios y de soporte técnico) 
+- Cesta de la compra: (Relacionado con el marketplace, acceso muy extendido por los conceptos de monetización que incluía el diseño)
+- Notificaciones (interesante para el futuro, pero lo despriorizamos por todo el trabajo que añade de gestión de eventos: si cualquier usuario hace algo sobre una publicación o mensaje o bien otro elemento que tu has creado entonces se tienen que hacer determinadas acciones ...)
 
 ## Nota sobre la financiación de esta red social
 
