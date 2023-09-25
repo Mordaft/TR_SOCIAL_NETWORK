@@ -7,5 +7,7 @@ app.querySelector('.page-loader', function (el) {
     pageLoader.classList.add('hidden');
   };
   
-  window.addEventListener('load', hidePageLoader);
+  window.addEventListener('load', function(){ 
+     this.setTimeout(hidePageLoader, 250);
+  });
 });

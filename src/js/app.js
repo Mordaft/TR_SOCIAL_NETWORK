@@ -1,29 +1,26 @@
-/*---------------
-    MULTILANGUAJE
----------------*/
-const i18ns = require('./utils/i18ns');
+loadInitalComponents();
+window.addEventListener("load", function () {
+    /*---------------
+        MULTILANGUAJE
+    ---------------*/
+    const i18ns = require('./utils/i18ns');
+    registerMenuEvents();
+    i18ns.loadTranslations().then(function () {
+        i18ns.refreshTraslations();
+        loadVisualComponents();
+        loadRoutes();
+    });
 
-/*-----------------
-    PAGE LOADER 
------------------*/
-require('./global/page-loader');
-
-
-
-
-/*----------------
-    SCROLLBARS 
-----------------*/
-require('simplebar');
+});
 
 
 
-/*------------
-    UTILS 
-------------*/
-require('./utils/svg-loader');
-require('./utils/liquidify');
-require('./utils/demo-icons');
+function loadInitalComponents(){
+    /*-----------------
+        PAGE LOADER 
+    -----------------*/
+    require('./global/page-loader');
+}
 
 function registerMenuEvents() {
     let menuItems = document.querySelectorAll(".menu-item-link");
@@ -38,23 +35,24 @@ function registerMenuEvents() {
     });
 }
 
-window.addEventListener("load", function () {
-    registerMenuEvents();
-
-    i18ns.loadTranslations().then(function () {
-        i18ns.refreshTraslations();
-        loadVisualComponents();
-        loadRoutes();
-    });
-
-
-});
 
 function loadRoutes() {
     require('./utils/navigo');
 }
 
 function loadVisualComponents() {
+    /*----------------
+        SCROLLBARS 
+    ----------------*/
+    require('simplebar');
+
+    /*------------
+        UTILS 
+    ------------*/
+    require('./utils/svg-loader');
+    require('./utils/liquidify');
+    require('./utils/demo-icons');
+
     /*---------------
     TOOLTIPS 
     ---------------*/
