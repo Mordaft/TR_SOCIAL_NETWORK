@@ -4,9 +4,9 @@ La humanidad ha evolucionado desde sus inicios mediante comunidades a las que se
 
 La red social que propongo tendrá un diseño centrado en el mundo de los juegos de ordenador, que hace relación a un movimiento muy popularizado que se conoce como Gaming o eSports. 
 
-Mi objetivo será dar vida a esta idea, para lo cual he consultado formaciones online que de una forma práctica te muestra ejemplos de como implementar aplicaciones de este tipo y consultado a un experto en desarrollo de aplicaciones que es el padre de un compañero de nuestra escuela. Estos son los pasos que he podido identificar para realizar este trabajo:
+Mi objetivo será dar vida a esta idea, para lo cual he consultado formaciones online que de una forma práctica te muestran ejemplos de como implementar aplicaciones de este tipo o similares y también he consultado a un experto en desarrollo de aplicaciones que es el padre de un compañero de nuestra escuela. Estos son los pasos que he podido identificar para realizar este trabajo:
 
-- Buscar un diseño de red social que se aproxime a mi idea inicial
+- Buscar un diseño de red social que se aproxime a mi idea inicial. (Agradecimientos por el consejo del padre de Javier)
 - Plasmar una descripción de mi aplicación con sus funcionalidades principales identificando que perfiles de usuario las utilizarán.
 - Adaptar el diseño a mi idea, en otras palabras dar vida a mi aplicación. Este tercer punto será un viaje de aprendizaje y retos que me llevará a entregar una versión minima de mi producto (Del inglés: Minimal Valuable Product MVP) 
  
