@@ -115,6 +115,11 @@ router.on('hub-profile-info', function () {
     showScreen('#hub-profile-info');
 });
 
+router.on('hub-profile-requests', function () {
+    hideAllScreens();
+    showScreen('#hub-profile-requests');
+});
+
 router.on('hub-profile-messages', function () {
     hideAllScreens();
     showScreen('#hub-profile-messages');
