@@ -50,10 +50,83 @@ router.on('quests', function () {
     showScreen('#quests');
 });
 
-router.on('profile-timeline', function () {
+router.on('group-events', function () {
     hideAllScreens();
-    showScreen('#profile-timeline');
+    showScreen('#group-events');
 });
+
+router.on('group-info', function () {
+    hideAllScreens();
+    showScreen('#group-info');
+});
+
+router.on('group-members', function () {
+    hideAllScreens();
+    showScreen('#group-members');
+});
+
+router.on('group-timeline', function () {
+    hideAllScreens();
+    showScreen('#group-timeline');
+});
+
+router.on('profile-about', function () {
+    hideAllScreens();
+    showScreen('#profile-about');
+});
+
+router.on('profile-badges', function () {
+    hideAllScreens();
+    showScreen('#profile-badges');
+});
+
+router.on('profile-friends', function () {
+    hideAllScreens();
+    showScreen('#profile-friends');
+});
+
+router.on('profile-post', function () {
+    hideAllScreens();
+    showScreen('#profile-post');
+});
+
+router.on('hub-account-info', function () {
+    hideAllScreens();
+    showScreen('#hub-account-info');
+});
+
+router.on('hub-account-settings', function () {
+    hideAllScreens();
+    showScreen('#hub-account-settings');
+});
+
+router.on('hub-group-invitations', function () {
+    hideAllScreens();
+    showScreen('#hub-group-invitations');
+});
+
+router.on('hub-group-management', function () {
+    hideAllScreens();
+    showScreen('#phub-group-management');
+});
+
+router.on('hub-profile-info', function () {
+    hideAllScreens();
+    showScreen('#hub-profile-info');
+});
+
+router.on('hub-profile-messages', function () {
+    hideAllScreens();
+    showScreen('#hub-profile-messages');
+});
+
+
+router.on('logged-out-and-icons', function () {
+    hideAllScreens();
+    showScreen('logged-out-and-icons');
+});
+
+
 
 /* /routes */
 
