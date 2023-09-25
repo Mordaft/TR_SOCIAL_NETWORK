@@ -2,9 +2,6 @@
     MULTILANGUAJE
 ---------------*/
 const i18ns = require('./utils/i18ns');
-i18ns.loadTranslations().then(function () {    
-    i18ns.refreshTraslations();
-});    
 
 /*-----------------
     PAGE LOADER 
@@ -28,76 +25,13 @@ require('./utils/svg-loader');
 require('./utils/liquidify');
 require('./utils/demo-icons');
 
-
-/*---------------
-    ROUTER
----------------*/
-import Navigo from 'navigo'; 
-
-
-
-const router = new Navigo('/');
-hideAllScreens();
-
-/* routes */
-router.on('newsfeed', function () {
-    hideAllScreens();
-    showScreen('#newsfeed');
-});
-router.on('groups', function () {
-    hideAllScreens();
-    showScreen('#groups');
-});
-router.on('badges', function () {
-    hideAllScreens();
-    showScreen('#badges');
-});
-
-router.on('members', function () {
-    hideAllScreens();
-    showScreen('#members');
-});
-
-router.on('events', function () {
-    hideAllScreens();
-    showScreen('#events');
-});
-
-router.on('quests', function () {
-    hideAllScreens();
-    showScreen('#quests');
-});
-
-router.on('profile-timeline', function () {
-    hideAllScreens();
-    showScreen('#profile-timeline');
-});
-
-/* /routes */
-
-router.navigate('newsfeed');
-
-function hideAllScreens() {
-    document.querySelectorAll('.content-grid').forEach(function (screen) {
-        screen.classList.add('hiddenScreen');
-    });
-}
-
-function showScreen(screen) {
-    let elmnt = document.querySelector(screen);
-    if (elmnt !== null && elmnt !== undefined) {
-        elmnt.classList.remove('hiddenScreen');
-    }    
-    window.dispatchEvent(new Event('resize'));
-}
-
 function registerMenuEvents() {
     let menuItems = document.querySelectorAll(".menu-item-link");
     menuItems.forEach(function (item) {
-        item.addEventListener('click', function(e) {
+        item.addEventListener('click', function (e) {
             e.preventDefault();
             let menuItemClicked = e.target;
-            let activeMenu = this.parentElement.parentElement.querySelector(".active");                
+            let activeMenu = this.parentElement.parentElement.querySelector(".active");
             activeMenu.classList.remove('active');
             this.parentElement.classList.add('active');
         });
@@ -107,8 +41,22 @@ function registerMenuEvents() {
 window.addEventListener("load", function () {
     registerMenuEvents();
 
+    i18ns.loadTranslations().then(function () {
+        i18ns.refreshTraslations();
+        loadVisualComponents();
+        loadRoutes();
+    });
+
+
+});
+
+function loadRoutes() {
+    require('./utils/navigo');
+}
+
+function loadVisualComponents() {
     /*---------------
-        TOOLTIPS 
+    TOOLTIPS 
     ---------------*/
     require('./global/tooltips');
 
@@ -175,14 +123,13 @@ window.addEventListener("load", function () {
     ---------------*/
     require('./widget/twitter');
 
+}
 
-});
-    
 
 function registerServiceWorker() {
     navigator.serviceWorker.register(
         new URL('service-worker.js', import.meta.url),
-        {type: 'module'}
+        { type: 'module' }
     );
 }
 registerServiceWorker();

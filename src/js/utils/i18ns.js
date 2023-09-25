@@ -1,19 +1,23 @@
+import { translations } from "i18n-js";
 import { I18n, TranslateOptions } from "i18n-js";
 
 let t = new I18n();
 const i18n= {
     loadTranslations: async function (options) {
         t.locale = 'es';
-        
+        let translations = {};
         const response = await fetch("/translations/es-ES.json");
-
-        const translations = await response.json();
+        try {
+            translations = await response.json();
+        } catch (error) {
+            //console.log(error);
+        }
         t.store(translations);    
     },
     refreshTraslations: function () {
         document.querySelectorAll('[data-i18n]').forEach(function (element) {
             let key = element.getAttribute('data-i18n');
-            console.log("refreshTraslations",element);
+            //console.log("refreshTraslations",element);
             let traslation = t.t(key);
             if (element.tagName === 'DIV') {
                 if (element.children.length > 0) {
