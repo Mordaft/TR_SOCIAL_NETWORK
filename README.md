@@ -1,9 +1,9 @@
 # TR_SOCIAL_NETWORK
 
-La humanidad a evolucionado desde sus inicios mediante comunidades a las que se unían individuos que compartían intereses comunes. Una red social eSports/Gaming para un centro educativo puede fomentar los mismos valores presentes en los deportes tradicionales aumentando el alcance de la participación de la comunidad escolar mediante el uso de la tecnología. 
+La humanidad ha evolucionado desde sus inicios mediante comunidades a las que se unían individuos que compartían intereses comunes. Una red social eSports/Gaming para un centro educativo puede fomentar los mismos valores presentes en los deportes tradicionales aumentando el alcance de la participación de la comunidad escolar mediante el uso de la tecnología. 
 
 
-La resocial que propongo tendrá un diseño centrado en el mundo de los juegos de ordenado, movimientos muy popular que se conoce como Gaming o eSports. 
+La red social que propongo tendrá un diseño centrado en el mundo de los juegos de ordenador, que hace relación a un movimiento muy popularizado que se conoce como Gaming o eSports. 
 
 Utilización de la red con un navegador en el ordenador personal (PC):
 
