@@ -6,9 +6,11 @@ La humanidad a evolucionado desde sus inicios mediante comunidades a las que se 
 La resocial que propongo tendrá un diseño centrado en el mundo de los juegos de ordenado, movimientos muy popular que se conoce como Gaming o eSports. 
 
 Utilización de la red con un navegador en el ordenador personal (PC):
+
 ![TR_SOCIAL_NETWORK](https://github.com/Mordaft/TR_SOCIAL_NETWORK/assets/20926834/beada036-e895-4284-9b91-ee80a0adf3eb)
 
 Utilización con un navegador en un dispositivo movil o tableta:
+
 ![TR_SOCIAL_NETWORK_M](https://github.com/Mordaft/TR_SOCIAL_NETWORK/assets/20926834/6722cc25-653c-4de3-8058-ce7aeebc3db7)
 
 
