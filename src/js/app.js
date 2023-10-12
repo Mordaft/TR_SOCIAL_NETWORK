@@ -22,15 +22,33 @@ function loadInitalComponents(){
     require('./global/page-loader');
 }
 
+function clearAllSelectedMenus() {
+    let menuItems = document.querySelectorAll(".active");
+    menuItems.forEach(function (item) {
+        // console.log("clearAllSelectedMenus", item);
+        item.classList.remove('active');
+    });
+}
+
+function markAllEquivalentMenus(hrefMenu) {
+    let menuItems = document.querySelectorAll("a[href='" + hrefMenu + "']");
+    // console.log("hrefMenu", menuItems);
+    menuItems.forEach(function (item) {
+        item.parentElement.classList.add('active');
+    });
+}
+
+
 function registerMenuEvents() {
     let menuItems = document.querySelectorAll(".menu-item-link");
     menuItems.forEach(function (item) {
         item.addEventListener('click', function (e) {
             e.preventDefault();
             let menuItemClicked = e.target;
-            let activeMenu = this.parentElement.parentElement.querySelector(".active");
-            activeMenu.classList.remove('active');
-            this.parentElement.classList.add('active');
+            //clear all selected menus
+            clearAllSelectedMenus();
+            //select all menus
+            markAllEquivalentMenus(menuItemClicked.getAttribute('href'));
         });
     });
 }
