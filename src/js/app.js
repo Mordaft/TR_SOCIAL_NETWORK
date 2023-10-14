@@ -137,7 +137,7 @@ function loadVisualComponents() {
     /*---------------
         WIDGETS 
     ---------------*/
-    require('./widget/twitter');
+    // require('./widget/twitter');
 
     /*---------------
         DATA TABLES
