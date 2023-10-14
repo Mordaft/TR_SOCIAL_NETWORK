@@ -10,6 +10,9 @@ db.version(1).stores({
         posts: '++id, userId, content, timestamp'
 });
 
+// Open the database
+db.open();
+
 // Define functions to query list and individual elements for each table
 const users = {
     getAll: () => db.users.toArray(),
