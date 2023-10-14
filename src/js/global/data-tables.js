@@ -1,33 +1,47 @@
 // Import Dexie.js library
 import Dexie from 'dexie';
 
-// Define the database
-const db = new Dexie('socialNetworkDB');
-
-// Define the tables
+let db = new Dexie('socialNetworkDB');
 db.version(1).stores({
-        users: '++id, name, email, password',
-        posts: '++id, userId, content, timestamp'
+    users: '++id, name, &email',
+    groups: '++id, &name',
+    posts: '++id, &userId, timestamp',
+    badges: '++id, &title',
 });
-
 // Open the database
 db.open();
 
-// Define functions to query list and individual elements for each table
-const users = {
-    getAll: () => db.users.toArray(),
-    getById: (id) => db.users.get(id)
-};
+// Define the database
+const dataTables = {
+    // Define functions to query list and individual elements for each table
+    users : {
+        getAll: () => db.users.toArray(),
+        getById: (id) => db.users.get(id),
+        put: (user) => db.users.put(user),
+        putAll: (users) => db.users.bulkPut(users)
+    },
 
-const posts = {
-    getAll: () => db.posts.toArray(),
-    getById: (id) => db.posts.get(id)
-};
+    groups : {
+        getAll: () => db.groups.toArray(),
+        getById: (id) => db.groups.get(id),
+        put: (group) => db.groups.put(group),
+        putAll: (groups) => db.groups.bulkPut(groups)
+    },
 
-// Export the database and functions
-export default {
-    db,
-    users,
-    posts
-};
+    posts : {
+        getAll: () => db.posts.toArray(),
+        getById: (id) => db.posts.get(id),
+        put: (post) => db.posts.put(post),
+        putAll: (posts) => db.posts.bulkPut(posts)
+    },
+
+    badges : {
+        getAll: () => db.badges.toArray(),
+        getById: (id) => db.badges.get(id),
+        put: (badge) => db.badges.put(badge),
+        putAll: (badges) => db.badges.bulkPut(badges)
+    }
+}
+
+module.exports = dataTables;
 

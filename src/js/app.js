@@ -10,7 +10,13 @@ window.addEventListener("load", function () {
         loadVisualComponents();
         loadRoutes();
     });
-
+    /*---------------
+        DEMO DATA   
+    ---------------*/
+    const badges = require('./model/badges');
+    badges.loadDemo().then(function () {
+        badges.renderBadges("#badges-list");
+    });
 });
 
 
