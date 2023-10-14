@@ -119,7 +119,7 @@ function loadVisualComponents() {
     /*----------
         MAPS 
     ----------*/
-    require('./global/maps');
+    // require('./global/maps');
 
     /*---------------
         CONTENT 

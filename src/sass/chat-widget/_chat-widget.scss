@@ -29,7 +29,7 @@
     }
 
     &:first-child {
-      width: (384 / 884) * 100%;
+      width: calc(calc(384 / 884) * 100%);
       border-right: 1px solid $color-divider;
       border-top-left-radius: 12px;
       border-bottom-left-radius: 12px;
@@ -40,7 +40,7 @@
     }
 
     &:last-child {
-      width: (500 / 884) * 100%;
+      width: calc(calc(500 / 884) * 100%);
       border-top-right-radius: 12px;
       border-bottom-right-radius: 12px;
 

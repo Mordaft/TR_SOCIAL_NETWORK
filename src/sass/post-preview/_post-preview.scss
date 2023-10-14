@@ -26,12 +26,12 @@
     }
 
     .post-preview-info {
-      width: (528/584)*100%;
+      width: calc(calc(528/584)*100%);
       margin-top: -140px;
 
       .post-preview-title {
         font-size: $fs-24;
-        line-height: (32 / 24) * 1em;
+        line-height: calc(calc(32 / 24) * 1em);
       }
 
       .post-preview-text {
@@ -47,7 +47,7 @@
   }
 
   .post-preview-info {
-    width: (352/384)*100%;
+    width: calc(calc(352/384)*100%);
     padding: 28px;
     margin: -48px auto 0;
     border-radius: 12px;
@@ -77,7 +77,7 @@
       margin-top: 10px;
       font-size: $fs-20;
       font-weight: $weight-bold;
-      line-height: (24 / 20) * 1em;
+      line-height: calc(calc(24 / 20) * 1em);
     }
 
     .post-preview-text {
@@ -131,7 +131,7 @@
   .post-peek-title {
     font-size: $fs-14;
     font-weight: $weight-bold;
-    line-height: calc(16 / 14) * 1em;
+    line-height: calc(calc(16 / 14) * 1em);
     
     a {
       color: $color-text;
@@ -167,7 +167,7 @@
   .post-preview-line-title {
     font-size: $fs-14;
     font-weight: $weight-bold;
-    line-height: calc(16 / 14) * 1em;
+    line-height: calc(calc(16 / 14) * 1em);
 
     a {
       color: $color-text;

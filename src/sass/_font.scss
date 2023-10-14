@@ -52,9 +52,9 @@ $fs-253: calc(253 / $base-size) * 1rem;
     4. PARAGRAPH
 -----------------*/
 $fs-paragraph: $fs-14;
-$lh-paragraph: calc(24 / 14) * 1em;
+$lh-paragraph: calc(calc(24 / 14) * 1em);
 $fs-paragraph-medium: $fs-18;
-$lh-paragraph-medium: calc(24 / 18) * 1em;
+$lh-paragraph-medium: calc(calc(24 / 18) * 1em);
 
 /*-----------------
     5. MIXINS

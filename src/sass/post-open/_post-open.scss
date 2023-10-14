@@ -40,7 +40,7 @@
         margin-top: 22px;
         font-size: $fs-46;
         font-weight: $weight-bold;
-        line-height: (44 / 46) * 1em;
+        line-height: calc(calc(44 / 46) * 1em);
       }
     }
 
@@ -75,7 +75,7 @@
           margin-top: 36px;
           font-size: $fs-16;
           font-weight: $weight-medium;
-          line-height: (32 / 16) * 1em;
+          line-height: calc(calc(32 / 16) * 1em);
 
           &:first-child {
             margin-top: 0;

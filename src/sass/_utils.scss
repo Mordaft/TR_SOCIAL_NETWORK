@@ -2493,7 +2493,7 @@
   box-shadow: $shadow;
 
   .week-box-item {
-    width: (100 / 7) * 1%;
+    width: calc(calc(100 / 7) * 1%);
     position: relative;
 
     &::after {
@@ -2758,7 +2758,7 @@
       border-top-left-radius: 12px;
 
       .option-item {
-        width: (100/3) * 1%;
+        width: calc(calc(100 / 3) * 1%);
 
         &::after {
           top: 22px;
@@ -3742,7 +3742,7 @@
     color: $color-text-alt;
     font-size: $fs-12;
     font-weight: $weight-medium;
-    line-height: (16 / 12) * 1em;
+    line-height: calc(calc(16 / 12) * 1em);
   }
 }
 
@@ -3972,7 +3972,7 @@
     flex-shrink: 0;
     font-size: $fs-14;
     font-weight: $weight-bold;
-    line-height: (24 / 14) * 1em;
+    line-height: calc(calc(24 / 14) * 1em);
   }
 
   .ordered-item-text {

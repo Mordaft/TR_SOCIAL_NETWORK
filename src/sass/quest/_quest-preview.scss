@@ -42,7 +42,7 @@
       color: $color-text-2;
       font-size: $fs-12;
       font-weight: $weight-medium;
-      line-height: (16 / 12) * 1em;
+      line-height: calc(calc(16 / 12) * 1em);
     }
   }
 
