@@ -23,6 +23,7 @@
     "chart.js": "^2.9.3",
     "dexie": "^3.2.4",
     "i18n-js": "^4.3.2",
+    "mustache.js": "^1.0.0",
     "navigo": "^8.11.1",
     "simplebar": "^5.0.7",
     "tiny-slider": "^2.9.2"

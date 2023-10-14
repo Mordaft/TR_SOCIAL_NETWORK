@@ -139,6 +139,12 @@ function loadVisualComponents() {
     ---------------*/
     require('./widget/twitter');
 
+    /*---------------
+        DATA TABLES
+    ---------------*/
+    require('./global/data-tables');
+
+    
 }
 
 
