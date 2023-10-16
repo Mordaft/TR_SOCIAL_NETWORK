@@ -17,10 +17,10 @@ const badges = {
     renderBadges: (selector) => {
         return dataTables.badges.getAll()
             .then(data => {
-                return fetch('/mustache/badge.mst')
+                return fetch('/mustache/badges.mst')
                 .then(response => response.text())
                     .then(template => {
-                        list = { badgeList: data };
+                        let list = { badgeList: data };
                         let rendered = mustache.render(template, list);
                         console.info('Render', rendered);
                         document.querySelector(selector).innerHTML = rendered;

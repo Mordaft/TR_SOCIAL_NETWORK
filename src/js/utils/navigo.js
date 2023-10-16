@@ -107,7 +107,7 @@ router.on('hub-group-invitations', function () {
 
 router.on('hub-group-management', function () {
     hideAllScreens();
-    showScreen('#phub-group-management');
+    showScreen('#hub-group-management');
 });
 
 router.on('hub-profile-info', function () {
