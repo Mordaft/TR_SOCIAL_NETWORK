@@ -7,6 +7,7 @@ db.version(1).stores({
     groups: '++id, &name',
     posts: '++id, &userId, timestamp',
     badges: '++id, &title',
+    events: '++id, &title',
 });
 // Open the database
 db.open();
@@ -40,7 +41,14 @@ const dataTables = {
         getById: (id) => db.badges.get(id),
         put: (badge) => db.badges.put(badge),
         putAll: (badges) => db.badges.bulkPut(badges)
+    },
+    events : {
+        getAll: () => db.events.toArray(),
+        getById: (id) => db.events.get(id),
+        put: (event) => db.events.put(event),
+        putAll: (events) => db.events.bulkPut(events)
     }
+
 }
 
 module.exports = dataTables;

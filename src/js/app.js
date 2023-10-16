@@ -9,17 +9,25 @@ window.addEventListener("load", function () {
         i18ns.refreshTraslations();
         loadVisualComponents();
         loadRoutes();
+        /*---------------
+            DEMO DATA   
+        ---------------*/
+        loadDemoData()
     });
-    /*---------------
-        DEMO DATA   
-    ---------------*/
+
+});
+
+function loadDemoData() {
     const badges = require('./model/badges');
     badges.loadDemo().then(function () {
         badges.renderBadges("#badges-list");
     });
-});
 
-
+    const events = require('./model/events');
+    events.loadDemo().then(function () {
+        events.renderEvents("#event-list");
+    });
+}
 
 function loadInitalComponents(){
     /*-----------------

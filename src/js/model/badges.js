@@ -1,3 +1,4 @@
+let app = require('../utils/core');
 let dataTables = require('../global/data-tables');
 // console.log(dataTables);
 let mustache = require('mustache');
@@ -22,8 +23,9 @@ const badges = {
                     .then(template => {
                         let list = { badgeList: data };
                         let rendered = mustache.render(template, list);
-                        console.info('Render', rendered);
-                        document.querySelector(selector).innerHTML = rendered;
+                        // console.info('Render', rendered);
+                        let element = document.querySelector(selector);
+                        element.innerHTML = rendered;
                     })
                     .catch(error => {
                         console.error(error);
