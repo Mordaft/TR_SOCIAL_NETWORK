@@ -3,11 +3,11 @@ import Dexie from 'dexie';
 
 let db = new Dexie('socialNetworkDB');
 db.version(1).stores({
-    users: '++id, name, &email',
-    groups: '++id, &name',
-    posts: '++id, &userId, timestamp',
-    badges: '++id, &title',
-    events: '++id, &title',
+    members: 'name, &email',
+    groups: '&name',
+    posts: '&userId, timestamp',
+    badges: '&title',
+    events: '&title',
 });
 // Open the database
 db.open();
@@ -15,36 +15,37 @@ db.open();
 // Define the database
 const dataTables = {
     // Define functions to query list and individual elements for each table
-    users : {
-        getAll: () => db.users.toArray(),
-        getById: (id) => db.users.get(id),
-        put: (user) => db.users.put(user),
-        putAll: (users) => db.users.bulkPut(users)
+    members : {
+        getAll: () => db.members.toArray(),
+        getByEmail: (email) => db.members.where('email').equals(email).first(),
+        getByName: (name) => db.members.where('name').equals(name).first(),
+        put: (member) => db.members.put(member),
+        putAll: (member) => db.members.bulkPut(members)
     },
 
     groups : {
         getAll: () => db.groups.toArray(),
-        getById: (id) => db.groups.get(id),
+        getByName: (name) => db.groups.where('name').equals(name).first(),
         put: (group) => db.groups.put(group),
         putAll: (groups) => db.groups.bulkPut(groups)
     },
 
     posts : {
         getAll: () => db.posts.toArray(),
-        getById: (id) => db.posts.get(id),
+        getByUserId: (userId) => db.posts.where('userId').equals(userId).first(),
         put: (post) => db.posts.put(post),
         putAll: (posts) => db.posts.bulkPut(posts)
     },
 
     badges : {
         getAll: () => db.badges.toArray(),
-        getById: (id) => db.badges.get(id),
+        getByTitle:  (title) => db.badges.where('title').equals(title).first(),
         put: (badge) => db.badges.put(badge),
         putAll: (badges) => db.badges.bulkPut(badges)
     },
     events : {
         getAll: () => db.events.toArray(),
-        getById: (id) => db.events.get(id),
+        getByTitle:  (title) => db.events.where('title').equals(title).first(),
         put: (event) => db.events.put(event),
         putAll: (events) => db.events.bulkPut(events)
     }

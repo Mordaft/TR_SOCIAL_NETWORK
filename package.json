@@ -1,15 +1,19 @@
 {
-  "name": "vikinger",
+  "name": "tr-social-network",
   "version": "1.0.0",
-  "description": "Vikinger",
+  "description": "Treball de Reçerca sobre Xarxes Socials",
   "browserslist": "> 0.5%, last 2 versions, not dead",
+  "licenses": [
+        {"license" : "Themeforest Standard License for the use of the web template <<Vikinger - Social Community and Marketplace>> in a single end product which end users are not charged for."},
+        {"license" : "MIT for the use of the rest of the code in this repository."}
+      ],
   "scripts": {
     "clean": "rm -rf dist/ .parcel-cache/ node_modules/ && npm install",
     "start": "parcel serve src/*.html --open",
     "build": "parcel build src/*.html --public-url \"./\""
   },
-  "author": "Odin Design Themes",
-  "license": "ISC",
+  "author": "Ignasi Coll de Haro <ignasicoll@escolaipse.net>",
+  "contributors": ["Modaft"],
   "devDependencies": {
     "@parcel/transformer-sass": "^2.9.3",
     "parcel": "^2.9.3",
@@ -27,5 +31,5 @@
     "navigo": "^8.11.1",
     "simplebar": "^5.0.7",
     "tiny-slider": "^2.9.2"
-  }
+  }  
 }
