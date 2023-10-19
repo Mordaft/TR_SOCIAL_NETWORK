@@ -6,8 +6,8 @@ db.version(1).stores({
     members: 'name, &email',
     groups: '&name',
     posts: '&userId, timestamp',
-    badges: '&title',
-    events: '&title',
+    badges: '&title, position',
+    events: '&title, position',
 });
 // Open the database
 db.open();
@@ -38,13 +38,13 @@ const dataTables = {
     },
 
     badges : {
-        getAll: () => db.badges.toArray(),
+        getAll: () => db.badges.toCollection().sortBy("position"),
         getByTitle:  (title) => db.badges.where('title').equals(title).first(),
         put: (badge) => db.badges.put(badge),
         putAll: (badges) => db.badges.bulkPut(badges)
     },
     events : {
-        getAll: () => db.events.toArray(),
+        getAll: () => db.events.toCollection().sortBy("position"),
         getByTitle:  (title) => db.events.where('title').equals(title).first(),
         put: (event) => db.events.put(event),
         putAll: (events) => db.events.bulkPut(events)
