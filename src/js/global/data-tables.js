@@ -43,6 +43,7 @@ const dataTables = {
         put: (badge) => db.badges.put(badge),
         putAll: (badges) => db.badges.bulkPut(badges)
     },
+    
     events : {
         getAll: () => db.events.toCollection().sortBy("position"),
         getByTitle:  (title) => db.events.where('title').equals(title).first(),

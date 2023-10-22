@@ -31,6 +31,16 @@ function loadDemoData() {
     events.loadDemo().then(function () {
         events.renderEvents("#event-list");
     });
+
+    const events = require('./model/groups');
+    events.loadDemo().then(function () {
+        events.renderEvents("#group-list");
+    });
+
+    const events = require('./model/members');
+    events.loadDemo().then(function () {
+        events.renderEvents("#member-list");
+    });
 }
 
 function loadInitalComponents(){
