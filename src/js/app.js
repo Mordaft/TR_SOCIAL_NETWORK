@@ -1,16 +1,17 @@
 loadInitalComponents();
 window.addEventListener("load", function () {
     /*---------------
-        LOGIN WITH GOOGLE
-    ----------------*/
-    const gsi = require('./google/gsi');
-    /*---------------
         MULTILANGUAJE
     ---------------*/
     const i18ns = require('./utils/i18ns');
     registerMenuEvents();
     i18ns.loadTranslations().then(function () {
         i18ns.refreshTraslations();
+        /*---------------
+        LOGIN WITH GOOGLE
+        ----------------*/
+        const gsi = require('./google/gsi');
+
         loadVisualComponents();
         loadRoutes();
         /*---------------
