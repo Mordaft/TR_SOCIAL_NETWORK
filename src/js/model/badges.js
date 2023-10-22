@@ -28,9 +28,9 @@ const badges = {
                         // console.info('Render', rendered);
                         let element = document.querySelector(selector);
                         element.innerHTML = rendered;
-                        element.querySelectorAll('.progress-stat-bar').forEach((badge) => {
+                        // element.querySelectorAll('.progress-stat-bar').forEach((badge) => {
                             
-                        }
+                        // }
                     })
                     .catch(error => {
                         console.error(error);
