@@ -33,13 +33,13 @@ function loadDemoData() {
     });
 
     const groups = require('./model/groups');
-    events.loadDemo().then(function () {
-        events.renderEvents("#group-list");
+    groups.loadDemo().then(function () {
+        groups.renderGroups("#group-list");
     });
 
     const members = require('./model/members');
-    events.loadDemo().then(function () {
-        events.renderEvents("#member-list");
+    members.loadDemo().then(function () {
+        members.renderMembers("#member-list");
     });
 }
 
