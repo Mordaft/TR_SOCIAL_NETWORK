@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="Content-Security-Policy" content="frame-src https://accounts.google.com/gsi/;">
+  <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin-allow-popups">
   <!-- bootstrap 4.3.1 -->
   <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
   <!-- styles -->
@@ -32,7 +34,7 @@
     <!-- PAGE LOADER INFO -->
     <div class="page-loader-info">
       <!-- PAGE LOADER INFO TITLE -->
-      <p class="page-loader-info-title">Vikinger</p>
+      <p class="page-loader-info-title">IPSE eSports</p>
       <!-- /PAGE LOADER INFO TITLE -->
 
       <!-- PAGE LOADER INFO TEXT -->
@@ -1823,7 +1825,7 @@
         <!-- /LOGO -->
 
         <!-- HEADER BRAND TEXT -->
-        <h1 class="header-brand-text">Vikinger</h1>
+        <h1 class="header-brand-text">IPSE eSports</h1>
         <!-- /HEADER BRAND TEXT -->
       </div>
       <!-- /HEADER BRAND -->
@@ -3159,13 +3161,7 @@
             <span data-i18n="menus.account_info">Account Info</span>
           </a>
           <!-- /DROPDOWN NAVIGATION LINK -->
-      
-          <!-- DROPDOWN NAVIGATION LINK -->
-          <a class="dropdown-navigation-link" href="hub-account-password" data-navigo>
-            <span data-i18n="menus.account_change_password">Change Password</span>
-          </a>
-          <!-- /DROPDOWN NAVIGATION LINK -->
-      
+           
           <!-- DROPDOWN NAVIGATION LINK -->
           <a class="dropdown-navigation-link" href="hub-account-settings" data-navigo>
             <span data-i18n="menus.account_general_settings">General Settings</span>
@@ -3189,28 +3185,31 @@
           <!-- /DROPDOWN NAVIGATION LINK -->
       
           <!-- DROPDOWN NAVIGATION CATEGORY -->
-          <p class="dropdown-navigation-category" data-i18n="menus.my_store_settings">My Store</p>
+          <p class="dropdown-navigation-category" data-i18n="menus.user_access">USER ACCESS</p>
           <!-- /DROPDOWN NAVIGATION CATEGORY -->
-      
-          <!-- DROPDOWN NAVIGATION LINK -->
-          <a class="dropdown-navigation-link" href="hub-store-account" data-navigo>My Account <span class="highlighted">$250,32</span></a>
-          <!-- /DROPDOWN NAVIGATION LINK -->
-      
-          <!-- DROPDOWN NAVIGATION LINK -->
-          <a class="dropdown-navigation-link" href="hub-store-statement" data-navigo>Sales Statement</a>
-          <!-- /DROPDOWN NAVIGATION LINK -->
-      
-          <!-- DROPDOWN NAVIGATION LINK -->
-          <a class="dropdown-navigation-link" href="hub-store-items" data-navigo>Manage Items</a>
-          <!-- /DROPDOWN NAVIGATION LINK -->
-      
-          <!-- DROPDOWN NAVIGATION LINK -->
-          <a class="dropdown-navigation-link" href="hub-store-downloads" data-navigo>Downloads</a>
-          <!-- /DROPDOWN NAVIGATION LINK -->
-      
-          <!-- DROPDOWN NAVIGATION BUTTON -->
-          <p class="dropdown-navigation-button button small secondary">Logout</p>
-          <!-- /DROPDOWN NAVIGATION BUTTON -->
+
+          <!-- GOOGLE SING IN -->
+          <!-- <div id="g_id_onload"
+              data-client_id="314457533021-j53t1aohehhl443p39el6ng1blv2ann3.apps.googleusercontent.com"
+              data-context="signin"
+              data-ux_mode="popup"
+              data-nonce=""
+              data-auto_prompt="false">
+          </div> -->
+          <div id="gsiButtonDiv" class="g_id_signin"
+              data-type="standard"
+              data-shape="rectangular"
+              data-theme="outline"
+              data-text="continue_with"
+              data-size="small"
+              data-width="164"
+              data-height="40"
+              data-logo_alignment="left">
+        </div>
+        <!-- /GOOGLE SING IN -->
+
+
+
         </div>
         <!-- /DROPDOWN NAVIGATION -->
       </div>
@@ -4677,6 +4676,7 @@
   <!-- /POPUP PICTURE -->
 
 <!-- app -->
+<script src="https://accounts.google.com/gsi/client" async></script>
 <script type="module" src="js/app.js"></script>
 </body>
 </html>

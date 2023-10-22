@@ -1,6 +1,10 @@
 loadInitalComponents();
 window.addEventListener("load", function () {
     /*---------------
+        LOGIN WITH GOOGLE
+    ----------------*/
+    const gsi = require('./google/gsi');
+    /*---------------
         MULTILANGUAJE
     ---------------*/
     const i18ns = require('./utils/i18ns');

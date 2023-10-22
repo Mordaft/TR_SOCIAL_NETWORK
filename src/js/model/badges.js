@@ -1,4 +1,6 @@
 let app = require('../utils/core');
+const plugins = require('../utils/plugins');
+
 let dataTables = require('../global/data-tables');
 // console.log(dataTables);
 let mustache = require('mustache');
@@ -26,6 +28,9 @@ const badges = {
                         // console.info('Render', rendered);
                         let element = document.querySelector(selector);
                         element.innerHTML = rendered;
+                        element.querySelectorAll('.progress-stat-bar').forEach((badge) => {
+                            
+                        }
                     })
                     .catch(error => {
                         console.error(error);
@@ -34,6 +39,9 @@ const badges = {
             .catch(error => {
                 console.error(error);
             });
+    },
+    renderProgressBars: (selector) => {
+
     }    
 }
 module.exports = badges;
