@@ -32,12 +32,12 @@ function loadDemoData() {
         events.renderEvents("#event-list");
     });
 
-    const events = require('./model/groups');
+    const groups = require('./model/groups');
     events.loadDemo().then(function () {
         events.renderEvents("#group-list");
     });
 
-    const events = require('./model/members');
+    const members = require('./model/members');
     events.loadDemo().then(function () {
         events.renderEvents("#member-list");
     });
