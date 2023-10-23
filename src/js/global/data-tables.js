@@ -20,7 +20,7 @@ const dataTables = {
         getByEmail: (email) => db.members.where('email').equals(email).first(),
         getByName: (name) => db.members.where('name').equals(name).first(),
         put: (member) => db.members.put(member),
-        putAll: (member) => db.members.bulkPut(members)
+        putAll: (members) => db.members.bulkPut(members)
     },
 
     groups : {
