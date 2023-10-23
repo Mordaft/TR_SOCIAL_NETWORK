@@ -47,7 +47,7 @@ function createProgressBars(selector) {
                 scale: {
                 start: 0,
                 end: 100,
-                stop: 65
+                stop: element.getAttribute('data-progress-bar')
                 },
                 animateOnScroll: true
             });
