@@ -10,7 +10,7 @@ const badges = {
         return fetch('/demo/badges.json')
             .then(response => response.json())
             .then(data => {
-                // console.info('Badges demo data loaded', data);
+                console.info('Badges demo data loaded', data);
                 return dataTables.badges.putAll(data);
             })
             .catch(error => {

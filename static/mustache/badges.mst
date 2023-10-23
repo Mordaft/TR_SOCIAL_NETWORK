@@ -31,7 +31,7 @@
     <!-- PROGRESS STAT -->
     <div class="progress-stat">
       <!-- PROGRESS STAT BAR -->
-      <div class="progress-stat-bar" data-progress-bar="{{progress_pct}}"></div>
+      <div class="din-progress-stat-bar" id="{{id}}" data-progress-bar="{{progress_pct}}"></div>
       <!-- /PROGRESS STAT BAR -->
 
       <!-- BAR PROGRESS WRAP -->
