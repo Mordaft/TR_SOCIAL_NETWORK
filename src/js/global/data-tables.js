@@ -3,7 +3,7 @@ import Dexie from 'dexie';
 
 let db = new Dexie('socialNetworkDB');
 db.version(1).stores({
-    members: 'name, &email',
+    members: 'name, &full_name',
     groups: '&name',
     posts: '&userId, timestamp',
     badges: '&title, position',
@@ -17,10 +17,10 @@ const dataTables = {
     // Define functions to query list and individual elements for each table
     members : {
         getAll: () => db.members.toArray(),
-        getByEmail: (email) => db.members.where('email').equals(email).first(),
+        getByFullname: (fullName) => db.members.where('full_name').equals(fullName).first(),
         getByName: (name) => db.members.where('name').equals(name).first(),
         put: (member) => db.members.put(member),
-        putAll: (member) => db.members.bulkPut(members)
+        putAll: (members) => db.members.bulkPut(members)
     },
 
     groups : {
