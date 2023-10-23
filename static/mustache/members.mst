@@ -3,7 +3,7 @@
       <div class="user-preview">
         <!-- USER PREVIEW COVER -->
         <figure class="user-preview-cover liquid">
-          <img src="img/cover/04.jpg" alt="cover-04">
+          <img src="{{background}}" alt="cover-04">
         </figure>
         <!-- /USER PREVIEW COVER -->
     
