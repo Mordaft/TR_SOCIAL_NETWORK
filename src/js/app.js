@@ -13,13 +13,12 @@ window.addEventListener("load", function () {
         LOGIN WITH GOOGLE
         ----------------*/
         const gsi = require('./google/gsi');
-
-        loadVisualComponents();
-        loadRoutes();
         /*---------------
             DEMO DATA   
         ---------------*/
         loadDemoData()
+        loadVisualComponents();
+        loadRoutes();
     });
 
 });
@@ -55,28 +54,109 @@ function createProgressBars(selector) {
     });
 }
 
+function createMemberHexagons(selector) {
+    let topElement = document.querySelector(selector);
+    // console.log("createHexagon 1", topElement);
+    topElement.querySelectorAll('.user-avatar').forEach(function (parentElement) {;
+        if (parentElement != null) {
+            // console.log("createHexagon 2", parentElement, '#' + parentElement.getAttribute('id') + '-border');
+            // let element = parentElement.querySelector('#' + parentElement.getAttribute('id') + '-border div');
+            // console.log("createHexagon 3", element);
+            plugins.createHexagon({
+                container: '#' + parentElement.id + '-border div',
+                width: 120,
+                height: 132,
+                roundedCorners: true,
+                fill: true,
+                lineColor: '#1d2333'
+            });
+            plugins.createHexagon({
+                container: '#' + parentElement.id + '-content div',
+                width: 82,
+                height: 90,
+                roundedCorners: true,
+                roundedCornerRadius: 3,
+                clip: true
+            });
+            plugins.createHexagon({
+                container: '#' + parentElement.id + '-progress div',
+                width: 100,
+                height: 110,
+                lineWidth: 6,
+                roundedCorners: true,
+                gradient: {
+                  colors: ['#d9ff65', '#40d04f']
+                },
+                scale: {
+                  start: 0,
+                  end: 1,
+                  stop: .8
+                }
+            });
+            plugins.createHexagon({
+                container: '#' + parentElement.id + '-progress-border div',
+                width: 100,
+                height: 110,
+                lineWidth: 6,
+                roundedCorners: true,
+                lineColor: '#293249'
+            });
+
+            plugins.createHexagon({
+                container: '#' + parentElement.id + '-badge-border div',
+                width: 32,
+                height: 36,
+                roundedCorners: true,
+                roundedCornerRadius: 1,
+                lineColor: '#1d2333',
+                fill: true
+            });
+
+            plugins.createHexagon({
+            container: '#' + parentElement.id + '-badge-content div',
+            width: 26,
+            height: 28,
+            roundedCorners: true,
+            roundedCornerRadius: 1,
+            lineColor: '#7750f8',
+            fill: true
+            });
+
+        }        
+          
+    });    
+}
+
 
 function loadDemoData() {
     const badges = require('./model/badges');
     badges.loadDemo().then(function () {
         badges.renderBadges("#badges-list").then(function () {
             createProgressBars("#badges-list");
+            console.info('Badges rendered');
         });
     });
 
     const events = require('./model/events');
     events.loadDemo().then(function () {
-        events.renderEvents("#event-list");
+        events.renderEvents("#event-list").then(function () {
+            console.info('Events rendered');
+        });
     });
 
     const groups = require('./model/groups');
     groups.loadDemo().then(function () {
-        groups.renderGroups("#group-list");
+        groups.renderGroups("#group-list").then(function () {
+            console.info('Groups rendered');
+        });
     });
 
     const members = require('./model/members');
     members.loadDemo().then(function () {
-        members.renderMembers("#member-list");
+        members.renderMembers("#member-list").then(function () {
+                createMemberHexagons("#member-list");
+                console.info('Members rendered');
+        });
     });
 }
 
