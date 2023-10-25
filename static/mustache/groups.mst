@@ -2,8 +2,8 @@
 <!-- USER PREVIEW -->
       <div class="user-preview">
         <!-- USER PREVIEW COVER -->
-        <figure class="user-preview-cover liquid">
-          <img src="{{background}}" alt="cover-29">
+        <figure class="user-preview-cover liquid" style="background: url(&quot;{{background}}&quot;) center center / cover no-repeat;">
+          <img src="{{background}}" alt="cover-{{background}}" style="display: none">
         </figure>
         <!-- /USER PREVIEW COVER -->
     
@@ -22,9 +22,9 @@
           <!-- USER SHORT DESCRIPTION -->
           <div class="user-short-description">
             <!-- USER SHORT DESCRIPTION AVATAR -->
-            <a class="user-short-description-avatar user-avatar medium no-stats" href="group-timeline" data-navigo>
+            <a id="group-{{id}}" class="user-short-description-avatar user-avatar medium no-stats" href="group-timeline" data-navigo>
               <!-- USER AVATAR BORDER -->
-              <div class="user-avatar-border">
+              <div id="group-{{id}}-border" class="user-avatar-border">
                 <!-- HEXAGON -->
                 <div class="hexagon-120-130"></div>
                 <!-- /HEXAGON -->
@@ -32,7 +32,7 @@
               <!-- /USER AVATAR BORDER -->
     
               <!-- USER AVATAR CONTENT -->
-              <div class="user-avatar-content">
+              <div id="group-{{id}}-content" class="user-avatar-content">
                 <!-- HEXAGON -->
                 <div class="hexagon-image-100-110" data-src="{{image}}"></div>
                 <!-- /HEXAGON -->
@@ -90,147 +90,7 @@
             <!-- /USER STAT -->
           </div>
           <!-- /USER STATS -->
-    
-          <!-- USER AVATAR LIST -->
-          <div class="user-avatar-list medium reverse centered">
-            <!-- USER AVATAR -->
-            <div class="user-avatar smaller no-stats">
-              <!-- USER AVATAR BORDER -->
-              <div class="user-avatar-border">
-                <!-- HEXAGON -->
-                <div class="hexagon-34-36"></div>
-                <!-- /HEXAGON -->
-              </div>
-              <!-- /USER AVATAR BORDER -->
-          
-              <!-- USER AVATAR CONTENT -->
-              <div class="user-avatar-content">
-                <!-- HEXAGON -->
-                <div class="hexagon-image-30-32" data-src="img/avatar/03.jpg"></div>
-                <!-- /HEXAGON -->
-              </div>
-              <!-- /USER AVATAR CONTENT -->
-            </div>
-            <!-- /USER AVATAR -->
-            
-            <!-- USER AVATAR -->
-            <div class="user-avatar smaller no-stats">
-              <!-- USER AVATAR BORDER -->
-              <div class="user-avatar-border">
-                <!-- HEXAGON -->
-                <div class="hexagon-34-36"></div>
-                <!-- /HEXAGON -->
-              </div>
-              <!-- /USER AVATAR BORDER -->
-          
-              <!-- USER AVATAR CONTENT -->
-              <div class="user-avatar-content">
-                <!-- HEXAGON -->
-                <div class="hexagon-image-30-32" data-src="img/avatar/05.jpg"></div>
-                <!-- /HEXAGON -->
-              </div>
-              <!-- /USER AVATAR CONTENT -->
-            </div>
-            <!-- /USER AVATAR -->
-    
-            <!-- USER AVATAR -->
-            <div class="user-avatar smaller no-stats">
-              <!-- USER AVATAR BORDER -->
-              <div class="user-avatar-border">
-                <!-- HEXAGON -->
-                <div class="hexagon-34-36"></div>
-                <!-- /HEXAGON -->
-              </div>
-              <!-- /USER AVATAR BORDER -->
-          
-              <!-- USER AVATAR CONTENT -->
-              <div class="user-avatar-content">
-                <!-- HEXAGON -->
-                <div class="hexagon-image-30-32" data-src="img/avatar/10.jpg"></div>
-                <!-- /HEXAGON -->
-              </div>
-              <!-- /USER AVATAR CONTENT -->
-            </div>
-            <!-- /USER AVATAR -->
-    
-            <!-- USER AVATAR -->
-            <div class="user-avatar smaller no-stats">
-              <!-- USER AVATAR BORDER -->
-              <div class="user-avatar-border">
-                <!-- HEXAGON -->
-                <div class="hexagon-34-36"></div>
-                <!-- /HEXAGON -->
-              </div>
-              <!-- /USER AVATAR BORDER -->
-          
-              <!-- USER AVATAR CONTENT -->
-              <div class="user-avatar-content">
-                <!-- HEXAGON -->
-                <div class="hexagon-image-30-32" data-src="img/avatar/02.jpg"></div>
-                <!-- /HEXAGON -->
-              </div>
-              <!-- /USER AVATAR CONTENT -->
-            </div>
-            <!-- /USER AVATAR -->
-    
-            <!-- USER AVATAR -->
-            <div class="user-avatar smaller no-stats">
-              <!-- USER AVATAR BORDER -->
-              <div class="user-avatar-border">
-                <!-- HEXAGON -->
-                <div class="hexagon-34-36"></div>
-                <!-- /HEXAGON -->
-              </div>
-              <!-- /USER AVATAR BORDER -->
-          
-              <!-- USER AVATAR CONTENT -->
-              <div class="user-avatar-content">
-                <!-- HEXAGON -->
-                <div class="hexagon-image-30-32" data-src="img/avatar/06.jpg"></div>
-                <!-- /HEXAGON -->
-              </div>
-              <!-- /USER AVATAR CONTENT -->
-            </div>
-            <!-- /USER AVATAR -->
-    
-            <!-- USER AVATAR -->
-            <a class="user-avatar smaller no-stats" href="group-members" data-navigo>
-              <!-- USER AVATAR BORDER -->
-              <div class="user-avatar-border">
-                <!-- HEXAGON -->
-                <div class="hexagon-34-36"></div>
-                <!-- /HEXAGON -->
-              </div>
-              <!-- /USER AVATAR BORDER -->
-          
-              <!-- USER AVATAR CONTENT -->
-              <div class="user-avatar-content">
-                <!-- HEXAGON -->
-                <div class="hexagon-image-30-32" data-src="img/avatar/23.jpg"></div>
-                <!-- /HEXAGON -->
-              </div>
-              <!-- /USER AVATAR CONTENT -->
-          
-              <!-- USER AVATAR OVERLAY -->
-              <div class="user-avatar-overlay">
-                <!-- HEXAGON -->
-                <div class="hexagon-overlay-30-32"></div>
-                <!-- /HEXAGON -->
-              </div>
-              <!-- /USER AVATAR OVERLAY -->
-          
-              <!-- USER AVATAR OVERLAY CONTENT -->
-              <div class="user-avatar-overlay-content">
-                <!-- USER AVATAR OVERLAY CONTENT TEXT -->
-                <p class="user-avatar-overlay-content-text">+132</p>
-                <!-- /USER AVATAR OVERLAY CONTENT TEXT -->
-              </div>
-              <!-- /USER AVATAR OVERLAY CONTENT -->
-            </a>
-            <!-- /USER AVATAR -->
-          </div>
-          <!-- /USER AVATAR LIST -->
-    
+   
           <!-- USER PREVIEW ACTIONS -->
           <div class="user-preview-actions">
             <!-- BUTTON -->

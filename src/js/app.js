@@ -56,12 +56,12 @@ function createProgressBars(selector) {
 
 function createMemberHexagons(selector) {
     let topElement = document.querySelector(selector);
-    // console.log("createHexagon 1", topElement);
+    // console.log("createMemberHexagons 1", topElement);
     topElement.querySelectorAll('.user-avatar').forEach(function (parentElement) {;
         if (parentElement != null) {
-            // console.log("createHexagon 2", parentElement, '#' + parentElement.getAttribute('id') + '-border');
+            // console.log("createMemberHexagons 2", parentElement, '#' + parentElement.getAttribute('id') + '-border');
             // let element = parentElement.querySelector('#' + parentElement.getAttribute('id') + '-border div');
-            // console.log("createHexagon 3", element);
+            // console.log("createMemberHexagons 3", element);
             plugins.createHexagon({
                 container: '#' + parentElement.id + '-border div',
                 width: 120,
@@ -127,6 +127,36 @@ function createMemberHexagons(selector) {
     });    
 }
 
+function createGroupHexagons(selector) {
+    let topElement = document.querySelector(selector);
+    // console.log("createGroupHexagons 1", topElement);
+    topElement.querySelectorAll('.user-avatar').forEach(function (parentElement) {;
+        if (parentElement != null) {
+            // console.log("createGroupHexagons 2", parentElement, '#' + parentElement.getAttribute('id') + '-border');
+            // let element = parentElement.querySelector('#' + parentElement.getAttribute('id') + '-border div');
+            // console.log("createGroupHexagons 3", element);
+
+            plugins.createHexagon({
+                container: '#' + parentElement.id + '-border div',
+                width: 120,
+                height: 132,
+                roundedCorners: true,
+                fill: true,
+                lineColor: '#1d2333'
+            });
+
+            plugins.createHexagon({
+                container: '#' + parentElement.id + '-content div',
+                width: 100,
+                height: 110,
+                roundedCorners: true,
+                clip: true
+              });
+                            
+        }
+    });  
+}
+
 
 function loadDemoData() {
     const badges = require('./model/badges');
@@ -147,6 +177,7 @@ function loadDemoData() {
     const groups = require('./model/groups');
     groups.loadDemo().then(function () {
         groups.renderGroups("#group-list").then(function () {
+            createGroupHexagons("#group-list");
             console.info('Groups rendered');
         });
     });
@@ -154,8 +185,8 @@ function loadDemoData() {
     const members = require('./model/members');
     members.loadDemo().then(function () {
         members.renderMembers("#member-list").then(function () {
-                createMemberHexagons("#member-list");
-                console.info('Members rendered');
+            createMemberHexagons("#member-list");
+            console.info('Members rendered');
         });
     });
 }
