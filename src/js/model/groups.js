@@ -34,6 +34,35 @@ const groups = {
             .catch(error => {
                 console.error(error);
             });
+    },
+    createGroupHexagons: (selector) => {
+        let topElement = document.querySelector(selector);
+        // console.log("createGroupHexagons 1", topElement);
+        topElement.querySelectorAll('.user-avatar').forEach(function (parentElement) {;
+            if (parentElement != null) {
+                // console.log("createGroupHexagons 2", parentElement, '#' + parentElement.getAttribute('id') + '-border');
+                // let element = parentElement.querySelector('#' + parentElement.getAttribute('id') + '-border div');
+                // console.log("createGroupHexagons 3", element);
+    
+                plugins.createHexagon({
+                    container: '#' + parentElement.id + '-border div',
+                    width: 120,
+                    height: 132,
+                    roundedCorners: true,
+                    fill: true,
+                    lineColor: '#1d2333'
+                });
+    
+                plugins.createHexagon({
+                    container: '#' + parentElement.id + '-content div',
+                    width: 100,
+                    height: 110,
+                    roundedCorners: true,
+                    clip: true
+                  });
+                                
+            }
+        });  
     }    
 }
 module.exports = groups;

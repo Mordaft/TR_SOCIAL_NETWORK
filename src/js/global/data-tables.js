@@ -1,6 +1,9 @@
 // Import Dexie.js library
 import Dexie from 'dexie';
 
+const MEMBERSHIP = 'membership';
+const FRIENDSHIP = 'friendship';
+
 let db = new Dexie('socialNetworkDB');
 db.version(1).stores({
     members: 'name, &full_name',
@@ -8,6 +11,8 @@ db.version(1).stores({
     posts: '&userId, timestamp',
     badges: '&title, position',
     events: '&title, position',
+    requests: '&[type+from+to], title, type, from, to, timestamp',              //resquest for friendship, request to join a group
+    messages: '&[subject+from+to], subject, from, to, timestamp',
 });
 // Open the database
 db.open();
@@ -49,9 +54,25 @@ const dataTables = {
         getByTitle:  (title) => db.events.where('title').equals(title).first(),
         put: (event) => db.events.put(event),
         putAll: (events) => db.events.bulkPut(events)
+    },
+
+    requests : {
+        getMembershipRequests:  () => db.requests.where('type').equals(MEMBERSHIP).first(),
+        getFriendshipRequests:  () => db.requests.where('type').equals(FRIENDSHIP).first(),
+        putMembershipRequests: (request) => db.requests.put(request),
+        putFriendshipRequests: (request) => db.requests.put(request),
+        putAllRequest: (requests) => db.events.bulkPut(requests)
+    },
+
+    messages : {
+        getAll: () => db.messages.toArray(),
+        getBySender: (sender) => db.messages.where('from').equals(sender).first(),
+        put: (message) => db.messages.put(message),
+        putAll: (messages) => db.messages.bulkPut(messages)
     }
+
 
 }
 
 module.exports = dataTables;
-
+export {FRIENDSHIP, MEMBERSHIP};
