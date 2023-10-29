@@ -28,9 +28,6 @@ const quests = {
                         // console.info('Render', rendered);
                         let element = document.querySelector(selector);
                         element.innerHTML = rendered;
-                        // element.querySelectorAll('.progress-stat-bar').forEach((quest) => {
-                            
-                        // }
                     })
                     .catch(error => {
                         console.error(error);
@@ -39,9 +36,6 @@ const quests = {
             .catch(error => {
                 console.error(error);
             });
-    },
-    renderProgressBars: (selector) => {
-
-    }    
+    }, 
 }
 module.exports = quests;
