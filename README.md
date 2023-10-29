@@ -98,5 +98,29 @@ Nota.- Estas cuatro secciones en el diseño original suponen decenas de pantalla
 Financiación: El modelo de financiación de esta red social se basaría en donaciones realizadas por la escuela y por la asociación de familias. (por ese motivo no se contempla la necesidad de buscar otros formatos como Marketplace y/o Publicidad).
 
 
+## Diseño de la aplicación
+
+### Comprar o Construir
+
+En un ejercicio inicial de análisis, en el que se tiene en cuenta el tiempo con el que se cuenta para desarrollar el proyecto y los costes de adquisición de algún componente que pudiera reducir este tiempo considerablemente, se consultan a expertos en desarrollo en distintas fuentes: Artículos de opinión relacionados con este tema, Foros de desarrollo donde hablan sobre estos aspectos, Desarrolladores independientes a los que se les formula directamente esta pregunta.  
+
+Nuestro consultor/ colaborador nos explica lo siguiente: << En vuestro caso una Red Social mínima cuenta con un conjunto de funcionalidades muy amplio, solo desarrollar ess funciones podría requerir de un equipo de desarrollo muy amplio para poder realizar una entrega del producto final con garantías; Así mismo, el diseño de usuario es un factor crucial en vuestro objetivo que no es otro que conseguir una comunidad de usuarios lo más amplia posible. No se trata de obligar a la comunidad de estudiantes a utilizar la red social , se trata de que quieran utilizarla...>>
+
+Se ha determinado que en nuestro caso para este TR sería recomendable comprar una plantilla de red social ya diseñada que se ajuste a como la hemos pensado / planteado para el contexto de Deportes e eSports en IPSE. La plantilla seleccionda se denomina Vikinger, la licencia para un la construcción de un site no comercial tiene un coste aproximado de 25€ y proporciona maquetas de pantallas para una red social centrada en el mundo Gamer / eSports con aspectos muy interesantes para fomentar la participación a través del concepto "Gamificación" aunque también incluye funcionalides de Marketplace que inicialmente no estaría alineadas con lo que consideramos adecuado en el ambito de la escuela.
+
+## Diseño del modelo de datos
+
+Las entidades identificadas son las siguientes:
+
+- **Perfil**: Una entidad con información sobre el usuario conectado, util desde la perspectiva técnica para saber que mostrar a cada usuario, utíl también para implementar un control sobre la caducidad de los contenidos que tiene almacenados el usuario y también para tener infomación estadística de la actividad del usuario.
+- **Miembros**: Los usuarios de la red social, pueden adoptar distintos roles
+- **Grupos**: Grupos de miembros, asignados por administradores/moderadores del sistema o creados por los propios usuarios.
+- **Publicaciones**: Mensajes públicos de miembro o de grupos de la red
+- **Mensajes**: Mensajes privados entre personas 
+- **Solicitudes de amistad o de pertenencia a grupos**: Acciones para conectar entre personas y asociarse en grupos de interés
+- **Misiones o Aventuras**: Mecanismo para incentivar la participación
+- **Premios**: Reconocimiento de participación en misiones de la red social
+- **Reacciones**: Todos los contenidos de la red pueden ser susceptibles de generar distintos sentimientos, puede ser un mecanismo tanto de: participación / promoción (aparición en listas en primeras posiciones), como de reconocimiento (conseguir premios por recibir reaciones positivas), como de control (denuncias que alertan a moderadores de contenidos no apropiados)
+
 
  
