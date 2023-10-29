@@ -11,6 +11,7 @@ db.version(1).stores({
     posts: '&userId, timestamp',
     badges: '&title, position',
     events: '&title, position',
+    quests: '&title, position',
     requests: '&[type+from+to], title, type, from, to, timestamp',              //resquest for friendship, request to join a group
     messages: '&[subject+from+to], subject, from, to, timestamp',
 });
@@ -56,6 +57,13 @@ const dataTables = {
         putAll: (events) => db.events.bulkPut(events)
     },
 
+    quests : {
+        getAll: () => db.quests.toCollection().sortBy("position"),
+        getByTitle:  (title) => db.quests.where('title').equals(title).first(),
+        put: (quest) => db.quests.put(quest),
+        putAll: (quests) => db.quests.bulkPut(quests)
+    },
+    
     requests : {
         getMembershipRequests:  () => db.requests.where('type').equals(MEMBERSHIP).first(),
         getFriendshipRequests:  () => db.requests.where('type').equals(FRIENDSHIP).first(),
