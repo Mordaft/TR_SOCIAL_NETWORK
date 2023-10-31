@@ -14,7 +14,7 @@ const gsi = {
     callback: (response) => {
         console.log('Callback response', response);
         let responsePayload = gsi.parseJwt(response.credential);
-        console.log('gsi callback', responsePayload);
+        console.log('gsi callback payLoad', responsePayload);
     },
     onSuccess: (response) => {
         console.log('GSI onSuccess', response);
