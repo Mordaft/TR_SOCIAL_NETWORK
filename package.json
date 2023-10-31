@@ -38,6 +38,7 @@
     "mustache": "^4.2.0",
     "navigo": "^8.11.1",
     "simplebar": "^5.0.7",
+    "timeago.js": "^4.0.2",
     "tiny-slider": "^2.9.2"
   }
 }

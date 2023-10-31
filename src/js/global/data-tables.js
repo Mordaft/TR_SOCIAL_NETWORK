@@ -8,7 +8,7 @@ let db = new Dexie('socialNetworkDB');
 db.version(1).stores({
     members: 'name, &full_name',
     groups: '&name',
-    posts: '&userId, timestamp',
+    posts: '&[author+created], author',
     badges: '&title, position',
     events: '&title, position',
     quests: '&title, position',
@@ -37,8 +37,8 @@ const dataTables = {
     },
 
     posts : {
-        getAll: () => db.posts.toArray(),
-        getByUserId: (userId) => db.posts.where('userId').equals(userId).first(),
+        getAll: () => db.posts.toCollection().sortBy("created"),
+        getByAuthor: (author) => db.posts.where('author').equals(userId).first(),
         put: (post) => db.posts.put(post),
         putAll: (posts) => db.posts.bulkPut(posts)
     },

@@ -8,7 +8,6 @@ window.addEventListener("load", function () {
     const i18ns = require('./utils/i18ns');
     registerMenuEvents();
     i18ns.loadTranslations().then(function () {
-        i18ns.refreshTraslations();
         /*---------------
         LOGIN WITH GOOGLE
         ----------------*/
@@ -16,9 +15,11 @@ window.addEventListener("load", function () {
         /*---------------
             DEMO DATA   
         ---------------*/
-        loadDemoData()
+        i18ns.refreshTraslations();
         loadVisualComponents();
         loadRoutes();
+        loadDemoData();
+        
     });
 
 });
@@ -157,8 +158,36 @@ function createGroupHexagons(selector) {
     });  
 }
 
+function createPostsReactionsDropdowns(selector) {
+    plugins.createDropdown({
+        trigger: '.reaction-options-dropdown-trigger',
+        container: '.reaction-options-dropdown',
+        triggerEvent: 'click',
+        offset: {
+          bottom: 54,
+          left: -16
+        },
+        animation: {
+          type: 'translate-bottom',
+          speed: .3,
+          translateOffset: {
+            vertical: 20
+          }
+        },
+        closeOnDropdownClick: true
+      });
+}
+
 
 function loadDemoData() {
+    const posts = require('./model/posts');
+    posts.loadDemo().then(function () {
+        posts.renderPosts("#post-list").then(function () {
+            createPostsReactionsDropdowns("#post-list");
+            console.info('Posts rendered');
+        });
+    });
+
     const badges = require('./model/badges');
     badges.loadDemo().then(function () {
         badges.renderBadges("#badges-list").then(function () {
@@ -189,6 +218,9 @@ function loadDemoData() {
             console.info('Members rendered');
         });
     });
+
+    
+
 }
 
 function loadInitalComponents(){

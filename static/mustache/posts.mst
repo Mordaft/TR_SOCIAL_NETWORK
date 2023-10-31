@@ -9,7 +9,7 @@
         <!-- USER STATUS -->
         <div class="user-status">
         <!-- USER STATUS AVATAR -->
-        <a class="user-status-avatar" href="profile-timeline" data-navigo>
+        <a class="user-status-avatar">
             <!-- USER AVATAR -->
             <div class="user-avatar small no-outline">
             <!-- USER AVATAR CONTENT -->
@@ -65,35 +65,27 @@
         <!-- /USER STATUS AVATAR -->
     
         <!-- USER STATUS TITLE -->
-        <p class="user-status-title medium"><a class="bold" href="profile-timeline" data-navigo>
-            {{titleHtml}}
+        <p class="user-status-title medium">
+            {{author}}
         </p>
         <!-- /USER STATUS TITLE -->
     
         <!-- USER STATUS TEXT -->
-        <p class="user-status-text small">{{timeAgo}}</p>
+        <p class="user-status-text small">{{createdTimeAgo}}</p>
         <!-- /USER STATUS TEXT -->
         </div>
         <!-- /USER STATUS -->
 
         <!-- WIDGET BOX STATUS TEXT -->
         <p class="widget-box-status-text">
-            {{description}}
+            {{bodyText}}
         </p>
         <!-- /WIDGET BOX STATUS TEXT -->
     </div>
     <!-- /WIDGET BOX STATUS CONTENT -->
 
 
-    {{#iframe}}
-    <!-- IFRAME WRAP -->
-    <!-- <div class="iframe-wrap">
-        <iframe src="https://www.youtube.com/embed/rk-wIgg9fNk" allowfullscreen></iframe>
-    </div> -->
-    <!-- /IFRAME WRAP -->
-    {{/iframe}}
-
-    {{#poll}}
+    {{#poolContent}}
     <!-- POLL BOX -->
     <div class="poll-box">
         <!-- POLL TITLE -->
@@ -175,305 +167,182 @@
         <!-- /POLL BOX ACTIONS -->
     </div>
     <!-- /POLL BOX -->
-    {{/poll}}
+    {{/poolContent}}
 
-    {{#collage}}
+    {{#collageContentImageCount}}
     <!-- PICTURE COLLAGE -->
-    <div class="picture-collage">
+    <div class="widget-box picture-collage">
         <!-- PICTURE COLLAGE ROW -->
         <div class="picture-collage-row medium">
+            {{#collageContentFirstLine}}
             <!-- PICTURE COLLAGE ITEM -->
             <div class="picture-collage-item popup-picture-trigger">
-            <!-- PHOTO PREVIEW -->
-            <div class="photo-preview">
-                <!-- PHOTO PREVIEW IMAGE -->
-                <figure class="photo-preview-image liquid">
-                <img src="img/cover/10.jpg" alt="photo-preview-10">
-                </figure>
-                <!-- /PHOTO PREVIEW IMAGE -->
-            
-                <!-- PHOTO PREVIEW INFO -->
-                <div class="photo-preview-info">
-                <!-- REACTION COUNT LIST -->
-                <div class="reaction-count-list">
-                    <!-- REACTION COUNT -->
-                    <div class="reaction-count negative">
-                    <!-- REACTION COUNT ICON -->
-                    <svg class="reaction-count-icon icon-thumbs-up">
-                        <use xlink:href="#svg-thumbs-up"></use>
-                    </svg>
-                    <!-- /REACTION COUNT ICON -->
-            
-                    <!-- REACTION COUNT TEXT -->
-                    <p class="reaction-count-text">2</p>
-                    <!-- /REACTION COUNT TEXT -->
+                <!-- PHOTO PREVIEW -->
+                <div class="photo-preview">
+                    <!-- PHOTO PREVIEW IMAGE -->
+                    <figure class="photo-preview-image liquid" style="background: url(&quot;{{.}}&quot;) center center / cover no-repeat;">
+                        <img src="{{.}}" alt="alt-{{.}}" style="display: none;">
+                    </figure>
+                    <!-- /PHOTO PREVIEW IMAGE -->
+                
+                    <!-- PHOTO PREVIEW INFO -->
+                    <div class="photo-preview-info">
+                        <!-- REACTION COUNT LIST -->
+                        <div class="reaction-count-list">
+                            <!-- REACTION COUNT -->
+                            <div class="reaction-count negative">
+                            <!-- REACTION COUNT ICON -->
+                            <svg class="reaction-count-icon icon-thumbs-up">
+                                <use xlink:href="#svg-thumbs-up"></use>
+                            </svg>
+                            <!-- /REACTION COUNT ICON -->
+                    
+                            <!-- REACTION COUNT TEXT -->
+                            <p class="reaction-count-text">2</p>
+                            <!-- /REACTION COUNT TEXT -->
+                            </div>
+                            <!-- /REACTION COUNT -->
+                    
+                            <!-- REACTION COUNT -->
+                            <div class="reaction-count negative">
+                            <!-- REACTION COUNT ICON -->
+                            <svg class="reaction-count-icon icon-comment">
+                                <use xlink:href="#svg-comment"></use>
+                            </svg>
+                            <!-- /REACTION COUNT ICON -->
+                    
+                            <!-- REACTION COUNT TEXT -->
+                            <p class="reaction-count-text">5</p>
+                            <!-- /REACTION COUNT TEXT -->
+                            </div>
+                            <!-- /REACTION COUNT -->
+                        </div>
+                        <!-- /REACTION COUNT LIST -->
                     </div>
-                    <!-- /REACTION COUNT -->
-            
-                    <!-- REACTION COUNT -->
-                    <div class="reaction-count negative">
-                    <!-- REACTION COUNT ICON -->
-                    <svg class="reaction-count-icon icon-comment">
-                        <use xlink:href="#svg-comment"></use>
-                    </svg>
-                    <!-- /REACTION COUNT ICON -->
-            
-                    <!-- REACTION COUNT TEXT -->
-                    <p class="reaction-count-text">5</p>
-                    <!-- /REACTION COUNT TEXT -->
-                    </div>
-                    <!-- /REACTION COUNT -->
+                    <!-- /PHOTO PREVIEW INFO -->
                 </div>
-                <!-- /REACTION COUNT LIST -->
-                </div>
-                <!-- /PHOTO PREVIEW INFO -->
-            </div>
-            <!-- /PHOTO PREVIEW -->
-            </div>
-            <!-- /PICTURE COLLAGE ITEM -->
-
-            <!-- PICTURE COLLAGE ITEM -->
-            <div class="picture-collage-item popup-picture-trigger">
-            <!-- PHOTO PREVIEW -->
-            <div class="photo-preview">
-                <!-- PHOTO PREVIEW IMAGE -->
-                <figure class="photo-preview-image liquid">
-                <img src="img/cover/12.jpg" alt="photo-preview-12">
-                </figure>
-                <!-- /PHOTO PREVIEW IMAGE -->
-            
-                <!-- PHOTO PREVIEW INFO -->
-                <div class="photo-preview-info">
-                <!-- REACTION COUNT LIST -->
-                <div class="reaction-count-list">
-                    <!-- REACTION COUNT -->
-                    <div class="reaction-count negative">
-                    <!-- REACTION COUNT ICON -->
-                    <svg class="reaction-count-icon icon-thumbs-up">
-                        <use xlink:href="#svg-thumbs-up"></use>
-                    </svg>
-                    <!-- /REACTION COUNT ICON -->
-            
-                    <!-- REACTION COUNT TEXT -->
-                    <p class="reaction-count-text">2</p>
-                    <!-- /REACTION COUNT TEXT -->
-                    </div>
-                    <!-- /REACTION COUNT -->
-            
-                    <!-- REACTION COUNT -->
-                    <div class="reaction-count negative">
-                    <!-- REACTION COUNT ICON -->
-                    <svg class="reaction-count-icon icon-comment">
-                        <use xlink:href="#svg-comment"></use>
-                    </svg>
-                    <!-- /REACTION COUNT ICON -->
-            
-                    <!-- REACTION COUNT TEXT -->
-                    <p class="reaction-count-text">5</p>
-                    <!-- /REACTION COUNT TEXT -->
-                    </div>
-                    <!-- /REACTION COUNT -->
-                </div>
-                <!-- /REACTION COUNT LIST -->
-                </div>
-                <!-- /PHOTO PREVIEW INFO -->
-            </div>
-            <!-- /PHOTO PREVIEW -->
+                <!-- /PHOTO PREVIEW -->
             </div>
             <!-- /PICTURE COLLAGE ITEM -->
+            {{/collageContentFirstLine}}
         </div>
         <!-- /PICTURE COLLAGE ROW -->
-
         <!-- PICTURE COLLAGE ROW -->
         <div class="picture-collage-row">
+            {{#collageContentSecondLine}}
             <!-- PICTURE COLLAGE ITEM -->
             <div class="picture-collage-item popup-picture-trigger">
-            <!-- PHOTO PREVIEW -->
-            <div class="photo-preview">
-                <!-- PHOTO PREVIEW IMAGE -->
-                <figure class="photo-preview-image liquid">
-                <img src="img/cover/16.jpg" alt="photo-preview-16">
-                </figure>
-                <!-- /PHOTO PREVIEW IMAGE -->
-            
-                <!-- PHOTO PREVIEW INFO -->
-                <div class="photo-preview-info">
-                <!-- REACTION COUNT LIST -->
-                <div class="reaction-count-list">
-                    <!-- REACTION COUNT -->
-                    <div class="reaction-count negative">
-                    <!-- REACTION COUNT ICON -->
-                    <svg class="reaction-count-icon icon-thumbs-up">
-                        <use xlink:href="#svg-thumbs-up"></use>
-                    </svg>
-                    <!-- /REACTION COUNT ICON -->
-            
-                    <!-- REACTION COUNT TEXT -->
-                    <p class="reaction-count-text">2</p>
-                    <!-- /REACTION COUNT TEXT -->
+                <!-- PHOTO PREVIEW -->
+                <div class="photo-preview">
+                    <!-- PHOTO PREVIEW IMAGE -->
+                    <figure class="photo-preview-image liquid" style="background: url(&quot;{{.}}&quot;) center center / cover no-repeat;">
+                        <img src="{{.}}" alt="alt-{{.}}" style="display: none;">
+                    </figure>
+                    <!-- /PHOTO PREVIEW IMAGE -->
+                
+                    <!-- PHOTO PREVIEW INFO -->
+                    <div class="photo-preview-info">
+                    <!-- REACTION COUNT LIST -->
+                    <div class="reaction-count-list">
+                        <!-- REACTION COUNT -->
+                        <div class="reaction-count negative">
+                        <!-- REACTION COUNT ICON -->
+                        <svg class="reaction-count-icon icon-thumbs-up">
+                            <use xlink:href="#svg-thumbs-up"></use>
+                        </svg>
+                        <!-- /REACTION COUNT ICON -->
+                
+                        <!-- REACTION COUNT TEXT -->
+                        <p class="reaction-count-text">2</p>
+                        <!-- /REACTION COUNT TEXT -->
+                        </div>
+                        <!-- /REACTION COUNT -->
+                
+                        <!-- REACTION COUNT -->
+                        <div class="reaction-count negative">
+                        <!-- REACTION COUNT ICON -->
+                        <svg class="reaction-count-icon icon-comment">
+                            <use xlink:href="#svg-comment"></use>
+                        </svg>
+                        <!-- /REACTION COUNT ICON -->
+                
+                        <!-- REACTION COUNT TEXT -->
+                        <p class="reaction-count-text">5</p>
+                        <!-- /REACTION COUNT TEXT -->
+                        </div>
+                        <!-- /REACTION COUNT -->
                     </div>
-                    <!-- /REACTION COUNT -->
-            
-                    <!-- REACTION COUNT -->
-                    <div class="reaction-count negative">
-                    <!-- REACTION COUNT ICON -->
-                    <svg class="reaction-count-icon icon-comment">
-                        <use xlink:href="#svg-comment"></use>
-                    </svg>
-                    <!-- /REACTION COUNT ICON -->
-            
-                    <!-- REACTION COUNT TEXT -->
-                    <p class="reaction-count-text">5</p>
-                    <!-- /REACTION COUNT TEXT -->
+                    <!-- /REACTION COUNT LIST -->
                     </div>
-                    <!-- /REACTION COUNT -->
+                    <!-- /PHOTO PREVIEW INFO -->
                 </div>
-                <!-- /REACTION COUNT LIST -->
-                </div>
-                <!-- /PHOTO PREVIEW INFO -->
-            </div>
-            <!-- /PHOTO PREVIEW -->
-            </div>
-            <!-- /PICTURE COLLAGE ITEM -->
-
-            <!-- PICTURE COLLAGE ITEM -->
-            <div class="picture-collage-item popup-picture-trigger">
-            <!-- PHOTO PREVIEW -->
-            <div class="photo-preview">
-                <!-- PHOTO PREVIEW IMAGE -->
-                <figure class="photo-preview-image liquid">
-                <img src="img/cover/08.jpg" alt="photo-preview-08">
-                </figure>
-                <!-- /PHOTO PREVIEW IMAGE -->
-            
-                <!-- PHOTO PREVIEW INFO -->
-                <div class="photo-preview-info">
-                <!-- REACTION COUNT LIST -->
-                <div class="reaction-count-list">
-                    <!-- REACTION COUNT -->
-                    <div class="reaction-count negative">
-                    <!-- REACTION COUNT ICON -->
-                    <svg class="reaction-count-icon icon-thumbs-up">
-                        <use xlink:href="#svg-thumbs-up"></use>
-                    </svg>
-                    <!-- /REACTION COUNT ICON -->
-            
-                    <!-- REACTION COUNT TEXT -->
-                    <p class="reaction-count-text">2</p>
-                    <!-- /REACTION COUNT TEXT -->
-                    </div>
-                    <!-- /REACTION COUNT -->
-            
-                    <!-- REACTION COUNT -->
-                    <div class="reaction-count negative">
-                    <!-- REACTION COUNT ICON -->
-                    <svg class="reaction-count-icon icon-comment">
-                        <use xlink:href="#svg-comment"></use>
-                    </svg>
-                    <!-- /REACTION COUNT ICON -->
-            
-                    <!-- REACTION COUNT TEXT -->
-                    <p class="reaction-count-text">5</p>
-                    <!-- /REACTION COUNT TEXT -->
-                    </div>
-                    <!-- /REACTION COUNT -->
-                </div>
-                <!-- /REACTION COUNT LIST -->
-                </div>
-                <!-- /PHOTO PREVIEW INFO -->
-            </div>
-            <!-- /PHOTO PREVIEW -->
+                <!-- /PHOTO PREVIEW -->
             </div>
             <!-- /PICTURE COLLAGE ITEM -->
-
+            {{/collageContentSecondLine}}
             <!-- PICTURE COLLAGE ITEM -->
+            {{^prueba}}
             <div class="picture-collage-item">
-            <!-- PICTURE COLLAGE ITEM OVERLAY -->
-            <a class="picture-collage-item-overlay" href="profile-photos" data-navigo>
-                <!-- PICTURE COLLAGE ITEM OVERLAY TEXT -->
-                <p class="picture-collage-item-overlay-text">+22</p>
-                <!-- /PICTURE COLLAGE ITEM OVERLAY TEXT -->
-            </a>
-            <!-- /PICTURE COLLAGE ITEM OVERLAY -->
-
-            <!-- PHOTO PREVIEW -->
-            <div class="photo-preview">
-                <!-- PHOTO PREVIEW IMAGE -->
-                <figure class="photo-preview-image liquid">
-                <img src="img/cover/14.jpg" alt="photo-preview-14">
-                </figure>
-                <!-- /PHOTO PREVIEW IMAGE -->
-            
-                <!-- PHOTO PREVIEW INFO -->
-                <div class="photo-preview-info">
-                <!-- REACTION COUNT LIST -->
-                <div class="reaction-count-list">
-                    <!-- REACTION COUNT -->
-                    <div class="reaction-count negative">
-                    <!-- REACTION COUNT ICON -->
-                    <svg class="reaction-count-icon icon-thumbs-up">
-                        <use xlink:href="#svg-thumbs-up"></use>
-                    </svg>
-                    <!-- /REACTION COUNT ICON -->
-            
-                    <!-- REACTION COUNT TEXT -->
-                    <p class="reaction-count-text">2</p>
-                    <!-- /REACTION COUNT TEXT -->
+                <!-- PICTURE COLLAGE ITEM OVERLAY -->
+                <a class="picture-collage-item-overlay">
+                    <!-- PICTURE COLLAGE ITEM OVERLAY TEXT -->
+                    <p class="picture-collage-item-overlay-text"> +{{collageContentImageCount}}</p>
+                    <!-- /PICTURE COLLAGE ITEM OVERLAY TEXT -->
+                </a>
+                <!-- /PICTURE COLLAGE ITEM OVERLAY -->
+                <!-- PHOTO PREVIEW -->
+                <div class="photo-preview">
+                    <!-- PHOTO PREVIEW IMAGE -->
+                    <figure class="photo-preview-image liquid" style="background: url(&quot;img/cover/14.jpg&quot;) center center / cover no-repeat;">
+                    <img src="img/cover/14.jpg" alt="photo-preview-14" style="display: none;">
+                    </figure>
+                    <!-- /PHOTO PREVIEW IMAGE -->
+                
+                    <!-- PHOTO PREVIEW INFO -->
+                    <div class="photo-preview-info">
+                    <!-- REACTION COUNT LIST -->
+                    <div class="reaction-count-list">
+                        <!-- REACTION COUNT -->
+                        <div class="reaction-count negative">
+                        <!-- REACTION COUNT ICON -->
+                        <svg class="reaction-count-icon icon-thumbs-up">
+                            <use xlink:href="#svg-thumbs-up"></use>
+                        </svg>
+                        <!-- /REACTION COUNT ICON -->
+                
+                        <!-- REACTION COUNT TEXT -->
+                        <p class="reaction-count-text">2</p>
+                        <!-- /REACTION COUNT TEXT -->
+                        </div>
+                        <!-- /REACTION COUNT -->
+                
+                        <!-- REACTION COUNT -->
+                        <div class="reaction-count negative">
+                        <!-- REACTION COUNT ICON -->
+                        <svg class="reaction-count-icon icon-comment">
+                            <use xlink:href="#svg-comment"></use>
+                        </svg>
+                        <!-- /REACTION COUNT ICON -->
+                
+                        <!-- REACTION COUNT TEXT -->
+                        <p class="reaction-count-text">5</p>
+                        <!-- /REACTION COUNT TEXT -->
+                        </div>
+                        <!-- /REACTION COUNT -->
                     </div>
-                    <!-- /REACTION COUNT -->
-            
-                    <!-- REACTION COUNT -->
-                    <div class="reaction-count negative">
-                    <!-- REACTION COUNT ICON -->
-                    <svg class="reaction-count-icon icon-comment">
-                        <use xlink:href="#svg-comment"></use>
-                    </svg>
-                    <!-- /REACTION COUNT ICON -->
-            
-                    <!-- REACTION COUNT TEXT -->
-                    <p class="reaction-count-text">5</p>
-                    <!-- /REACTION COUNT TEXT -->
+                    <!-- /REACTION COUNT LIST -->
                     </div>
-                    <!-- /REACTION COUNT -->
+                    <!-- /PHOTO PREVIEW INFO -->
                 </div>
-                <!-- /REACTION COUNT LIST -->
-                </div>
-                <!-- /PHOTO PREVIEW INFO -->
+                <!-- /PHOTO PREVIEW -->
             </div>
-            <!-- /PHOTO PREVIEW -->
-            </div>
-            <!-- /PICTURE COLLAGE ITEM -->
+            {{/prueba}}
+            <!-- /PICTURE COLLAGE ITEM -->            
         </div>
         <!-- /PICTURE COLLAGE ROW -->
     </div>
     <!-- /PICTURE COLLAGE -->
-    {{/collage}}
-
-    {{#stream}}
-    <!-- VIDEO STATUS -->
-    <a class="video-status" href="https://www.twitch.tv/" target="_blank">
-        <!-- VIDEO STATUS IMAGE -->
-        <img class="video-status-image" src="img/cover/51.jpg" alt="cover-51">
-        <!-- /VIDEO STATUS IMAGE -->
-
-        <!-- VIDEO STATUS INFO -->
-        <div class="video-status-info">
-        <!-- VIDEO STATUS META -->
-        <p class="video-status-meta">twitch.tv</p>
-        <!-- /VIDEO STATUS META -->
-
-        <!-- VIDEO STATUS TITLE -->
-        <p class="video-status-title"><span class="bold">Destroy Dex</span> on <span class="highlighted">Twitch</span></p>
-        <!-- /VIDEO STATUS TITLE -->
-
-        <!-- VIDEO STATUS TEXT -->
-        <p class="video-status-text">Tune in every Sunday for awesome givaways!</p>
-        <!-- /VIDEO STATUS TEXT -->
-        </div>
-        <!-- /VIDEO STATUS INFO -->
-    </a>
-    <!-- /VIDEO STATUS -->
-    {{/stream}}
+    {{/collageContentImageCount}}
 
     <!-- WIDGET BOX STATUS CONTENT -->
     <div class="widget-box-status-content">
@@ -482,7 +351,7 @@
         <div class="tag-list">
             {{#tagList}}
             <!-- TAG ITEM -->
-            <a class="tag-item secondary">{{label}}</a>
+            <a class="tag-item secondary">{{.}}</a>
             <!-- /TAG ITEM -->
             {{/tagList}}
         </div>
@@ -502,25 +371,6 @@
                 <img class="reaction-image reaction-item-dropdown-trigger" src="img/reaction/love.png" alt="reaction-love">
                 <!-- /REACTION IMAGE -->
     
-                <!-- SIMPLE DROPDOWN -->
-                <div class="simple-dropdown padded reaction-item-dropdown">
-                    <!-- SIMPLE DROPDOWN TEXT -->
-                    <p class="simple-dropdown-text"><img class="reaction" src="img/reaction/love.png" alt="reaction-love"> <span class="bold">Love</span></p>
-                    <!-- /SIMPLE DROPDOWN TEXT -->
-                
-                    <!-- SIMPLE DROPDOWN TEXT -->
-                    <p class="simple-dropdown-text">Matt Parker</p>
-                    <!-- /SIMPLE DROPDOWN TEXT -->
-
-                    <!-- SIMPLE DROPDOWN TEXT -->
-                    <p class="simple-dropdown-text">Destroy Dex</p>
-                    <!-- /SIMPLE DROPDOWN TEXT -->
-
-                    <!-- SIMPLE DROPDOWN TEXT -->
-                    <p class="simple-dropdown-text">The Green Goo</p>
-                    <!-- /SIMPLE DROPDOWN TEXT -->
-                </div>
-                <!-- /SIMPLE DROPDOWN -->
                 </div>
                 <!-- /REACTION ITEM -->
 
@@ -528,23 +378,7 @@
                 <div class="reaction-item">
                 <!-- REACTION IMAGE -->
                 <img class="reaction-image reaction-item-dropdown-trigger" src="img/reaction/happy.png" alt="reaction-happy">
-                <!-- /REACTION IMAGE -->
-    
-                <!-- SIMPLE DROPDOWN -->
-                <div class="simple-dropdown padded reaction-item-dropdown">
-                    <!-- SIMPLE DROPDOWN TEXT -->
-                    <p class="simple-dropdown-text"><img class="reaction" src="img/reaction/happy.png" alt="reaction-happy"> <span class="bold">Happy</span></p>
-                    <!-- /SIMPLE DROPDOWN TEXT -->
-                
-                    <!-- SIMPLE DROPDOWN TEXT -->
-                    <p class="simple-dropdown-text">Sandra Strange</p>
-                    <!-- /SIMPLE DROPDOWN TEXT -->
-
-                    <!-- SIMPLE DROPDOWN TEXT -->
-                    <p class="simple-dropdown-text">Jane Rodgers</p>
-                    <!-- /SIMPLE DROPDOWN TEXT -->
-                </div>
-                <!-- /SIMPLE DROPDOWN -->
+                <!-- /REACTION IMAGE -->   
                 </div>
                 <!-- /REACTION ITEM -->
 
@@ -553,38 +387,7 @@
                 <!-- REACTION IMAGE -->
                 <img class="reaction-image reaction-item-dropdown-trigger" src="img/reaction/like.png" alt="reaction-like">
                 <!-- /REACTION IMAGE -->
-    
-                <!-- SIMPLE DROPDOWN -->
-                <div class="simple-dropdown padded reaction-item-dropdown">
-                    <!-- SIMPLE DROPDOWN TEXT -->
-                    <p class="simple-dropdown-text"><img class="reaction" src="img/reaction/like.png" alt="reaction-like"> <span class="bold">Like</span></p>
-                    <!-- /SIMPLE DROPDOWN TEXT -->
-                
-                    <!-- SIMPLE DROPDOWN TEXT -->
-                    <p class="simple-dropdown-text">Neko Bebop</p>
-                    <!-- /SIMPLE DROPDOWN TEXT -->
-
-                    <!-- SIMPLE DROPDOWN TEXT -->
-                    <p class="simple-dropdown-text">Nick Grissom</p>
-                    <!-- /SIMPLE DROPDOWN TEXT -->
-
-                    <!-- SIMPLE DROPDOWN TEXT -->
-                    <p class="simple-dropdown-text">Sarah Diamond</p>
-                    <!-- /SIMPLE DROPDOWN TEXT -->
-
-                    <!-- SIMPLE DROPDOWN TEXT -->
-                    <p class="simple-dropdown-text">Jett Spiegel</p>
-                    <!-- /SIMPLE DROPDOWN TEXT -->
-
-                    <!-- SIMPLE DROPDOWN TEXT -->
-                    <p class="simple-dropdown-text">Marcus Jhonson</p>
-                    <!-- /SIMPLE DROPDOWN TEXT -->
-
-                    <!-- SIMPLE DROPDOWN TEXT -->
-                    <p class="simple-dropdown-text"><span class="bold">and 6 more...</span></p>
-                    <!-- /SIMPLE DROPDOWN TEXT -->
-                </div>
-                <!-- /SIMPLE DROPDOWN -->
+   
                 </div>
                 <!-- /REACTION ITEM -->
             </div>

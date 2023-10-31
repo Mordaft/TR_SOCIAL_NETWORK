@@ -1,3 +1,6 @@
+import {format, register} from 'timeago.js';
+import es from 'timeago.js/lib/lang/es';
+
 let app = require('../utils/core');
 const plugins = require('../utils/plugins');
 
@@ -10,8 +13,21 @@ const posts = {
         return fetch('/demo/posts.json')
             .then(response => response.json())
             .then(data => {
-                // console.info('posts demo data loaded', data);
-                return dataTables.posts.putAll(data);
+                register('es', es);
+                data.forEach(element => {
+                    element.createdTimeAgo = format(element.created, 'es');
+                    if (element.collageContent != null) {
+                        element.collageContentFirstLine = element.collageContent.slice(0, 2);
+                        if (element.collageContent.length > 4){
+                            element.collageContentSecondLine = element.collageContent.slice(2, 4);
+                            element.collageContentImageCount = element.collageContent.length - 4;
+                        }
+                    }
+                });
+                // console.info('posts demo data loading', data);
+                return dataTables.posts.putAll(data).then(() => {
+                    console.info('posts demo data loaded');
+                });
             })
             .catch(error => {
                 console.error(error);
