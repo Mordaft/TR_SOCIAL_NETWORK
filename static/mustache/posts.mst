@@ -11,35 +11,35 @@
         <!-- USER STATUS AVATAR -->
         <a class="user-status-avatar">
             <!-- USER AVATAR -->
-            <div class="user-avatar small no-outline">
+            <div id="post-{{id}}" class="user-avatar small no-outline">
             <!-- USER AVATAR CONTENT -->
-            <div class="user-avatar-content">
+            <div id="post-{{id}}-content" class="user-avatar-content">
                 <!-- HEXAGON -->
-                <div class="hexagon-image-30-32" data-src="img/avatar/{{avatar.image}}.jpg"></div>
+                <div class="hexagon-image-30-32" data-src="{{avatar.image}}"></div>
                 <!-- /HEXAGON -->
             </div>
             <!-- /USER AVATAR CONTENT -->
         
             <!-- USER AVATAR PROGRESS -->
-            <div class="user-avatar-progress">
+            <div id="post-{{id}}-progress" class="user-avatar-progress">
                 <!-- HEXAGON -->
-                <div class="hexagon-progress-40-44" data-avatar="{{avatar.progress}}"></div>
+                <div class="hexagon-progress-40-44" ></div>
                 <!-- /HEXAGON -->
             </div>
             <!-- /USER AVATAR PROGRESS -->
         
             <!-- USER AVATAR PROGRESS BORDER -->
-            <div class="user-avatar-progress-border">
+            <div id="post-{{id}}-progress-border" class="user-avatar-progress-border">
                 <!-- HEXAGON -->
-                <div class="hexagon-border-40-44" data-avatar="{{avatar.progress}}"></div>
+                <div class="hexagon-border-40-44"></div>
                 <!-- /HEXAGON -->
             </div>
             <!-- /USER AVATAR PROGRESS BORDER -->
         
             <!-- USER AVATAR BADGE -->
-            <div class="user-avatar-badge">
+            <div id="post-{{id}}-badge" class="user-avatar-badge">
                 <!-- USER AVATAR BADGE BORDER -->
-                <div class="user-avatar-badge-border">
+                <div id="post-{{id}}-badge-border" class="user-avatar-badge-border">
                 <!-- HEXAGON -->
                 <div class="hexagon-22-24"></div>
                 <!-- /HEXAGON -->
@@ -47,7 +47,7 @@
                 <!-- /USER AVATAR BADGE BORDER -->
         
                 <!-- USER AVATAR BADGE CONTENT -->
-                <div class="user-avatar-badge-content">
+                <div id="post-{{id}}-badge-content" class="user-avatar-badge-content">
                 <!-- HEXAGON -->
                 <div class="hexagon-dark-16-18"></div>
                 <!-- /HEXAGON -->

@@ -179,11 +179,88 @@ function createPostsReactionsDropdowns(selector) {
 }
 
 
+function createPostsHexagons(selector) {
+    let topElement = document.querySelector(selector);
+    // console.log("createMemberHexagons 1", topElement);
+    topElement.querySelectorAll('.user-avatar').forEach(function (parentElement) {;
+        if (parentElement != null) {
+            // console.log("createMemberHexagons 2", parentElement, '#' + parentElement.getAttribute('id') + '-border');
+            // let element = parentElement.querySelector('#' + parentElement.getAttribute('id') + '-border div');
+            // console.log("createMemberHexagons 3", element);
+            plugins.createHexagon({
+                container: '#' + parentElement.id + '-border div',
+                width: 40,
+                height: 44,
+                roundedCorners: true,
+                fill: true,
+                lineColor: '#1d2333'
+            });
+            plugins.createHexagon({
+                container: '#' + parentElement.id + '-content div',
+                width: 30,
+                height: 32,
+                roundedCorners: true,
+                roundedCornerRadius: 1,
+                clip: true
+            });
+            plugins.createHexagon({
+                container: '#' + parentElement.id + '-progress div',
+                width: 40,
+                height: 44,
+                lineWidth: 3,
+                roundedCorners: true,
+                roundedCornerRadius: 1,
+                gradient: {
+                    colors: ['#d9ff65', '#40d04f']
+                },
+                scale: {
+                    start: 0,
+                    end: 1,
+                    stop: .8
+                }
+            });
+            plugins.createHexagon({
+                container: '#' + parentElement.id + '-progress-border div',
+                width: 40,
+                height: 44,
+                lineWidth: 3,
+                roundedCorners: true,
+                lineColor: '#293249'
+            });
+
+            plugins.createHexagon({
+                container: '#' + parentElement.id + '-badge-border div',
+                width: 22,
+                height: 24,
+                roundedCorners: true,
+                roundedCornerRadius: 1,
+                lineColor: '#1d2333',
+                fill: true
+            });
+
+            plugins.createHexagon({
+            container: '#' + parentElement.id + '-badge-content div',
+            width: 16,
+            height: 18,
+            roundedCorners: true,
+            roundedCornerRadius: 1,
+            lineColor: '#7750f8',
+            fill: true
+            });
+
+        }        
+          
+    });    
+}
+
+
+
 function loadDemoData() {
     const posts = require('./model/posts');
     posts.loadDemo().then(function () {
         posts.renderPosts("#post-list").then(function () {
             createPostsReactionsDropdowns("#post-list");
+            createPostsHexagons("#post-list");
             console.info('Posts rendered');
         });
     });
