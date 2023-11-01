@@ -125,6 +125,11 @@ router.on('hub-profile-messages', function () {
     showScreen('#hub-profile-messages');
 });
 
+router.on('hub-profile-social', function () {
+    hideAllScreens();
+    showScreen('#hub-profile-social');
+});
+
 
 router.on('logged-out-and-icons', function () {
     hideAllScreens();
