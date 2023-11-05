@@ -1,0 +1,76 @@
+{{#relevantQuestList}}
+<!-- QUEST ITEM -->
+<div class="quest-item">
+    <!-- QUEST ITEM COVER -->
+    <figure class="quest-item-cover liquid" style="background: url(&quot;{{background}}&quot;) center center / cover no-repeat;">
+        <img src="{{background}}" alt="cover-01" style="display: none;">
+    </figure>
+    <!-- /QUEST ITEM COVER -->
+
+    <!-- TEXT STICKER -->
+    <p class="text-sticker small-text">
+        <!-- TEXT STICKER ICON -->
+        <svg class="text-sticker-icon icon-plus-small">
+        <use xlink:href="#svg-plus-small"></use>
+        </svg>
+        <!-- TEXT STICKER ICON -->
+        {{experience_points}} EXP
+    </p>
+    <!-- /TEXT STICKER -->
+
+    <!-- QUEST ITEM INFO -->
+    <div class="quest-item-info">
+        <!-- QUEST ITEM BADGE -->
+        <div class="quest-item-badge">
+        <img src="{{statusImage}}" alt="openq-b">
+        </div>
+        <!-- /QUEST ITEM BADGE -->
+
+        <!-- QUEST ITEM TITLE -->
+        <p class="quest-item-title">{{title}}</p>
+        <!-- /QUEST ITEM TITLE -->
+
+        <!-- QUEST ITEM TEXT -->
+        <p class="quest-item-text">{{description}}</p>
+        <!-- /QUEST ITEM TEXT -->
+
+        <!-- PROGRESS STAT -->
+        <div class="progress-stat">
+        <!-- PROGRESS STAT BAR -->
+        <div class="progress-stat-bar" id="relevant-{{id}}" data-progress-bar="{{progress_pct}}"></div>
+        <!-- /PROGRESS STAT BAR -->
+
+        <!-- BAR PROGRESS WRAP -->
+        <div class="bar-progress-wrap small">
+            <!-- BAR PROGRESS INFO -->
+            <p class="bar-progress-info negative start">
+            <span class="bar-progress-text no-space">
+                {{progress_msg}}
+            </span> completed
+            </p>
+            <!-- /BAR PROGRESS INFO -->
+        </div>
+        <!-- /BAR PROGRESS WRAP -->
+        </div>
+        <!-- /PROGRESS STAT -->
+
+        <!-- QUEST ITEM META -->
+        <div class="quest-item-meta">
+
+        <!-- QUEST ITEM META INFO -->
+        <div class="quest-item-meta-info">
+            <!-- QUEST ITEM META TITLE -->
+            <p class="quest-item-meta-title">+{{friendsHasCompleted}} friends</p>
+            <!-- /QUEST ITEM META TITLE -->
+            <!-- QUEST ITEM META TEXT -->
+            <p class="quest-item-meta-text">completed this quest</p>
+            <!-- /QUEST ITEM META TEXT -->
+        </div>
+        <!-- /QUEST ITEM META INFO -->
+        </div>
+        <!-- /QUEST ITEM META -->
+    </div>
+    <!-- /QUEST ITEM INFO -->
+</div>
+<!-- /QUEST ITEM -->
+{{/relevantQuestList}}

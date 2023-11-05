@@ -55,6 +55,40 @@ function createProgressBars(selector) {
     });
 }
 
+function createQuestProgressBars(selector) {
+    let topElement = document.querySelector(selector);
+    // console.log("createProgressBars 1", topElement);
+    topElement.querySelectorAll('.progress-stat').forEach(function (parentElement) {;
+        // console.log("createProgressBars 2", parentElement);
+        let element = parentElement.querySelector('.progress-stat-bar');
+        if (element != null) {
+            // console.log("createProgressBars 3", element);
+            plugins.createProgressBar({
+                container: '#' + element.id,
+                height: 4,
+                lineColor: '#293249'
+            });
+            
+            plugins.createProgressBar({
+                container: '#' + element.id,
+                height: 4,
+                gradient: {
+                colors: ['#40d04f', '#d9ff65']
+                },
+                scale: {
+                start: 0,
+                end: 100,
+                stop: element.getAttribute('data-progress-bar')
+                },
+                animateOnScroll: true
+            });
+        }
+    });
+}
+
+
+
+
 function createMemberHexagons(selector) {
     let topElement = document.querySelector(selector);
     // console.log("createMemberHexagons 1", topElement);
@@ -270,6 +304,20 @@ function loadDemoData() {
         badges.renderBadges("#badges-list").then(function () {
             createProgressBars("#badges-list");
             console.info('Badges rendered');
+        });
+    });
+
+    const quests = require('./model/quests');
+    quests.loadDemo().then(function () {
+        quests.renderQuestsRelevant("#quests-relevant").then(
+            function () {
+                createQuestProgressBars("#quests-relevant");
+                console.info('Quests relevant rendered');
+        }); 
+        quests.renderQuestsTable("#quests-table").then(
+                function () {
+                createQuestProgressBars("#quests-table");
+                console.info('Quests table rendered');
         });
     });
 

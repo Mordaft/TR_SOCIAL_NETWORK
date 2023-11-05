@@ -133,7 +133,12 @@ router.on('hub-profile-social', function () {
 
 router.on('logged-out-and-icons', function () {
     hideAllScreens();
-    showScreen('logged-out-and-icons');
+    showScreen('#logged-out-and-icons');
+});
+
+router.on('profile-timeline', function () {
+    hideAllScreens();
+    showScreen('#profile-timeline');
 });
 
 

@@ -1,0 +1,112 @@
+<!-- TABLE HEADER -->
+<div class="table-header">
+    <!-- TABLE HEADER COLUMN -->
+    <div class="table-header-column">
+        <!-- TABLE HEADER TITLE -->
+        <p class="table-header-title" data-i18n="menus.quest_quests">Quest</p>
+        <!-- /TABLE HEADER TITLE -->
+    </div>
+    <!-- /TABLE HEADER COLUMN -->
+
+    <!-- TABLE HEADER COLUMN -->
+    <div class="table-header-column">
+        <!-- TABLE HEADER TITLE -->
+        <p class="table-header-title" data-i18n="menus.description_quests">Description</p>
+        <!-- /TABLE HEADER TITLE -->
+    </div>
+    <!-- /TABLE HEADER COLUMN -->
+
+    <!-- TABLE HEADER COLUMN -->
+    <div class="table-header-column centered padded-big-left">
+        <!-- TABLE HEADER TITLE -->
+        <p class="table-header-title" data-i18n="menus.experience_quests">Experience</p>
+        <!-- /TABLE HEADER TITLE -->
+    </div>
+    <!-- /TABLE HEADER COLUMN -->
+
+    <!-- TABLE HEADER COLUMN -->
+    <div class="table-header-column padded-big-left">
+        <!-- TABLE HEADER TITLE -->
+        <p class="table-header-title" data-i18n="menus.progress_quests">Progress</p>
+        <!-- /TABLE HEADER TITLE -->
+    </div>
+    <!-- /TABLE HEADER COLUMN -->
+</div>
+<!-- /TABLE HEADER -->
+
+<!-- TABLE BODY -->
+<div class="table-body same-color-rows">\
+    {{#allQuestsList}}
+    <!-- TABLE ROW -->
+    <div class="table-row small">
+        <!-- TABLE COLUMN -->
+        <div class="table-column">
+        <!-- TABLE INFORMATION -->
+        <div class="table-information">
+            <!-- TABLE IMAGE -->
+            <img class="table-image" src="{{statusImage}}" alt="completedq-s">
+            <!-- /TABLE IMAGE -->
+
+            <!-- TABLE TITLE -->
+            <p class="table-title">{{title}}</p>
+            <!-- /TABLE TITLE -->
+        </div>
+        <!-- /TABLE INFORMATION -->
+        </div>
+        <!-- /TABLE COLUMN -->
+
+        <!-- TABLE COLUMN -->
+        <div class="table-column">
+        <!-- TABLE TITLE -->
+        <p class="table-text">{{description}}</p>
+        <!-- /TABLE TITLE -->
+        </div>
+        <!-- /TABLE COLUMN -->
+
+        <!-- TABLE COLUMN -->
+        <div class="table-column centered padded-big-left">
+        <!-- TEXT STICKER -->
+        <p class="text-sticker void">
+            <!-- TEXT STICKER ICON -->
+            <svg class="text-sticker-icon icon-plus-small">
+            <use xlink:href="#svg-plus-small"></use>
+            </svg>
+            <!-- TEXT STICKER ICON -->
+            {{experience_points}} EXP
+        </p>
+        <!-- /TEXT STICKER -->
+        </div>
+        <!-- /TABLE COLUMN -->
+
+        <!-- TABLE COLUMN -->
+        <div class="table-column padded-big-left">
+        <!-- PROGRESS STAT WRAP -->
+        <div class="progress-stat-wrap">
+            <!-- PROGRESS STAT -->
+            <div class="progress-stat">
+                <!-- PROGRESS STAT BAR -->
+                <div class="progress-stat-bar" id="table-{{id}}" data-progress-bar="{{progress_pct}}"></div>
+                <!-- /PROGRESS STAT BAR -->
+            
+                <!-- BAR PROGRESS WRAP -->
+                <div class="bar-progress-wrap">
+                    <!-- BAR PROGRESS INFO -->
+                    <p class="bar-progress-info medium negative">
+                        <span class="bar-progress-text no-space">
+                            {{progress_msg}}
+                        </span>
+                    </p>
+                    <!-- /BAR PROGRESS INFO -->
+                </div>
+                <!-- /BAR PROGRESS WRAP -->
+            </div>
+            <!-- /PROGRESS STAT -->
+        </div>
+        <!-- /PROGRESS STAT WRAP -->
+        </div>
+        <!-- /TABLE COLUMN -->
+    </div>
+    <!-- /TABLE ROW -->
+    {{/allQuestsList}}
+</div>
+<!-- /TABLE BODY -->
