@@ -5,16 +5,20 @@ const gsi = {
             client_id: '314457533021-j53t1aohehhl443p39el6ng1blv2ann3.apps.googleusercontent.com',
             callback: gsi.callback
         });
-        console.log('initialize gsi', result);
+        // console.log('initialize gsi', result);
+    },
+    renderButton: () => {
+        console.log('gsi render');
         google.accounts.id.renderButton(
             document.getElementById("gsiButtonDiv"),
             { theme: "filled_black", size: "small", shape: "pill", text: "signin_with", width: "164", height: "42", onsuccess: gsi.onSuccess, onfailure: gsi.onFailure }
         );
     },
     callback: (response) => {
-        console.log('Callback response', response);
+        console.log('gsi callback');
+        // console.log('Callback response', response);
         let responsePayload = gsi.parseJwt(response.credential);
-        console.log('gsi callback payLoad', responsePayload);
+        // console.log('gsi callback payLoad', responsePayload);
     },
     onSuccess: (response) => {
         console.log('GSI onSuccess', response);
@@ -23,6 +27,7 @@ const gsi = {
         console.log('GSI onFailure', response);
     },
     parseJwt: (token) => {
+        console.log('gsi parseJwt');
         var base64Url = token.split('.')[1];
         var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
         var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
@@ -31,8 +36,6 @@ const gsi = {
         return JSON.parse(jsonPayload);
     }
 }
-
 gsi.init();
-
 
 export default gsi;

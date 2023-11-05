@@ -18,7 +18,7 @@ const quests = {
             });
     },
     renderQuestsTable: (selector) => {
-        console.info('Render Quests Table Init');
+        // console.info('Render Quests Table');
         return dataTables.quests.getAll()
             .then(data => {
                 return fetch('/mustache/quests-table.mst')
@@ -26,7 +26,7 @@ const quests = {
                     .then(template => {
                         let list = { allQuestsList: data };
                         let rendered = mustache.render(template, list);
-                        console.info('Render Quests Table', rendered);
+                        // console.info('Render Quests Table', rendered);
                         let element = document.querySelector(selector);
                         element.innerHTML = rendered;
                     })
@@ -39,7 +39,7 @@ const quests = {
             });
     }, 
     renderQuestsRelevant: (selector) => {
-        console.info('Render Quests Relevant Init');
+        // console.info('Render Quests Relevant');
         return dataTables.quests.getRelevant()
             .then(data => {
                 return fetch('/mustache/quests-relevant.mst')
@@ -47,7 +47,7 @@ const quests = {
                     .then(template => {
                         let list = { relevantQuestList: data };
                         let rendered = mustache.render(template, list);
-                        console.info('Render Quests Relevant', rendered);
+                        // console.info('Render Quests Relevant', rendered);
                         let element = document.querySelector(selector);
                         element.innerHTML = rendered;
                     })

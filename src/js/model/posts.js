@@ -26,7 +26,7 @@ const posts = {
                 });
                 // console.info('posts demo data loading', data);
                 return dataTables.posts.putAll(data).then(() => {
-                    console.info('posts demo data loaded');
+                    // console.info('posts demo data loaded');
                 });
             })
             .catch(error => {

@@ -2,6 +2,7 @@ const plugins = require('./utils/plugins');
 
 loadInitalComponents();
 window.addEventListener("load", function () {
+    const navigo = loadRoutes();
     /*---------------
         MULTILANGUAJE
     ---------------*/
@@ -9,16 +10,22 @@ window.addEventListener("load", function () {
     registerMenuEvents();
     i18ns.loadTranslations().then(function () {
         /*---------------
-        LOGIN WITH GOOGLE
-        ----------------*/
-        const gsi = require('./google/gsi');
+            USER PROFILE
+        ---------------*/
+        const userProfile = require('./model/userProfile');        
+        
+
+        loadVisualComponents();
         /*---------------
             DEMO DATA   
         ---------------*/
-        i18ns.refreshTraslations();
-        loadVisualComponents();
-        loadRoutes();
         loadDemoData();
+        i18ns.refreshTraslations();
+
+        userProfile.init().then(function () {
+            navigo.default.home();
+        });
+
         
     });
 
@@ -288,7 +295,6 @@ function createPostsHexagons(selector) {
 }
 
 
-
 function loadDemoData() {
     const posts = require('./model/posts');
     posts.loadDemo().then(function () {
@@ -388,7 +394,7 @@ function registerMenuEvents() {
 
 
 function loadRoutes() {
-    require('./utils/navigo');
+    return require('./utils/navigo');
 }
 
 function loadVisualComponents() {

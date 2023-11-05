@@ -5,146 +5,157 @@ import Navigo from 'navigo';
 
 const router = new Navigo('/');
 
-function hideAllScreens() {
-    document.querySelectorAll('.content-grid').forEach(function (screen) {
-        screen.classList.add('hiddenScreen');
-    });
-}
 
-function showScreen(screen) {
-    let elmnt = document.querySelector(screen);
-    if (elmnt !== null && elmnt !== undefined) {
-        elmnt.classList.remove('hiddenScreen');
+const navigo = {
+    hideAllScreens: () => {
+        document.querySelectorAll('.content-grid').forEach(function (screen) {
+            screen.classList.add('hiddenScreen');
+        });
+    },
+    showScreen: (screen) => {
+        let elmnt = document.querySelector(screen);
+        if (elmnt !== null && elmnt !== undefined) {
+            elmnt.classList.remove('hiddenScreen');
+        }
+        window.dispatchEvent(new Event('resize'));
+    },
+    home: () => {
+        // TODO: fix this
+        // let element = document.querySelectorAll("[href='newsfeed']")[0];
+        // let evt = new Event( 'click', { bubbles: true } );
+        // setTimeout(element.dispatchEvent(evt) , 1000);
+        // router.root = 'newsfeed';
+        // router.off('newsfeed').on('newsfeed', function () {
+        //     navigo.hideAllScreens();
+        //     navigo.showScreen('#newsfeed');
+        // });
+        // router.navigate('newsfeed');
     }
-    window.dispatchEvent(new Event('resize'));
-}
 
-hideAllScreens();
+}
+export default navigo;
+
+navigo.hideAllScreens();
 
 /* routes */
 router.on('newsfeed', function () {
-    hideAllScreens();
-    showScreen('#newsfeed');
+    navigo.hideAllScreens();
+    navigo.showScreen('#newsfeed');
 });
 router.on('groups', function () {
-    hideAllScreens();
-    showScreen('#groups');
+    navigo.hideAllScreens();
+    navigo.showScreen('#groups');
 });
 router.on('badges', function () {
-    hideAllScreens();
-    showScreen('#badges');
+    navigo.hideAllScreens();
+    navigo.showScreen('#badges');
 });
 
 router.on('members', function () {
-    hideAllScreens();
-    showScreen('#members');
+    navigo.hideAllScreens();
+    navigo.showScreen('#members');
 });
 
 router.on('events', function () {
-    hideAllScreens();
-    showScreen('#events');
+    navigo.hideAllScreens();
+    navigo.showScreen('#events');
 });
 
 router.on('quests', function () {
-    hideAllScreens();
-    showScreen('#quests');
+    navigo.hideAllScreens();
+    navigo.showScreen('#quests');
 });
 
 router.on('group-events', function () {
-    hideAllScreens();
-    showScreen('#group-events');
+    navigo.hideAllScreens();
+    navigo.showScreen('#group-events');
 });
 
 router.on('group-info', function () {
-    hideAllScreens();
-    showScreen('#group-info');
+    navigo.hideAllScreens();
+    navigo.showScreen('#group-info');
 });
 
 router.on('group-members', function () {
-    hideAllScreens();
-    showScreen('#group-members');
+    navigo.hideAllScreens();
+    navigo.showScreen('#group-members');
 });
 
 router.on('group-timeline', function () {
-    hideAllScreens();
-    showScreen('#group-timeline');
+    navigo.hideAllScreens();
+    navigo.showScreen('#group-timeline');
 });
 
 router.on('profile-about', function () {
-    hideAllScreens();
-    showScreen('#profile-about');
+    navigo.hideAllScreens();
+    navigo.showScreen('#profile-about');
 });
 
 router.on('profile-badges', function () {
-    hideAllScreens();
-    showScreen('#profile-badges');
+    navigo.hideAllScreens();
+    navigo.showScreen('#profile-badges');
 });
 
 router.on('profile-friends', function () {
-    hideAllScreens();
-    showScreen('#profile-friends');
+    navigo.hideAllScreens();
+    navigo.showScreen('#profile-friends');
 });
 
 router.on('profile-post', function () {
-    hideAllScreens();
-    showScreen('#profile-post');
+    navigo.hideAllScreens();
+    navigo.showScreen('#profile-post');
 });
 
 router.on('hub-account-info', function () {
-    hideAllScreens();
-    showScreen('#hub-account-info');
+    navigo.hideAllScreens();
+    navigo.showScreen('#hub-account-info');
 });
 
 router.on('hub-account-settings', function () {
-    hideAllScreens();
-    showScreen('#hub-account-settings');
+    navigo.hideAllScreens();
+    navigo.showScreen('#hub-account-settings');
 });
 
 router.on('hub-group-invitations', function () {
-    hideAllScreens();
-    showScreen('#hub-group-invitations');
+    navigo.hideAllScreens();
+    navigo.showScreen('#hub-group-invitations');
 });
 
 router.on('hub-group-management', function () {
-    hideAllScreens();
-    showScreen('#hub-group-management');
+    navigo.hideAllScreens();
+    navigo.showScreen('#hub-group-management');
 });
 
 router.on('hub-profile-info', function () {
-    hideAllScreens();
-    showScreen('#hub-profile-info');
+    navigo.hideAllScreens();
+    navigo.showScreen('#hub-profile-info');
 });
 
 router.on('hub-profile-requests', function () {
-    hideAllScreens();
-    showScreen('#hub-profile-requests');
+    navigo.hideAllScreens();
+    navigo.showScreen('#hub-profile-requests');
 });
 
 router.on('hub-profile-messages', function () {
-    hideAllScreens();
-    showScreen('#hub-profile-messages');
+    navigo.hideAllScreens();
+    navigo.showScreen('#hub-profile-messages');
 });
 
 router.on('hub-profile-social', function () {
-    hideAllScreens();
-    showScreen('#hub-profile-social');
+    navigo.hideAllScreens();
+    navigo.showScreen('#hub-profile-social');
 });
 
 
 router.on('logged-out-and-icons', function () {
-    hideAllScreens();
-    showScreen('#logged-out-and-icons');
+    navigo.hideAllScreens();
+    navigo.showScreen('#logged-out-and-icons');
 });
 
 router.on('profile-timeline', function () {
-    hideAllScreens();
-    showScreen('#profile-timeline');
+    navigo.hideAllScreens();
+    navigo.showScreen('#profile-timeline');
 });
 
 
-
 /* /routes */
-
-
-//default route
-router.navigate('newsfeed');
