@@ -5,6 +5,9 @@ import Navigo from 'navigo';
 
 const router = new Navigo('/');
 
+router.notFound(function () {
+    console.log('not found');
+});
 
 const navigo = {
     hideAllScreens: () => {
@@ -19,143 +22,80 @@ const navigo = {
         }
         window.dispatchEvent(new Event('resize'));
     },
+    addRoute: (route, selector) => {
+        router.on(route, function () {
+            navigo.hideAllScreens();
+            if (selector !== undefined) {
+                navigo.showScreen(selector);
+            }
+            else navigo.showScreen('#' + route);
+        });
+    },
+    createAllRoutes: () => {
+        /* routes */
+        navigo.addRoute('/','newsfeed');
+        navigo.addRoute('newsfeed');
+        navigo.addRoute('groups');
+        navigo.addRoute('badges');
+        navigo.addRoute('members');
+        navigo.addRoute('events');
+        navigo.addRoute('quests');
+        navigo.addRoute('group-events');
+        navigo.addRoute('group-info');
+        navigo.addRoute('group-members');
+        navigo.addRoute('group-timeline');
+        navigo.addRoute('profile-about');
+        navigo.addRoute('profile-badges');
+        navigo.addRoute('profile-friends');
+        navigo.addRoute('profile-post');
+        navigo.addRoute('profile-timeline');
+        navigo.addRoute('hub-account-info');
+        navigo.addRoute('hub-account-settings');
+        navigo.addRoute('hub-group-invitations');
+        navigo.addRoute('hub-group-management');
+        navigo.addRoute('hub-profile-info');    
+        navigo.addRoute('hub-profile-requests');
+        navigo.addRoute('hub-profile-messages');
+        navigo.addRoute('hub-profile-social');
+        navigo.addRoute('hub-profile-settings');
+        navigo.addRoute('logged-out-and-icons');
+        console.log('createAllRoutes', router.routes); 
+    },
+    removeAllRoutes: () => {
+        router.off('/');
+        router.off('newsfeed');
+        router.off('groups');
+        router.off('badges');
+        router.off('members');
+        router.off('events');
+        router.off('quests');
+        router.off('group-events');
+        router.off('group-info');
+        router.off('group-members');
+        router.off('group-timeline');
+        router.off('profile-about');
+        router.off('profile-badges');
+        router.off('profile-friends');
+        router.off('profile-post');
+        router.off('profile-timeline');
+        router.off('hub-account-info');
+        router.off('hub-account-settings');
+        router.off('hub-group-invitations');
+        router.off('hub-group-management');
+        router.off('hub-profile-info');    
+        router.off('hub-profile-requests');
+        router.off('hub-profile-messages');
+        router.off('hub-profile-social');
+        router.off('hub-profile-settings');
+        router.off('logged-out-and-icons');
+    },
     home: () => {
-        // TODO: fix this
-        // let element = document.querySelectorAll("[href='newsfeed']")[0];
-        // let evt = new Event( 'click', { bubbles: true } );
-        // setTimeout(element.dispatchEvent(evt) , 1000);
-        // router.root = 'newsfeed';
-        // router.off('newsfeed').on('newsfeed', function () {
-        //     navigo.hideAllScreens();
-        //     navigo.showScreen('#newsfeed');
-        // });
-        // router.navigate('newsfeed');
+        router.resolve();
+        router.navigate('newsfeed');
     }
 
 }
-export default navigo;
-
 navigo.hideAllScreens();
 
-/* routes */
-router.on('newsfeed', function () {
-    navigo.hideAllScreens();
-    navigo.showScreen('#newsfeed');
-});
-router.on('groups', function () {
-    navigo.hideAllScreens();
-    navigo.showScreen('#groups');
-});
-router.on('badges', function () {
-    navigo.hideAllScreens();
-    navigo.showScreen('#badges');
-});
-
-router.on('members', function () {
-    navigo.hideAllScreens();
-    navigo.showScreen('#members');
-});
-
-router.on('events', function () {
-    navigo.hideAllScreens();
-    navigo.showScreen('#events');
-});
-
-router.on('quests', function () {
-    navigo.hideAllScreens();
-    navigo.showScreen('#quests');
-});
-
-router.on('group-events', function () {
-    navigo.hideAllScreens();
-    navigo.showScreen('#group-events');
-});
-
-router.on('group-info', function () {
-    navigo.hideAllScreens();
-    navigo.showScreen('#group-info');
-});
-
-router.on('group-members', function () {
-    navigo.hideAllScreens();
-    navigo.showScreen('#group-members');
-});
-
-router.on('group-timeline', function () {
-    navigo.hideAllScreens();
-    navigo.showScreen('#group-timeline');
-});
-
-router.on('profile-about', function () {
-    navigo.hideAllScreens();
-    navigo.showScreen('#profile-about');
-});
-
-router.on('profile-badges', function () {
-    navigo.hideAllScreens();
-    navigo.showScreen('#profile-badges');
-});
-
-router.on('profile-friends', function () {
-    navigo.hideAllScreens();
-    navigo.showScreen('#profile-friends');
-});
-
-router.on('profile-post', function () {
-    navigo.hideAllScreens();
-    navigo.showScreen('#profile-post');
-});
-
-router.on('hub-account-info', function () {
-    navigo.hideAllScreens();
-    navigo.showScreen('#hub-account-info');
-});
-
-router.on('hub-account-settings', function () {
-    navigo.hideAllScreens();
-    navigo.showScreen('#hub-account-settings');
-});
-
-router.on('hub-group-invitations', function () {
-    navigo.hideAllScreens();
-    navigo.showScreen('#hub-group-invitations');
-});
-
-router.on('hub-group-management', function () {
-    navigo.hideAllScreens();
-    navigo.showScreen('#hub-group-management');
-});
-
-router.on('hub-profile-info', function () {
-    navigo.hideAllScreens();
-    navigo.showScreen('#hub-profile-info');
-});
-
-router.on('hub-profile-requests', function () {
-    navigo.hideAllScreens();
-    navigo.showScreen('#hub-profile-requests');
-});
-
-router.on('hub-profile-messages', function () {
-    navigo.hideAllScreens();
-    navigo.showScreen('#hub-profile-messages');
-});
-
-router.on('hub-profile-social', function () {
-    navigo.hideAllScreens();
-    navigo.showScreen('#hub-profile-social');
-});
-
-
-router.on('logged-out-and-icons', function () {
-    navigo.hideAllScreens();
-    navigo.showScreen('#logged-out-and-icons');
-});
-
-router.on('profile-timeline', function () {
-    navigo.hideAllScreens();
-    navigo.showScreen('#profile-timeline');
-});
-
-
 /* /routes */
+export default navigo;

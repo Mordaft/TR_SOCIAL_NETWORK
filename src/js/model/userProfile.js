@@ -1,5 +1,6 @@
 const plugins = require('../utils/plugins');
 let mustache = require('mustache');
+let navigo = require('../utils/navigo');
 
 const userProfile = {
     connectedUser: null,
@@ -9,7 +10,6 @@ const userProfile = {
         if (storedConnectedUser) {
             userProfile.connectedUser = JSON.parse(storedConnectedUser);
             // console.log('userProfile init 1' , userProfile.connectedUser);
-            
         }
         else {
             userProfile.connectedUser = {
@@ -64,15 +64,18 @@ const userProfile = {
         return fetch('/mustache/user-profile.mst')
                 .then(response => response.text())
                     .then(template => {
-                        // console.log('userProfile render 1' , connectedUser);
+                        console.log('userProfile render 0');
+                        navigo.default.removeAllRoutes();
+                        console.log('userProfile render 1' , connectedUser);
                         let rendered = mustache.render(template, connectedUser);
-                        // console.log('userProfile render 2' , rendered);
+                        console.log('userProfile render 2' , rendered);
                         document.querySelector('#userProfileDropdownMenu').innerHTML = rendered;
-                        // console.log('userProfile render 3');
+                        console.log('userProfile render 3');
                         userProfile.renderButton();
-                        // console.log('userProfile render 4');
+                        console.log('userProfile render 4');
                         userProfile.createHexagons('#userProfileDropdownMenu');
-                        require('../utils/navigo');
+                        navigo.default.createAllRoutes();
+                        navigo.default.home();
                     })
                 .catch(error => {
                     console.error(error);

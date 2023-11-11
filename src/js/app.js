@@ -1,35 +1,5 @@
 const plugins = require('./utils/plugins');
 
-loadInitalComponents();
-window.addEventListener("load", function () {
-    const navigo = loadRoutes();
-    /*---------------
-        MULTILANGUAJE
-    ---------------*/
-    const i18ns = require('./utils/i18ns');
-    registerMenuEvents();
-    i18ns.loadTranslations().then(function () {
-        /*---------------
-            USER PROFILE
-        ---------------*/
-        const userProfile = require('./model/userProfile');        
-        
-
-        loadVisualComponents();
-        /*---------------
-            DEMO DATA   
-        ---------------*/
-        loadDemoData();
-        i18ns.refreshTraslations();
-
-        userProfile.init().then(function () {
-            navigo.default.home();
-        });
-
-        
-    });
-
-});
 
 function createProgressBars(selector) {
     let topElement = document.querySelector(selector);
@@ -92,9 +62,6 @@ function createQuestProgressBars(selector) {
         }
     });
 }
-
-
-
 
 function createMemberHexagons(selector) {
     let topElement = document.querySelector(selector);
@@ -218,7 +185,6 @@ function createPostsReactionsDropdowns(selector) {
         closeOnDropdownClick: true
       });
 }
-
 
 function createPostsHexagons(selector) {
     let topElement = document.querySelector(selector);
@@ -377,7 +343,6 @@ function markAllEquivalentMenus(hrefMenu) {
     });
 }
 
-
 function registerMenuEvents() {
     let menuItems = document.querySelectorAll(".menu-item-link");
     menuItems.forEach(function (item) {
@@ -390,11 +355,6 @@ function registerMenuEvents() {
             markAllEquivalentMenus(menuItemClicked.getAttribute('href'));
         });
     });
-}
-
-
-function loadRoutes() {
-    return require('./utils/navigo');
 }
 
 function loadVisualComponents() {
@@ -486,14 +446,33 @@ function loadVisualComponents() {
     
 }
 
-
 function registerServiceWorker() {
     navigator.serviceWorker.register(
         new URL('service-worker.js', import.meta.url),
         { type: 'module' }
     );
 }
+
 registerServiceWorker();
+loadInitalComponents();
+window.addEventListener("load", function () {
+    /*---------------
+        MULTILANGUAJE
+    ---------------*/
+    const i18ns = require('./utils/i18ns');
+    registerMenuEvents();
+    i18ns.loadTranslations().then(function () {
+        /*---------------
+            USER PROFILE
+        ---------------*/
+        const userProfile = require('./model/userProfile');        
+        userProfile.init().then(function () {
+            loadVisualComponents();
+            loadDemoData();   
+            i18ns.refreshTraslations();
+        });
 
+        
+    });
 
-
+});
