@@ -58,6 +58,10 @@
             "post": "Publicaciones",
             "friends": "Amigos",
             "visits": "Visitas"
+        },
+        "notify_messages":{
+            "friendship_request_success": "Solicitud de amistad enviada con éxito",
+            "friendship_request_error": "Error al enviar la solicitud de amistad"
         }
     },
     "cat": {

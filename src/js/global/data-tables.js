@@ -12,7 +12,7 @@ db.version(1).stores({
     badges: '&title, position',
     events: '&title, position',
     quests: '&title, relevant',
-    requests: '&[type+from+to], type, timestamp',         //resquest for friendship & request to join a group
+    requests: '&[type+from+to+timestamp], type, timestamp',         //resquest for friendship & request to join a group
     messages: '&[subject+from+to], subject, from, to, timestamp',
 });
 // Open the database

@@ -3,6 +3,9 @@ import { I18n, TranslateOptions } from "i18n-js";
 
 let t = new I18n();
 const i18n= {
+    getLiteral: function (key, options) {
+        return t.t(key, options);
+    },
     loadTranslations: async function (options) {
         t.locale = 'es';
         let translations = {};

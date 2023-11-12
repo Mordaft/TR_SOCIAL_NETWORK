@@ -7,6 +7,8 @@ let mustache = require('mustache');
 
 let noty = require('../global/notyf');
 
+let i18n = require('../utils/i18ns');
+
 const requests = {
     loadDemo: () => {
         return fetch('/demo/requests.json')
@@ -21,9 +23,9 @@ const requests = {
     },
     requestJoinToGroup: (request) => {
         dataTables.requests.putMembershipRequests(request).then(() => {
-            noty.suscess('Request join to team done!');
+            noty.suscess(i18n.getLiteral("notify_messages.friendship_request_success"));
         }).catch(error => {
-            noty.error('Request join error! {' + error + '}');
+            noty.error(i18n.t("notify_messages.friendship_request_success") + ' {' + error + '}');
         });        
     },
     requestFriendship: (request) => {
