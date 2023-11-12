@@ -3,7 +3,10 @@ let dataTables = require('../global/data-tables');
 // console.log(dataTables);
 let mustache = require('mustache');
 
+let requests = require('../model/requests');
+
 const members = {
+    connectedUser: require('../global/connected-user'),
     loadDemo: () => {
         return fetch('/demo/members.json')
             .then(response => response.json())
@@ -15,17 +18,34 @@ const members = {
                 console.error(error);
             });
     },
+    handleEvents: () => {
+        document.querySelectorAll('.button-friendship').forEach(function (element) {
+            element.addEventListener('click', function (event) {
+                let connectedUserRef = require('../global/connected-user').userProfile();
+                let userId = event.currentTarget.getAttribute('data-member');
+                let request = { 
+                    type: 'friendship',
+                    from: connectedUserRef.userProfile.uid,
+                    to: userId, 
+                    timestamp: Date.now()
+                };
+                console.log('Request Friendship clicked: ', request);
+                requests.requestFriendship(request);
+            });
+        });
+    },
     renderMembers: (selector) => {
         return dataTables.members.getAll()
             .then(data => {
                 return fetch('/mustache/members.mst')
                 .then(response => response.text())
                     .then(template => {
-                        let list = { memberList: data };
+                        let list = { memberList: data, connectedUser: members.connectedUser.userProfile()};
                         let rendered = mustache.render(template, list);
                         // console.info('Render', rendered);
                         let element = document.querySelector(selector);
                         element.innerHTML = rendered;
+                        members.handleEvents();
                     })
                     .catch(error => {
                         console.error(error);

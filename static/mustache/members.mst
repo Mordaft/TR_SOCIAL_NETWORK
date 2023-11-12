@@ -237,13 +237,15 @@
     
           <!-- USER PREVIEW ACTIONS -->
           <div class="user-preview-actions">
+            {{#connectedUser}}
             <!-- BUTTON -->
-            <p class="button secondary">Add Friend +</p>
+            <p class="button secondary button-friendship" data-member="member-{{id}}">Add Friend +</p>
             <!-- /BUTTON -->
     
             <!-- BUTTON -->
             <p class="button primary">Send Message</p>
             <!-- /BUTTON -->
+            {{/connectedUser}}
           </div>
           <!-- /USER PREVIEW ACTIONS -->
         </div>

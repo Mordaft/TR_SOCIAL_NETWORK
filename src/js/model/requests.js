@@ -29,7 +29,7 @@ const requests = {
         });        
     },
     requestFriendship: (request) => {
-        dataTables.requests.put(request).then(() => {
+        dataTables.requests.putFriendshipRequests(request).then(() => {
             noty.suscess(i18n.getLiteral('notify_messages.friendship_request_success'));
         }).catch(error => {
             noty.error(i18n.getLiteral('notify_messages.friendship_request_error') + ' {' + error + '}');
