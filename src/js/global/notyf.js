@@ -4,8 +4,7 @@ let noty = new Notyf(
         duration: 1500,
         position: {
         x: 'left',
-        y: 'down',
-        zIndex: 99999
+        y: 'down'
         },
         types: [
             {
@@ -56,28 +55,28 @@ let noty = new Notyf(
 
 const notif = {
     suscess: (message) => {
-        console.log('Notif suscess >>>>> ', message);
+        // console.log('Notif suscess >>>>> ', message);
         noty.open({
             type: 'suscess',
             message: message
         });
     },
     error: (message) => {
-        console.log('Notif error >>>>> ', message);
+        // console.log('Notif error >>>>> ', message);
         noty.open({
             type: 'error',
             message: message
         });
     },
     info: (message) => {
-        console.log('Notif info >>>>> ', message);
+        // console.log('Notif info >>>>> ', message);
         noty.open({
             type: 'info',
             message: message
         });
     },
     warn: (message) => {
-        console.log('Notif warm >>>>> ', message);
+        // console.log('Notif warm >>>>> ', message);
         noty.open({
             type: 'warning',
             message: message

@@ -60,6 +60,8 @@
             "visits": "Visitas"
         },
         "notify_messages":{
+            "membership_request_success": "Solicitud para unirse al grupo enviada con éxito",
+            "membership_request_error": "Error al enviar la solicitud para unirse al grupo",
             "friendship_request_success": "Solicitud de amistad enviada con éxito",
             "friendship_request_error": "Error al enviar la solicitud de amistad"
         }

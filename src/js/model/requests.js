@@ -23,16 +23,16 @@ const requests = {
     },
     requestJoinToGroup: (request) => {
         dataTables.requests.putMembershipRequests(request).then(() => {
-            noty.suscess(i18n.getLiteral("notify_messages.friendship_request_success"));
+            noty.suscess(i18n.getLiteral("notify_messages.membership_request_success"));
         }).catch(error => {
-            noty.error(i18n.t("notify_messages.friendship_request_success") + ' {' + error + '}');
+            noty.error(i18n.t("notify_messages.membership_request_success") + ' {' + error + '}');
         });        
     },
     requestFriendship: (request) => {
         dataTables.requests.put(request).then(() => {
-            noty.suscess('Request friendship done!');
+            noty.suscess(i18n.getLiteral('notify_messages.friendship_request_success'));
         }).catch(error => {
-            noty.error('Request friendship error! {' + error + '}');
+            noty.error(i18n.getLiteral('notify_messages.friendship_request_error') + ' {' + error + '}');
         });
     },
     renderRequests: (selector) => {
