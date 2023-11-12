@@ -37,6 +37,7 @@
     "jwt-decode": "^3.1.2",
     "mustache": "^4.2.0",
     "navigo": "^8.11.1",
+    "notyf": "^3.10.0",
     "simplebar": "^5.0.7",
     "timeago.js": "^4.0.2",
     "tiny-slider": "^2.9.2"

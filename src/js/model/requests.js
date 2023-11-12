@@ -5,6 +5,8 @@ let dataTables = require('../global/data-tables');
 // console.log(dataTables);
 let mustache = require('mustache');
 
+let noty = require('../global/notyf');
+
 const requests = {
     loadDemo: () => {
         return fetch('/demo/requests.json')
@@ -16,6 +18,20 @@ const requests = {
             .catch(error => {
                 console.error(error);
             });
+    },
+    requestJoinToGroup: (request) => {
+        dataTables.requests.putMembershipRequests(request).then(() => {
+            noty.suscess('Request join to team done!');
+        }).catch(error => {
+            noty.error('Request join error! {' + error + '}');
+        });        
+    },
+    requestFriendship: (request) => {
+        dataTables.requests.put(request).then(() => {
+            noty.suscess('Request friendship done!');
+        }).catch(error => {
+            noty.error('Request friendship error! {' + error + '}');
+        });
     },
     renderRequests: (selector) => {
         return dataTables.requests.getAll()

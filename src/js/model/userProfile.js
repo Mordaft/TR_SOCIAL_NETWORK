@@ -6,19 +6,8 @@ const userProfile = {
     connectedUser: null,
     init: async () => {
         console.log('userProfile init');
-        let storedConnectedUser = sessionStorage.getItem('connectedUser');
-        if (storedConnectedUser) {
-            userProfile.connectedUser = JSON.parse(storedConnectedUser);
-            // console.log('userProfile init 1' , userProfile.connectedUser);
-        }
-        else {
-            userProfile.connectedUser = {
-                userProfile: null
-            }
-            // console.log('userProfile init 2' , userProfile.connectedUser);
-        }
+        userProfile.connectedUser = require('../global/connected-user');
         userProfile.render(userProfile.connectedUser);
-
 
         console.log('userProfile initialize gsi');
         result = google.accounts.id.initialize({
@@ -64,15 +53,15 @@ const userProfile = {
         return fetch('/mustache/user-profile.mst')
                 .then(response => response.text())
                     .then(template => {
-                        console.log('userProfile render 0');
+                        // console.log('userProfile render 0');
                         navigo.default.removeAllRoutes();
-                        console.log('userProfile render 1' , connectedUser);
+                        // console.log('userProfile render 1' , connectedUser);
                         let rendered = mustache.render(template, connectedUser);
-                        console.log('userProfile render 2' , rendered);
+                        // console.log('userProfile render 2' , rendered);
                         document.querySelector('#userProfileDropdownMenu').innerHTML = rendered;
-                        console.log('userProfile render 3');
+                        // console.log('userProfile render 3');
                         userProfile.renderButton();
-                        console.log('userProfile render 4');
+                        // console.log('userProfile render 4');
                         userProfile.createHexagons('#userProfileDropdownMenu');
                         navigo.default.createAllRoutes();
                         navigo.default.home();
@@ -82,10 +71,11 @@ const userProfile = {
                 });
     },
     renderLogin: (googleUserProfile) => {
-        console.log('userProfile renderLogin');
+        console.log('userProfile renderLogin', googleUserProfile);
         if (googleUserProfile) {
             let connectedUser = {
                 userProfile: {
+                    uid: googleUserProfile.sub,
                     givenName: googleUserProfile.given_name,
                     familyName: googleUserProfile.family_name,
                     name: googleUserProfile.name,

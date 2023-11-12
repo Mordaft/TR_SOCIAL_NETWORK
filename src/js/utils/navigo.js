@@ -59,7 +59,7 @@ const navigo = {
         navigo.addRoute('hub-profile-social');
         navigo.addRoute('hub-profile-settings');
         navigo.addRoute('logged-out-and-icons');
-        console.log('createAllRoutes', router.routes); 
+        // console.log('createAllRoutes', router.routes); 
     },
     removeAllRoutes: () => {
         router.off('/');
