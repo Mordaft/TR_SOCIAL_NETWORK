@@ -42,7 +42,7 @@
             <!-- /USER SHORT DESCRIPTION AVATAR -->
       
             <!-- USER SHORT DESCRIPTION TITLE -->
-            <p class="user-short-description-title"><a href="group-timeline" data-navigo>{{title}}</a></p>
+            <p class="user-short-description-title"><a href="group-timeline" data-navigo>{{name}}</a></p>
             <!-- /USER SHORT DESCRIPTION TITLE -->
       
             <!-- USER SHORT DESCRIPTION TEXT -->
