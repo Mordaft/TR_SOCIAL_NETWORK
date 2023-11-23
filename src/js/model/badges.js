@@ -28,9 +28,7 @@ const badges = {
                         // console.info('Render', rendered);
                         let element = document.querySelector(selector);
                         element.innerHTML = rendered;
-                        // element.querySelectorAll('.progress-stat-bar').forEach((badge) => {
-                            
-                        // }
+                        badges.createProgressBars(selector);
                     })
                     .catch(error => {
                         console.error(error);
@@ -40,8 +38,35 @@ const badges = {
                 console.error(error);
             });
     },
-    renderProgressBars: (selector) => {
-
-    }    
-}
+    createProgressBars: (selector) => {
+        let topElement = document.querySelector(selector);
+        // console.log("createProgressBars 1", topElement);
+        topElement.querySelectorAll('.progress-stat').forEach(function (parentElement) {;
+            // console.log("createProgressBars 2", parentElement);
+            let element = parentElement.querySelector('.din-progress-stat-bar');
+            if (element != null) {
+                // console.log("createProgressBars 3", element);
+                plugins.createProgressBar({
+                    container: '#' + element.id,
+                    height: 4,
+                    lineColor: '#293249'
+                });
+                
+                plugins.createProgressBar({
+                    container: '#' + element.id,
+                    height: 4,
+                    gradient: {
+                    colors: ['#40d04f', '#d9ff65']
+                    },
+                    scale: {
+                    start: 0,
+                    end: 100,
+                    stop: element.getAttribute('data-progress-bar')
+                    },
+                    animateOnScroll: true
+                });
+            }
+        });
+    }
+    }
 module.exports = badges;

@@ -1,4 +1,6 @@
 let app = require('../utils/core');
+const plugins = require('../utils/plugins');
+
 let dataTables = require('../global/data-tables');
 // console.log(dataTables);
 let mustache = require('mustache');
@@ -46,6 +48,7 @@ const groups = {
                         // console.info('renderGroups', rendered);
                         let element = document.querySelector(selector);
                         element.innerHTML = rendered;
+                        groups.createGroupHexagons(selector);
                         groups.handleEvents();
                     })
                     .catch(error => {
