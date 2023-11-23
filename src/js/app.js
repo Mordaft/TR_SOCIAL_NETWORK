@@ -153,8 +153,8 @@ function loadVisualComponents() {
     /*---------------
         CONTENT 
     ---------------*/
-    require('./content/content.progressBar');
     require('./content/content.slider');
+    require('./content/content.progressBar');
     require('./content/content.dropdown');
     require('./content/content.tab');
 

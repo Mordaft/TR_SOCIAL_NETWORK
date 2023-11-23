@@ -44,11 +44,12 @@ const navigo = {
         navigo.addRoute('group-info');
         navigo.addRoute('group-members');
         navigo.addRoute('group-timeline');
-        navigo.addRoute('profile-about');
-        navigo.addRoute('profile-badges');
-        navigo.addRoute('profile-friends');
-        navigo.addRoute('profile-post');
-        navigo.addRoute('profile-timeline');
+        //PAGES NOT YET FULLY IMPLEMENTED
+        //navigo.addRoute('profile-about');
+        //navigo.addRoute('profile-badges');
+        //navigo.addRoute('profile-friends');
+        //navigo.addRoute('profile-post');
+        //navigo.addRoute('profile-timeline');
         navigo.addRoute('hub-account-info');
         navigo.addRoute('hub-account-settings');
         navigo.addRoute('hub-group-invitations');
@@ -73,11 +74,12 @@ const navigo = {
         router.off('group-info');
         router.off('group-members');
         router.off('group-timeline');
-        router.off('profile-about');
-        router.off('profile-badges');
-        router.off('profile-friends');
-        router.off('profile-post');
-        router.off('profile-timeline');
+        //PAGES NOT YET FULLY IMPLEMENTED
+        //router.off('profile-about');
+        //router.off('profile-badges');
+        //router.off('profile-friends');
+        //router.off('profile-post');
+        //router.off('profile-timeline');
         router.off('hub-account-info');
         router.off('hub-account-settings');
         router.off('hub-group-invitations');

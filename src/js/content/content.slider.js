@@ -3,6 +3,7 @@ const plugins = require('../utils/plugins');
 /*---------------------
     PROFILE HEADER 
 ---------------------*/
+
 plugins.createSlider({
   container: '#profile-header-social-links-slider',
   items: 4,
