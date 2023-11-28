@@ -17,15 +17,15 @@ const messages = {
                 console.error(error);
             });
     },
-    renderMessages: (selector) => {
+    renderAllMessages: (selector) => {
         return dataTables.messages.getAll()
             .then(data => {
-                return fetch('/mustache/messages.mst')
+                return fetch('/mustache/allMessages.mst')
                 .then(response => response.text())
                     .then(template => {
                         let list = { messageList: data };
                         let rendered = mustache.render(template, list);
-                        // console.info('Render', rendered);
+                        // console.info('renderAllMessages', rendered);
                         let element = document.querySelector(selector);
                         element.innerHTML = rendered;
                     })
@@ -37,5 +37,26 @@ const messages = {
                 console.error(error);
             });
     }, 
+    renderLastMessages: (selector) => {
+        return dataTables.messages.getLast()
+            .then(data => {
+                return fetch('/mustache/lastMessages.mst')
+                .then(response => response.text())
+                    .then(template => {
+                        let list = { messageList: data };
+                        let rendered = mustache.render(template, list);
+                        // console.info('renderLastMessages', rendered);
+                        let element = document.querySelector(selector);
+                        element.innerHTML = rendered;
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }, 
+
 }
 module.exports = messages;

@@ -13,7 +13,7 @@
                     <!-- USER AVATAR CONTENT -->
                     <div id="userProfile-content" class="user-avatar-content">
                     <!-- HEXAGON -->
-                    <div class="hexagon-image-30-32" data-src="{{userProfile.picture}}"></div>
+                    <div class="hexagon-image-30-32 avatarPicture" data-src="{{userProfile.picture}}"></div>
                     <!-- /HEXAGON -->
                     </div>
                     <!-- /USER AVATAR CONTENT -->

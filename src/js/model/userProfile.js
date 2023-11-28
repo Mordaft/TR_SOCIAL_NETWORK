@@ -49,7 +49,7 @@ const userProfile = {
     },
 
     render: (connectedUser) => {
-        console.log('userProfile render');
+        console.log('userProfile render', connectedUser);
         return fetch('/mustache/user-profile.mst')
                 .then(response => response.text())
                     .then(template => {
@@ -61,8 +61,15 @@ const userProfile = {
                         document.querySelector('#userProfileDropdownMenu').innerHTML = rendered;
                         // console.log('userProfile render 3');
                         userProfile.renderButton();
-                        // console.log('userProfile render 4');
-                        userProfile.createHexagons('#userProfileDropdownMenu');
+                        console.log('userProfile render 4');
+                        userProfile.refreshAvatarPicture(connectedUser);
+                        console.log('userProfile render 5');
+                        userProfile.createHexagonsUserProfile('#userProfileDropdownMenu');
+                        console.log('userProfile render 6');
+                        userProfile.createHexagonsUserProfile('#navigation-widget-small');
+                        console.log('userProfile render 7');
+                        userProfile.createHexagonsUserProfile('#navigation-widget-mobile');
+                        // console.log('userProfile render 6');
                         navigo.default.createAllRoutes();
                         navigo.default.home();
                     })
@@ -71,9 +78,9 @@ const userProfile = {
                 });
     },
     renderLogin: (googleUserProfile) => {
-        console.log('userProfile renderLogin', googleUserProfile);
+        // console.log('userProfile renderLogin', googleUserProfile);
         if (googleUserProfile) {
-            let connectedUser = {
+            userProfile.connectedUser = {
                 userProfile: {
                     uid: googleUserProfile.sub,
                     givenName: googleUserProfile.given_name,
@@ -83,19 +90,30 @@ const userProfile = {
                     picture: googleUserProfile.picture
                 }
             };
-            sessionStorage.setItem('connectedUser', JSON.stringify(connectedUser));
+            sessionStorage.setItem('connectedUser', JSON.stringify(userProfile.connectedUser));
+            userProfile.connectedUser = require('../global/connected-user');
             // console.log('userProfile renderLogin', connectedUser);
-            userProfile.render(connectedUser);
+            userProfile.render(userProfile.connectedUser);
         }
         
     },
-
-    createHexagons: (selector) => {
+    refreshAvatarPicture: (connectedUser) => {
+        console.log('userProfile refreshAvatarPicture', connectedUser);
+        let user = connectedUser.userProfile();
+        if (user) {
+            document.querySelectorAll('.avatarPicture').forEach(function (element) {
+                console.log('refreshAvatarPicture', user.userProfile.picture);
+                element.setAttribute('data-src', user.userProfile.picture);
+                console.log('refreshAvatarPicture', element);
+            });
+        }
+    },
+    createHexagonsUserProfile: (selector) => {
         let topElement = document.querySelector(selector);
-        // console.log("createHexagons 1", topElement);
+        console.log("createHexagons 1", selector, topElement);
         topElement.querySelectorAll('.user-avatar').forEach(function (parentElement) {;
             if (parentElement != null) {
-                // console.log("createHexagons 2", parentElement, '#' + parentElement.getAttribute('id') + '-border');
+                console.log("createHexagons 2", selector, parentElement, '#' + parentElement.getAttribute('id') + '-border');
                 // let element = parentElement.querySelector('#' + parentElement.getAttribute('id') + '-border div');
                 // console.log("createHexagons 3", element);
                 plugins.createHexagon({

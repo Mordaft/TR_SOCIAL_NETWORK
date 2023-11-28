@@ -1,0 +1,32 @@
+[
+    {"conversationWith":"Bearded Wonder", "from":"Bearded Wonder","messageBody":"Hello","messageTime":"26/11/2023 09:18:12"},
+    {"conversationWith":"Bearded Wonder", "from":"me", "messageBody":"Ey!","messageTime":"26/11/2023 09:19:13"},
+    {"conversationWith":"Bearded Wonder", "from":"Bearded Wonder","messageBody":"How are you?","messageTime":"26/11/2023 09:20:14"},
+    {"conversationWith":"Bearded Wonder", "from":"me", "messageBody":"Fine, thanks!","messageTime":"26/11/2023 09:21:15"},
+    {"conversationWith":"Bearded Wonder", "from":"Bearded Wonder","messageBody":"Good to hear!","messageTime":"26/11/2023 09:22:16"},
+    {"conversationWith":"Bearded Wonder", "from":"me", "messageBody":"How are you?","messageTime":"26/11/2023 09:23:17"},
+    {"conversationWith":"Bearded Wonder", "from":"Bearded Wonder","messageBody":"I'm fine too, thanks!","messageTime":"26/11/2023 09:24:18"},
+    {"conversationWith":"Bearded Wonder", "from":"me", "messageBody":"Good to hear!","messageTime":"26/11/2023 09:25:19"},
+    {"conversationWith":"Bearded Wonder", "from":"Bearded Wonder","messageBody":"Good to hear!","messageTime":"26/11/2023 09:26:20"},
+
+    {"conversationWith":"Nick Grissom", "from":"Nick Grissom","messageBody":"Hello","messageTime":"25/11/2023 09:18:12"},
+    {"conversationWith":"Nick Grissom", "from":"me", "messageBody":"Ey!","messageTime":"25/11/2023 09:19:13"},
+    {"conversationWith":"Nick Grissom", "from":"Nick Grissom","messageBody":"How are you?","messageTime":"25/11/2023 09:20:14"},
+    {"conversationWith":"Nick Grissom", "from":"me", "messageBody":"Fine, thanks!","messageTime":"25/11/2023 09:21:15"},
+    {"conversationWith":"Nick Grissom", "from":"Nick Grissom","messageBody":"Good to hear!","messageTime":"25/11/2023 09:22:16"},
+    {"conversationWith":"Nick Grissom", "from":"me", "messageBody":"How are you?","messageTime":"25/11/2023 09:23:17"},
+    {"conversationWith":"Nick Grissom", "from":"Nick Grissom","messageBody":"I'm fine too, thanks!","messageTime":"25/11/2023 09:24:18"},
+    {"conversationWith":"Nick Grissom", "from":"me", "messageBody":"Good to hear!","messageTime":"25/11/2023 09:25:19"},
+    {"conversationWith":"Nick Grissom", "from":"Nick Grissom","messageBody":"Good to hear!","messageTime":"25/11/2023 09:26:20"},
+
+    {"conversationWith":"Neko Bebop", "from":"Neko Bebop","messageBody":"Hello","messageTime":"25/11/2023 09:18:12"},
+    {"conversationWith":"Neko Bebop", "from":"me", "messageBody":"Ey!","messageTime":"25/11/2023 09:19:13"},
+    {"conversationWith":"Neko Bebop", "from":"Neko Bebop","messageBody":"How are you?","messageTime":"25/11/2023 09:20:14"},
+    {"conversationWith":"Neko Bebop", "from":"me", "messageBody":"Fine, thanks!","messageTime":"25/11/2023 09:21:15"},
+    {"conversationWith":"Neko Bebop", "from":"Neko Bebop","messageBody":"Good to hear!","messageTime":"25/11/2023 09:22:16"},
+    {"conversationWith":"Neko Bebop", "from":"me", "messageBody":"How are you?","messageTime":"25/11/2023 09:23:17"},
+    {"conversationWith":"Neko Bebop", "from":"Neko Bebop","messageBody":"I'm fine too, thanks!","messageTime":"25/11/2023 09:24:18"},
+    {"conversationWith":"Neko Bebop", "from":"me", "messageBody":"Good to hear!","messageTime":"25/11/2023 09:25:19"},
+    {"conversationWith":"Neko Bebop", "from":"Neko Bebop","messageBody":"Good to hear!","messageTime":"25/11/2023 09:26:20"}
+
+]

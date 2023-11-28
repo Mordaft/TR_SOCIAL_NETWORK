@@ -1,81 +1,106 @@
 // Import Dexie.js library
 import Dexie from 'dexie';
+// Import Dexie Cloud library
+import dexieCloud from "dexie-cloud-addon";
 
-const MEMBERSHIP = 'membership';
+const PARTNERSHIP = 'partnership';
 const FRIENDSHIP = 'friendship';
 
-let db = new Dexie('socialNetworkDB');
+let db = new Dexie('socialNetworkDB', {addons: [dexieCloud]});
 db.version(1).stores({
-    members: 'name, &full_name',
+    partners: 'name, &full_name',
     groups: '&name',
     posts: '&[author+created], author, timestamp',
     badges: '&title, position',
     events: '&title, position',
     quests: '&title, relevant',
-    requests: '&[type+from+to+timestamp], type, timestamp',         //resquest for friendship & request to join a group
-    messages: '&[subject+from+to], subject, from, to, timestamp',
+    requests: '&[type+from+to+timestamp], type, timestamp',         //resquest for friendship & request to join a group (partnership)
+    messages: '&[conversationWith+from+messageTime], conversationWith', //conversation with a member
 });
+
+
+// Connect your dexie-cloud database:
+db.cloud.configure({
+    databaseUrl: "https://zww3rotfy.dexie.cloud",
+    requireAuth: true
+});
+
+
 // Open the database
 db.open();
 
 // Define the database
 const dataTables = {
     // Define functions to query list and individual elements for each table
-    members : {
-        getAll: () => db.members.toArray(),
-        getByFullname: (fullName) => db.members.where('full_name').equals(fullName).first(),
-        getByName: (name) => db.members.where('name').equals(name).first(),
-        put: (member) => db.members.put(member),
-        putAll: (members) => db.members.bulkPut(members)
+    partners: {
+        getAll: () => db.partners.toArray(),
+        getByFullname: (fullName) => db.partners.where('full_name').equals(fullName).first(),
+        getByName: (name) => db.partners.where('name').equals(name).first(),
+        put: (partner) => db.partners.put(partner),
+        putAll: (partners) => db.partners.bulkPut(partners)
     },
 
-    groups : {
+    groups: {
         getAll: () => db.groups.toArray(),
         getByName: (name) => db.groups.where('name').equals(name).first(),
         put: (group) => db.groups.put(group),
         putAll: (groups) => db.groups.bulkPut(groups)
     },
 
-    posts : {
+    posts: {
         getAll: () => db.posts.toCollection().sortBy("created"),
         getByAuthor: (author) => db.posts.where('author').equals(userId).first(),
         put: (post) => db.posts.put(post),
         putAll: (posts) => db.posts.bulkPut(posts)
     },
 
-    badges : {
+    badges: {
         getAll: () => db.badges.toCollection().sortBy("position"),
-        getByTitle:  (title) => db.badges.where('title').equals(title).first(),
+        getByTitle: (title) => db.badges.where('title').equals(title).first(),
         put: (badge) => db.badges.put(badge),
         putAll: (badges) => db.badges.bulkPut(badges)
     },
-    
-    events : {
+
+    events: {
         getAll: () => db.events.toCollection().sortBy("position"),
-        getByTitle:  (title) => db.events.where('title').equals(title).first(),
+        getByTitle: (title) => db.events.where('title').equals(title).first(),
         put: (event) => db.events.put(event),
         putAll: (events) => db.events.bulkPut(events)
     },
 
-    quests : {
+    quests: {
         getAll: () => db.quests.toCollection().sortBy("position"),
         getRelevant: () => db.quests.where('relevant').equals(1).toArray(),
-        getByTitle:  (title) => db.quests.where('title').equals(title).first(),
+        getByTitle: (title) => db.quests.where('title').equals(title).first(),
         put: (quest) => db.quests.put(quest),
         putAll: (quests) => db.quests.bulkPut(quests)
     },
-    
-    requests : {
-        getMembershipRequests:  () => db.requests.where('type').equals(MEMBERSHIP).toArray(),
-        getFriendshipRequests:  () => db.requests.where('type').equals(FRIENDSHIP).toArray(),
+
+    requests: {
+        getMembershipRequests: () => db.requests.where('type').equals(PARTNERSHIP).toArray(),
+        getFriendshipRequests: () => db.requests.where('type').equals(FRIENDSHIP).toArray(),
         putMembershipRequests: (request) => db.requests.put(request),
         putFriendshipRequests: (request) => db.requests.put(request),
         putAllRequest: (requests) => db.events.bulkPut(requests)
     },
-
-    messages : {
+    messages: {
         getAll: () => db.messages.toArray(),
-        getBySender: (sender) => db.messages.where('from').equals(sender).first(),
+        getLast: () => {
+            let list = [];
+            let keys = db.messages.distinct('conversationWith');
+            keys.array.forEach(key => {
+                db.messages.where('conversationWith')
+                    .equals(key)
+                    .sortBy("messageTime")
+                    .reverse()
+                    .first().then(message => {
+                        list.push(message);
+                    });
+
+            });
+            return list;
+        },
+        getByConversationWith: (conversationWith) => db.messages.where('conversationWith').equals(conversationWith).toArray(),
         put: (message) => db.messages.put(message),
         putAll: (messages) => db.messages.bulkPut(messages)
     }
@@ -84,4 +109,4 @@ const dataTables = {
 }
 
 module.exports = dataTables;
-export {FRIENDSHIP, MEMBERSHIP};
+export { FRIENDSHIP, PARTNERSHIP as MEMBERSHIP };
