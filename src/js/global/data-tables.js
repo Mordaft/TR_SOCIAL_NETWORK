@@ -22,7 +22,7 @@ db.version(1).stores({
 // Connect your dexie-cloud database:
 db.cloud.configure({
     databaseUrl: "https://zww3rotfy.dexie.cloud",
-    customLoginGui: true
+    requireAuth: true
 });
 
 
