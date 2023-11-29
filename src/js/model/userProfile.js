@@ -1,6 +1,8 @@
 const plugins = require('../utils/plugins');
 let mustache = require('mustache');
 let navigo = require('../utils/navigo');
+let db = require('../global/data-tables').getBD();
+
 
 const userProfile = {
     connectedUser: null,
@@ -14,9 +16,9 @@ const userProfile = {
             client_id: '314457533021-j53t1aohehhl443p39el6ng1blv2ann3.apps.googleusercontent.com',
             callback: userProfile.callback
         });
+        userProfile.customLoginGui();
         // console.log('initialize gsi', result);
     },
-
     renderButton: () => {
         console.log('gsi render');
         google.accounts.id.renderButton(
@@ -24,13 +26,20 @@ const userProfile = {
             { theme: "filled_black", size: "small", shape: "pill", text: "signin_with", width: "164", height: "42", onsuccess: userProfile.onSuccess, onfailure: userProfile.onFailure }
         );
     },
+    renderForm: () => {
+        google.accounts.id.prompt();        
+    },
 
     callback: (response) => {
         console.log('gsi callback');
         // console.log('Callback response', response);
         let responsePayload = userProfile.parseJwt(response.credential);
+        
         userProfile.renderLogin(responsePayload);
+        console.log(DXCEmailPrompt);
+        DXCEmailPrompt.onSubmit({email: responsePayload.email});
         // console.log('gsi callback payLoad', responsePayload);
+
     },
     onSuccess: (response) => {
         console.log('GSI onSuccess', response);
@@ -61,13 +70,13 @@ const userProfile = {
                         document.querySelector('#userProfileDropdownMenu').innerHTML = rendered;
                         // console.log('userProfile render 3');
                         userProfile.renderButton();
-                        console.log('userProfile render 4');
+                        // console.log('userProfile render 4');
                         userProfile.refreshAvatarPicture(connectedUser);
-                        console.log('userProfile render 5');
+                        // console.log('userProfile render 5');
                         userProfile.createHexagonsUserProfile('#userProfileDropdownMenu');
-                        console.log('userProfile render 6');
+                        // console.log('userProfile render 6');
                         userProfile.createHexagonsUserProfile('#navigation-widget-small');
-                        console.log('userProfile render 7');
+                        // console.log('userProfile render 7');
                         userProfile.createHexagonsUserProfile('#navigation-widget-mobile');
                         // console.log('userProfile render 6');
                         navigo.default.createAllRoutes();

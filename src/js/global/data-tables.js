@@ -22,7 +22,7 @@ db.version(1).stores({
 // Connect your dexie-cloud database:
 db.cloud.configure({
     databaseUrl: "https://zww3rotfy.dexie.cloud",
-    requireAuth: true
+    customLoginGui: true
 });
 
 
@@ -31,6 +31,7 @@ db.open();
 
 // Define the database
 const dataTables = {
+    getBD: () => db ,
     // Define functions to query list and individual elements for each table
     partners: {
         getAll: () => db.partners.toArray(),

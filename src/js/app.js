@@ -41,8 +41,8 @@ function loadDemoData() {
         });
     });
 
-    const members = require('./model/members');
-    members.loadDemo().then(function () {
+    const partners = require('./model/partners');
+    partners.loadDemo().then(function () {
         members.renderMembers("#member-list").then(function () {
             console.info('Members rendered');
         });

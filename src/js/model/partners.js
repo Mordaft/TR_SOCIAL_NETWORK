@@ -4,16 +4,16 @@ let dataTables = require('../global/data-tables');
 // console.log(dataTables);
 let mustache = require('mustache');
 
-let requests = require('../model/requests');
+let requests = require('./requests');
 
-const members = {
+const partners = {
     connectedUser: require('../global/connected-user'),
     loadDemo: () => {
         return fetch('/demo/members.json')
             .then(response => response.json())
             .then(data => {
                 // console.info('Members demo data loaded', data);
-                return dataTables.members.putAll(data);
+                return dataTables.partners.putAll(data);
             })
             .catch(error => {
                 console.error(error);
@@ -36,18 +36,18 @@ const members = {
         });
     },
     renderMembers: (selector) => {
-        return dataTables.members.getAll()
+        return dataTables.partners.getAll()
             .then(data => {
                 return fetch('/mustache/members.mst')
                 .then(response => response.text())
                     .then(template => {
-                        let list = { memberList: data, connectedUser: members.connectedUser.userProfile()};
+                        let list = { memberList: data, connectedUser: partners.connectedUser.userProfile()};
                         let rendered = mustache.render(template, list);
                         // console.info('Render', rendered);
                         let element = document.querySelector(selector);
                         element.innerHTML = rendered;
-                        members.createMemberHexagons(selector);
-                        members.handleEvents();
+                        partners.createMemberHexagons(selector);
+                        partners.handleEvents();
                     })
                     .catch(error => {
                         console.error(error);
@@ -130,4 +130,4 @@ const members = {
         });    
     }    
 }
-module.exports = members;
+module.exports = partners;
