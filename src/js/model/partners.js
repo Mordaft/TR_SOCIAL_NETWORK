@@ -23,7 +23,7 @@ const partners = {
         document.querySelectorAll('.button-friendship').forEach(function (element) {
             element.addEventListener('click', function (event) {
                 let connectedUserRef = require('../global/connected-user').userProfile();
-                let userId = event.currentTarget.getAttribute('data-member');
+                let userId = event.currentTarget.getAttribute('data-partner');
                 let request = { 
                     type: 'friendship',
                     from: connectedUserRef.userProfile.uid,
@@ -35,15 +35,15 @@ const partners = {
             });
         });
     },
-    renderMembers: (selector) => {
+    renderPartners: (selector) => {
         return dataTables.partners.getAll()
             .then(data => {
-                return fetch('/mustache/members.mst')
+                return fetch('/mustache/partners.mst')
                 .then(response => response.text())
                     .then(template => {
-                        let list = { memberList: data, connectedUser: partners.connectedUser.userProfile()};
+                        let list = { partnerList: data, connectedUser: partners.connectedUser.userProfile()};
                         let rendered = mustache.render(template, list);
-                        // console.info('Render', rendered);
+                        console.info('Render', rendered, selector);
                         let element = document.querySelector(selector);
                         element.innerHTML = rendered;
                         partners.createMemberHexagons(selector);

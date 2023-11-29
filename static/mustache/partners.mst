@@ -1,4 +1,4 @@
-      {{#memberList}}
+      {{#partnerList}}
       <!-- USER PREVIEW -->
       <div class="user-preview">
         <!-- USER PREVIEW COVER -->
@@ -12,9 +12,9 @@
           <!-- USER SHORT DESCRIPTION -->
           <div class="user-short-description">
           <!-- USER SHORT DESCRIPTION AVATAR -->
-            <a id="member-{{id}}" class="user-short-description-avatar user-avatar medium" href="profile-timeline" data-navigo>
+            <a id="partner-{{id}}" class="user-short-description-avatar user-avatar medium" href="profile-timeline" data-navigo>
               <!-- USER AVATAR BORDER -->
-              <div id="member-{{id}}-border" class="user-avatar-border">
+              <div id="partner-{{id}}-border" class="user-avatar-border">
                 <!-- HEXAGON -->
                 <div class="hexagon-120-132"></div>
                 <!-- /HEXAGON -->
@@ -22,7 +22,7 @@
               <!-- /USER AVATAR BORDER -->
           
               <!-- USER AVATAR CONTENT -->
-              <div id="member-{{id}}-content" class="user-avatar-content">
+              <div id="partner-{{id}}-content" class="user-avatar-content">
                 <!-- HEXAGON -->
                 <div class="hexagon-image-82-90" data-src="{{image}}"></div>
                 <!-- /HEXAGON -->
@@ -30,7 +30,7 @@
               <!-- /USER AVATAR CONTENT -->
           
               <!-- USER AVATAR PROGRESS -->
-              <div id="member-{{id}}-progress" class="user-avatar-progress">
+              <div id="partner-{{id}}-progress" class="user-avatar-progress">
                 <!-- HEXAGON -->
                 <div class="hexagon-progress-100-110"></div>
                 <!-- /HEXAGON -->
@@ -38,7 +38,7 @@
               <!-- /USER AVATAR PROGRESS -->
           
               <!-- USER AVATAR PROGRESS BORDER -->
-              <div id="member-{{id}}-progress-border" class="user-avatar-progress-border">
+              <div id="partner-{{id}}-progress-border" class="user-avatar-progress-border">
                 <!-- HEXAGON -->
                 <div class="hexagon-border-100-110"></div>
                 <!-- /HEXAGON -->
@@ -48,7 +48,7 @@
               <!-- USER AVATAR BADGE -->
               <div class="user-avatar-badge">
                 <!-- USER AVATAR BADGE BORDER -->
-                <div id="member-{{id}}-badge-border" class="user-avatar-badge-border">
+                <div id="partner-{{id}}-badge-border" class="user-avatar-badge-border">
                   <!-- HEXAGON -->
                   <div class="hexagon-32-36"></div>
                   <!-- /HEXAGON -->
@@ -56,7 +56,7 @@
                 <!-- /USER AVATAR BADGE BORDER -->
           
                 <!-- USER AVATAR BADGE CONTENT -->
-                <div id="member-{{id}}-badge-content" class="user-avatar-badge-content">
+                <div id="partner-{{id}}-badge-content" class="user-avatar-badge-content">
                   <!-- HEXAGON -->
                   <div class="hexagon-dark-26-28"></div>
                   <!-- /HEXAGON -->
@@ -239,7 +239,7 @@
           <div class="user-preview-actions">
             {{#connectedUser}}
             <!-- BUTTON -->
-            <p class="button secondary button-friendship" data-member="member-{{id}}">Add Friend +</p>
+            <p class="button secondary button-friendship" data-partner="partner-{{id}}">Add Friend +</p>
             <!-- /BUTTON -->
     
             <!-- BUTTON -->
@@ -252,4 +252,4 @@
         <!-- /USER PREVIEW INFO -->
       </div>
       <!-- /USER PREVIEW -->
-      {{/memberList}}
+      {{/partnerList}}

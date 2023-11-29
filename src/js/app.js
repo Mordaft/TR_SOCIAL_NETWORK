@@ -43,8 +43,8 @@ function loadDemoData() {
 
     const partners = require('./model/partners');
     partners.loadDemo().then(function () {
-        members.renderMembers("#member-list").then(function () {
-            console.info('Members rendered');
+        partners.renderPartners("#partners-list").then(function () {
+            console.info('Partners rendered');
         });
     });
 

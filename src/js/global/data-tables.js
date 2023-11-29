@@ -15,7 +15,7 @@ db.version(1).stores({
     events: '&title, position',
     quests: '&title, relevant',
     requests: '&[type+from+to+timestamp], type, timestamp',         //resquest for friendship & request to join a group (partnership)
-    messages: '&[conversationWith+from+messageTime], conversationWith', //conversation with a member
+    messages: '&[conversationWith+from+messageTime], conversationWith', //conversation with a partner
 });
 
 

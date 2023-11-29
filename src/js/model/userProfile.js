@@ -16,7 +16,6 @@ const userProfile = {
             client_id: '314457533021-j53t1aohehhl443p39el6ng1blv2ann3.apps.googleusercontent.com',
             callback: userProfile.callback
         });
-        userProfile.customLoginGui();
         // console.log('initialize gsi', result);
     },
     renderButton: () => {
