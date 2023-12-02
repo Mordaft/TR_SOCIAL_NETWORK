@@ -9,7 +9,7 @@ let requests = require('./requests');
 const partners = {
     connectedUser: require('../global/connected-user'),
     loadDemo: () => {
-        return fetch('/demo/members.json')
+        return fetch('/demo/partners.json')
             .then(response => response.json())
             .then(data => {
                 // console.info('Members demo data loaded', data);
@@ -30,7 +30,7 @@ const partners = {
                     to: userId, 
                     timestamp: Date.now()
                 };
-                console.log('Request Friendship clicked: ', request);
+                // console.log('Request Friendship clicked: ', request);
                 requests.requestFriendship(request);
             });
         });
@@ -43,7 +43,7 @@ const partners = {
                     .then(template => {
                         let list = { partnerList: data, connectedUser: partners.connectedUser.userProfile()};
                         let rendered = mustache.render(template, list);
-                        console.info('Render', rendered, selector);
+                        // console.info('Render', rendered, selector);
                         let element = document.querySelector(selector);
                         element.innerHTML = rendered;
                         partners.createMemberHexagons(selector);

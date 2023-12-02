@@ -1,8 +1,10 @@
+
+import Identicon from 'identicon.js';
 const plugins = require('../utils/plugins');
 let mustache = require('mustache');
 let navigo = require('../utils/navigo');
 let db = require('../global/data-tables').getBD();
-
+const getUuid = require('uuid-by-string');
 
 const userProfile = {
     connectedUser: null,
@@ -10,54 +12,24 @@ const userProfile = {
         console.log('userProfile init');
         userProfile.connectedUser = require('../global/connected-user');
         userProfile.render(userProfile.connectedUser);
-
-        console.log('userProfile initialize gsi');
-        result = google.accounts.id.initialize({
-            client_id: '314457533021-j53t1aohehhl443p39el6ng1blv2ann3.apps.googleusercontent.com',
-            callback: userProfile.callback
-        });
-        // console.log('initialize gsi', result);
     },
-    renderButton: () => {
-        console.log('gsi render');
-        google.accounts.id.renderButton(
-            document.getElementById("gsiButtonDiv"),
-            { theme: "filled_black", size: "small", shape: "pill", text: "signin_with", width: "164", height: "42", onsuccess: userProfile.onSuccess, onfailure: userProfile.onFailure }
-        );
-    },
-    renderForm: () => {
-        google.accounts.id.prompt();        
-    },
-
-    callback: (response) => {
-        console.log('gsi callback');
-        // console.log('Callback response', response);
-        let responsePayload = userProfile.parseJwt(response.credential);
-        
-        userProfile.renderLogin(responsePayload);
-        console.log(DXCEmailPrompt);
-        DXCEmailPrompt.onSubmit({email: responsePayload.email});
-        // console.log('gsi callback payLoad', responsePayload);
+    renderComponents: () => {
+        // console.log('userProfile render 5');
+        userProfile.createHexagonsUserProfile('#userProfileNavigationWidget');
+        // console.log('userProfile render 5');
+        userProfile.createHexagonsUserProfile('#userProfileDropdownMenu');
+        // console.log('userProfile render 6');
+        userProfile.createHexagonsUserProfile('#navigation-widget-small');
+        // console.log('userProfile render 7');
+        userProfile.createHexagonsUserProfile('#navigation-widget-mobile');
+        // console.log('userProfile render 6');
+        if (userProfile.connectedUser != null) {
+            userProfile.refreshAvatarPicture(userProfile.connectedUser);
+        }
 
     },
-    onSuccess: (response) => {
-        console.log('GSI onSuccess', response);
-    },
-    onFailure: (response) => {
-        console.log('GSI onFailure', response);
-    },
-    parseJwt: (token) => {
-        console.log('gsi parseJwt');
-        var base64Url = token.split('.')[1];
-        var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-        var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
-            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-        }).join(''));
-        return JSON.parse(jsonPayload);
-    },
-
     render: (connectedUser) => {
-        console.log('userProfile render', connectedUser);
+        // console.log('userProfile render');
         return fetch('/mustache/user-profile.mst')
                 .then(response => response.text())
                     .then(template => {
@@ -68,60 +40,77 @@ const userProfile = {
                         // console.log('userProfile render 2' , rendered);
                         document.querySelector('#userProfileDropdownMenu').innerHTML = rendered;
                         // console.log('userProfile render 3');
-                        userProfile.renderButton();
-                        // console.log('userProfile render 4');
-                        userProfile.refreshAvatarPicture(connectedUser);
-                        // console.log('userProfile render 5');
-                        userProfile.createHexagonsUserProfile('#userProfileDropdownMenu');
-                        // console.log('userProfile render 6');
-                        userProfile.createHexagonsUserProfile('#navigation-widget-small');
-                        // console.log('userProfile render 7');
-                        userProfile.createHexagonsUserProfile('#navigation-widget-mobile');
-                        // console.log('userProfile render 6');
+                        userProfile.renderLogin();
                         navigo.default.createAllRoutes();
+                        userProfile.createEventsHandlers();
                         navigo.default.home();
+                        setInterval(async function () {
+                            await db.cloud.sync();
+                        }, 60*1000);
                     })
                 .catch(error => {
                     console.error(error);
                 });
     },
-    renderLogin: (googleUserProfile) => {
-        // console.log('userProfile renderLogin', googleUserProfile);
-        if (googleUserProfile) {
+    renderLogin: async () => {           
+        await db.cloud.sync();
+        let current =db.cloud.currentUser._value;
+        if (current != undefined && current.userId != "unauthorized"){
+            console.log('userProfile render', current);
+
+            let uuid = getUuid(current.email);
+            let identicon = new Identicon(uuid.toString(), 64).toString();
             userProfile.connectedUser = {
                 userProfile: {
-                    uid: googleUserProfile.sub,
-                    givenName: googleUserProfile.given_name,
-                    familyName: googleUserProfile.family_name,
-                    name: googleUserProfile.name,
-                    email: googleUserProfile.email,
-                    picture: googleUserProfile.picture
+                    uid: current.userId,
+                    name: current.name,
+                    email: current.email,
+                    picture: identicon
                 }
             };
             sessionStorage.setItem('connectedUser', JSON.stringify(userProfile.connectedUser));
-            userProfile.connectedUser = require('../global/connected-user');
-            // console.log('userProfile renderLogin', connectedUser);
-            userProfile.render(userProfile.connectedUser);
         }
-        
+        userProfile.connectedUser = require('../global/connected-user');
+        // console.log('userProfile renderComponents', userProfile.connectedUser);
+        userProfile.renderComponents();    
     },
     refreshAvatarPicture: (connectedUser) => {
-        console.log('userProfile refreshAvatarPicture', connectedUser);
+        // console.log('userProfile refreshAvatarPicture', connectedUser);
+        if (connectedUser == null) {
+            return;
+        }
         let user = connectedUser.userProfile();
         if (user) {
-            document.querySelectorAll('.avatarPicture').forEach(function (element) {
-                console.log('refreshAvatarPicture', user.userProfile.picture);
-                element.setAttribute('data-src', user.userProfile.picture);
-                console.log('refreshAvatarPicture', element);
-            });
+
+            let userImage = new Image();
+            userImage.src = "data:image/png;base64,"+ user.userProfile.picture ;    
+            userImage.addEventListener("load", function () {
+                // console.log('userProfile refreshAvatarPicture load image');
+                document.querySelectorAll('.avatarPicture').forEach(function (element) {
+                    canvas = element.children[0];
+                    if (canvas == undefined) {
+                        canvas = document.createElement('canvas');
+                        element.appendChild(canvas);
+                    }
+                    let ctx = canvas.getContext('2d');
+                    var t = Math.max(canvas.width, canvas.height),
+                        i = (Math.abs(canvas.width - canvas.height), canvas.width < canvas.height ? (canvas.width - canvas.height) / 2 : 0),
+                        e = canvas.height < canvas.width ? (canvas.height - canvas.width) / 2 : 0;
+                    ctx.drawImage(userImage, i, e, t, t);
+                    
+                });
+            });    
+            
+            
+            // console.log('userProfile refreshAvatarPicture data-src =', "data:image/png;base64,"+ user.userProfile.picture);
         }
     },
     createHexagonsUserProfile: (selector) => {
         let topElement = document.querySelector(selector);
-        console.log("createHexagons 1", selector, topElement);
+        // console.log("createHexagons 1", selector, topElement);
         topElement.querySelectorAll('.user-avatar').forEach(function (parentElement) {;
             if (parentElement != null) {
-                console.log("createHexagons 2", selector, parentElement, '#' + parentElement.getAttribute('id') + '-border');
+                // console.log("createHexagons 2", selector, parentElement, '#' + parentElement.getAttribute('id') + '-border');
                 // let element = parentElement.querySelector('#' + parentElement.getAttribute('id') + '-border div');
                 // console.log("createHexagons 3", element);
                 plugins.createHexagon({
@@ -188,8 +177,38 @@ const userProfile = {
             }        
               
         });    
+    },
+    createEventsHandlers: () => {
+        buttonLogout = document.querySelector("#logoutButton");
+        console.log('createEventsHandlers' , buttonLogout);
+        if (buttonLogout) {
+            buttonLogout.addEventListener('click', async function (event) {
+                event.preventDefault();
+                console.log('logout clicked');
+                await  db.cloud.logout();
+                db.cloud.logout().then(() => {
+                    console.log('logout done');
+                    sessionStorage.removeItem('connectedUser');
+                    userProfile.connectedUser = null;
+                    userProfile.init();
+                });
+            });
+        }
+        buttonLogin = document.querySelector("#loginButton");
+        console.log('createEventsHandlers' , buttonLogin);
+        if (buttonLogin) {
+            buttonLogin.addEventListener('click', async function (event) {
+                event.preventDefault();
+                console.log('logout clicked');
+                await  db.cloud.login();
+                db.cloud.login().then(() => {
+                    userProfile.init();
+                });
+            });
+        }
+
     }
-    
+
 
 
 }

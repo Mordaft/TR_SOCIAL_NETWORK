@@ -1,0 +1,24 @@
+meta {
+  name: Users - Get
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://zww3rotfy.dexie.cloud/users?sort=userId&limit=5
+  body: json
+  auth: none
+}
+
+query {
+  sort: userId
+  limit: 5
+}
+
+assert {
+  res.status: eq 200
+}
+
+script:pre-request {
+  req.setHeader( "Authorization", "Bearer " + bru.getVar("accessToken"));
+}

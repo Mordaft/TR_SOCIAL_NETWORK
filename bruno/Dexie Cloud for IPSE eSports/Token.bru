@@ -1,0 +1,33 @@
+meta {
+  name: Token
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://zww3rotfy.dexie.cloud/token
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "grant_type": "client_credentials",
+    "scopes": ["IMPERSONATE" , "GLOBAL_READ" , "GLOBAL_WRITE" ,"ACCESS_DB"],
+    "client_id": "d0bjmcm9f34j2apt",
+    "client_secret": "wHdde1s8qfdv/oEDMjPCT4a16DGtR9917T60cbv2O1U=",
+    "claims": {
+      "sub": "alvaro.cabezas.morera@gmail.com",
+      "email": "alvaro.cabezas.morera@gmail.com",
+      "name": "Alvaro Cabezas Morera"
+    }
+  }
+}
+
+assert {
+  res.status: eq 200
+}
+
+script:post-response {
+    bru.setVar("accessToken", res.body.accessToken);
+}

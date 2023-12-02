@@ -1,0 +1,26 @@
+meta {
+  name: Draft - NOT FOR USE
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://zww3rotfy.dexie.cloud/token
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "grant_type": "client_credentials",
+    "scopes": ["ACCESS_DB" | "IMPERSONATE" | "MANAGE_DB" |  "GLOBAL_READ" | "GLOBAL_WRITE" | "DELETE_DB"],
+    "client_id": "<your client ID>",
+    "client_secret": "<your client secret>",
+    "public_key": "<public key>" (if a refresh token is needed),
+    "claims": {
+      "sub": "<userid>",
+      "email": "<email>",
+      "name": "<name of user to authenticate>"
+    }
+  }
+}

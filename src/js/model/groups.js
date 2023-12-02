@@ -31,7 +31,7 @@ const groups = {
                     to: groupId, 
                     timestamp: Date.now()
                 };
-                console.log('Request Membership clicked: ', request);
+                // console.log('Request Membership clicked: ', request);
                 requests.requestJoinToGroup(request);
             });
         });

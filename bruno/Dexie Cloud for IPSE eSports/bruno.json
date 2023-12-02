@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "Dexie Cloud for IPSE eSports",
+  "type": "collection",
+  "presets": {
+    "requestType": "http",
+    "requestUrl": "https://zww3rotfy.dexie.cloud"
+  }
+}

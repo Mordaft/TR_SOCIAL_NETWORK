@@ -1,0 +1,26 @@
+meta {
+  name: Re-Token
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://zww3rotfy.dexie.cloud/token
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "grant_type": "client_credentials",
+    "scopes": ["IMPERSONATE"],
+    "client_id": "d0bjmcm9f34j2apt",
+    "client_secret": "wHdde1s8qfdv/oEDMjPCT4a16DGtR9917T60cbv2O1U=",
+    "public_key": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMDIwODExNTU2MDEwMDM4MDc0NDAiLCJlbWFpbCI6ImFsdmFyby5jYWJlemFzLm1vcmVyYUBnbWFpbC5jb20iLCJuYW1lIjoiQWx2YXJvIENhYmV6YXMgTW9yZXJhIiwic2NvcGVzIjpbIklNUEVSU09OQVRFIl0sInVzZXJUeXBlIjoicHJvZCIsImxpY2Vuc2UiOiJvayIsInJsIjoicHJvZCIsImlhdCI6MTcwMTUwMzA5NiwibmJmIjoxNzAxNTAyNzk2LCJleHAiOjE3MDE1MDY2OTYsImF1ZCI6WyJodHRwczovL3p3dzNyb3RmeS5kZXhpZS5jbG91ZCIsInp3dzNyb3RmeSJdLCJpc3MiOiJodHRwczovL2RleGllLmNsb3VkIn0.w_pdI7ljAlZsCMs_YwwZhF03IoKe5ZFdVLy36xNmiyQ",
+    "claims": {
+      "sub": "102081155601003807440",
+      "email": "alvaro.cabezas.morera@gmail.com",
+      "name": "Alvaro Cabezas Morera"
+    }
+  }
+}

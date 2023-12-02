@@ -1,0 +1,40 @@
+meta {
+  name: Users - Create
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://zww3rotfy.dexie.cloud/users
+  body: json
+  auth: none
+}
+
+body:json {
+  [
+    {
+      "userId": "javier.cabezas.fortuny@gmail.com",
+      "type": "eval",
+      "evalDaysLeft": 30,
+      "data": {
+        "email": "javier.cabezas.fortuny@gmail.com"
+      }
+    },
+      {
+      "userId": "ignasic13@gmail.com",
+      "type": "eval",
+      "evalDaysLeft": 30,
+      "data": {
+        "email": "ignasic13@gmail.com"
+      }
+    }
+  ]
+}
+
+assert {
+  res.status: eq 200
+}
+
+script:pre-request {
+  req.setHeader( "Authorization", "Bearer " + bru.getVar("accessToken"));
+}

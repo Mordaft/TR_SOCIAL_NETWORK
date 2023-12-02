@@ -1,233 +1,214 @@
-<!-- DROPDOWN NAVIGATION -->
-<div class="dropdown-navigation header-settings-dropdown">
-    <!-- DROPDOWN NAVIGATION HEADER -->
-    
-    <div class="dropdown-navigation-header">
-        {{#userProfile}}
-            <!-- USER STATUS -->
-            <div class="user-status">
-                <!-- USER STATUS AVATAR -->
-                <a class="user-status-avatar" href="profile-timeline" data-navigo>
-                <!-- USER AVATAR -->
-                <div id="userProfile" class="user-avatar small no-outline">
-                    <!-- USER AVATAR CONTENT -->
-                    <div id="userProfile-content" class="user-avatar-content">
-                    <!-- HEXAGON -->
-                    <div class="hexagon-image-30-32 avatarPicture" data-src="{{userProfile.picture}}"></div>
-                    <!-- /HEXAGON -->
-                    </div>
-                    <!-- /USER AVATAR CONTENT -->
-                
-                    <!-- USER AVATAR PROGRESS -->
-                    <div id="userProfile-progress" class="user-avatar-progress">
-                    <!-- HEXAGON -->
-                    <div class="hexagon-progress-40-44"></div>
-                    <!-- /HEXAGON -->
-                    </div>
-                    <!-- /USER AVATAR PROGRESS -->
-                
-                    <!-- USER AVATAR PROGRESS BORDER -->
-                    <div id="userProfile-progress-border" class="user-avatar-progress-border">
-                    <!-- HEXAGON -->
-                    <div class="hexagon-border-40-44"></div>
-                    <!-- /HEXAGON -->
-                    </div>
-                    <!-- /USER AVATAR PROGRESS BORDER -->
-                
-                    <!-- USER AVATAR BADGE -->
-                    <div id="userProfile-badge" class="user-avatar-badge">
-                    <!-- USER AVATAR BADGE BORDER -->
-                    <div class="user-avatar-badge-border">
-                        <!-- HEXAGON -->
-                        <div class="hexagon-22-24"></div>
-                        <!-- /HEXAGON -->
-                    </div>
-                    <!-- /USER AVATAR BADGE BORDER -->
-                
-                    <!-- USER AVATAR BADGE CONTENT -->
-                    <div id="userProfile-progress-badge-content" class="user-avatar-badge-content">
-                        <!-- HEXAGON -->
-                        <div class="hexagon-dark-16-18"></div>
-                        <!-- /HEXAGON -->
-                    </div>
-                    <!-- /USER AVATAR BADGE CONTENT -->
-                
-                    <!-- USER AVATAR BADGE TEXT -->
-                    <p class="user-avatar-badge-text"></p>
-                    <!-- /USER AVATAR BADGE TEXT -->
-                    </div>
-                    <!-- /USER AVATAR BADGE -->
-                </div>
-                <!-- /USER AVATAR -->
-                </a>
-                <!-- /USER STATUS AVATAR -->
-            
-                <!-- USER STATUS TITLE -->
-                <p class="user-status-title"><span class="bold">Hi {{userProfile.givenName}}!</span></p>
-                <!-- /USER STATUS TITLE -->
-            
-                <!-- USER STATUS TEXT -->
-                <p class="user-status-text small"></p>
-                <!-- /USER STATUS TEXT -->
-            </div>
-            <!-- /USER STATUS -->
-        {{/userProfile}}
-        {{^userProfile}}
-            <!-- USER STATUS -->
-            <div class="user-status">
-                <!-- USER STATUS AVATAR -->
-                <a class="user-status-avatar" href="profile-timeline" data-navigo>
-                <!-- USER AVATAR -->
-                <div id="userProfile" class="user-avatar small no-outline">
-                    <!-- USER AVATAR CONTENT -->
-                    <div id="userProfile-content" class="user-avatar-content">
-                    <!-- HEXAGON -->
-                    <div class="hexagon-image-30-32" data-src="img/avatar/17.jpg"></div>
-                    <!-- /HEXAGON -->
-                    </div>
-                    <!-- /USER AVATAR CONTENT -->
-                
-                    <!-- USER AVATAR PROGRESS -->
-                    <div id="userProfile-progress" class="user-avatar-progress">
-                    <!-- HEXAGON -->
-                    <div class="hexagon-progress-40-44"></div>
-                    <!-- /HEXAGON -->
-                    </div>
-                    <!-- /USER AVATAR PROGRESS -->
-                
-                    <!-- USER AVATAR PROGRESS BORDER -->
-                    <div id="userProfile-progress-border" class="user-avatar-progress-border">
-                    <!-- HEXAGON -->
-                    <div class="hexagon-border-40-44"></div>
-                    <!-- /HEXAGON -->
-                    </div>
-                    <!-- /USER AVATAR PROGRESS BORDER -->
-                
-                    <!-- USER AVATAR BADGE -->
-                    <div id="userProfile-badge" class="user-avatar-badge">
-                    <!-- USER AVATAR BADGE BORDER -->
-                    <div id="userProfile-badge-border" class="user-avatar-badge-border">
-                        <!-- HEXAGON -->
-                        <div class="hexagon-22-24"></div>
-                        <!-- /HEXAGON -->
-                    </div>
-                    <!-- /USER AVATAR BADGE BORDER -->
-                
-                    <!-- USER AVATAR BADGE CONTENT -->
-                    <div id="userProfile-badge-content" class="user-avatar-badge-content">
-                        <!-- HEXAGON -->
-                        <div class="hexagon-dark-16-18"></div>
-                        <!-- /HEXAGON -->
-                    </div>
-                    <!-- /USER AVATAR BADGE CONTENT -->
-                
-                    <!-- USER AVATAR BADGE TEXT -->
-                    <p class="user-avatar-badge-text"></p>
-                    <!-- /USER AVATAR BADGE TEXT -->
-                    </div>
-                    <!-- /USER AVATAR BADGE -->
-                </div>
-                <!-- /USER AVATAR -->
-                </a>
-                <!-- /USER STATUS AVATAR -->
-            
-                <!-- USER STATUS TITLE -->
-                <p class="user-status-title"><span class="bold">Hi Guess!</span></p>
-                <!-- /USER STATUS TITLE -->
-            
-                <!-- USER STATUS TEXT -->
-                <p class="user-status-text small"><a href="profile-timeline" data-navigo></a></p>
-                <!-- /USER STATUS TEXT -->
-            </div>
-            <!-- /USER STATUS -->
-        {{/userProfile}}
-    </div>
-
+<!-- DROPDOWN NAVIGATION HEADER -->    
+<div class="dropdown-navigation-header">
     {{#userProfile}}
-        <!-- /DROPDOWN NAVIGATION HEADER -->
-
-        <!-- DROPDOWN NAVIGATION CATEGORY -->
-        <p class="dropdown-navigation-category" data-i18n="menus.my_profile">My Profile</p>
-        <!-- /DROPDOWN NAVIGATION CATEGORY -->
-
-        <!-- DROPDOWN NAVIGATION LINK -->
-        <a class="dropdown-navigation-link" href="hub-profile-info" data-navigo>
-        <span data-i18n="menus.profile_info">Profile Info</span>
-        </a>
-        <!-- /DROPDOWN NAVIGATION LINK -->
-
-        <!-- DROPDOWN NAVIGATION LINK -->
-        <a class="dropdown-navigation-link" href="hub-profile-messages" data-navigo>
-        <span data-i18n="menus.profile_messages">Messages</span>
-        </a>
-        <!-- /DROPDOWN NAVIGATION LINK -->
-
-        <!-- DROPDOWN NAVIGATION LINK -->
-        <a class="dropdown-navigation-link" href="hub-profile-requests" data-navigo>
-        <span data-i18n="menus.profile_friend_requests">Friend Requests</span>
-        </a>
-        <!-- /DROPDOWN NAVIGATION LINK -->
-
-        <!-- DROPDOWN NAVIGATION CATEGORY -->
-        <p class="dropdown-navigation-category" data-i18n="menus.account_settings">
-        <span data-i18n="menus.account_settings">Account</span>
-        </p>
-        <!-- /DROPDOWN NAVIGATION CATEGORY -->
-
-        <!-- DROPDOWN NAVIGATION LINK -->
-        <a class="dropdown-navigation-link" href="hub-account-info" data-navigo>
-        <span data-i18n="menus.account_info">Account Info</span>
-        </a>
-        <!-- /DROPDOWN NAVIGATION LINK -->
+        <!-- USER STATUS -->
+        <div class="user-status">
+            <!-- USER STATUS AVATAR -->
+            <a class="user-status-avatar" href="profile-timeline" data-navigo>
+            <!-- USER AVATAR -->
+            <div id="userProfile" class="user-avatar small no-outline">
+                <!-- USER AVATAR CONTENT -->
+                <div id="userProfile-content" class="user-avatar-content">
+                <!-- HEXAGON -->
+                <div class="hexagon-image-30-32 avatarPicture"></div>
+                <!-- /HEXAGON -->
+                </div>
+                <!-- /USER AVATAR CONTENT -->
+            
+                <!-- USER AVATAR PROGRESS -->
+                <div id="userProfile-progress" class="user-avatar-progress">
+                <!-- HEXAGON -->
+                <div class="hexagon-progress-40-44"></div>
+                <!-- /HEXAGON -->
+                </div>
+                <!-- /USER AVATAR PROGRESS -->
+            
+                <!-- USER AVATAR PROGRESS BORDER -->
+                <div id="userProfile-progress-border" class="user-avatar-progress-border">
+                <!-- HEXAGON -->
+                <div class="hexagon-border-40-44"></div>
+                <!-- /HEXAGON -->
+                </div>
+                <!-- /USER AVATAR PROGRESS BORDER -->
+            
+                <!-- USER AVATAR BADGE -->
+                <div id="userProfile-badge" class="user-avatar-badge">
+                <!-- USER AVATAR BADGE BORDER -->
+                <div class="user-avatar-badge-border">
+                    <!-- HEXAGON -->
+                    <div class="hexagon-22-24"></div>
+                    <!-- /HEXAGON -->
+                </div>
+                <!-- /USER AVATAR BADGE BORDER -->
+            
+                <!-- USER AVATAR BADGE CONTENT -->
+                <div id="userProfile-progress-badge-content" class="user-avatar-badge-content">
+                    <!-- HEXAGON -->
+                    <div class="hexagon-dark-16-18"></div>
+                    <!-- /HEXAGON -->
+                </div>
+                <!-- /USER AVATAR BADGE CONTENT -->
+            
+                <!-- USER AVATAR BADGE TEXT -->
+                <p class="user-avatar-badge-text"></p>
+                <!-- /USER AVATAR BADGE TEXT -->
+                </div>
+                <!-- /USER AVATAR BADGE -->
+            </div>
+            <!-- /USER AVATAR -->
+            </a>
+            <!-- /USER STATUS AVATAR -->
         
-        <!-- DROPDOWN NAVIGATION LINK -->
-        <a class="dropdown-navigation-link" href="hub-account-settings" data-navigo>
-        <span data-i18n="menus.account_general_settings">General Settings</span>
-        </a>
-        <!-- /DROPDOWN NAVIGATION LINK -->
-
-        <!-- DROPDOWN NAVIGATION CATEGORY -->
-        <p class="dropdown-navigation-category" data-i18n="menus.groups_settings">Groups</p>
-        <!-- /DROPDOWN NAVIGATION CATEGORY -->
-
-        <!-- DROPDOWN NAVIGATION LINK -->
-        <a class="dropdown-navigation-link" href="hub-group-management" data-navigo>
-        <span data-i18n="menus.groups_manage">Manage Groups</span>
-        </a>
-        <!-- /DROPDOWN NAVIGATION LINK -->
-
-        <!-- DROPDOWN NAVIGATION LINK -->
-        <a class="dropdown-navigation-link" href="hub-group-invitations" data-navigo>
-        <span data-i18n="menus.groups_invitations">Invitations</span>
-        </a>
-        <!-- /DROPDOWN NAVIGATION LINK -->
-    {{/userProfile}}
-
-    {{^userProfile}}
-        <!-- DROPDOWN NAVIGATION CATEGORY -->
-        <p class="dropdown-navigation-category" data-i18n="menus.user_access">USER ACCESS</p>
-        <!-- /DROPDOWN NAVIGATION CATEGORY -->
-
-        <!-- GOOGLE SING IN -->
-        <!-- <div id="g_id_onload"
-            data-client_id="314457533021-j53t1aohehhl443p39el6ng1blv2ann3.apps.googleusercontent.com"
-            data-context="signin"
-            data-ux_mode="popup"
-            data-nonce=""
-            data-auto_prompt="false">
-        </div> -->
-        <div id="gsiButtonDiv" class="g_id_signin"
-            data-type="standard"
-            data-shape="rectangular"
-            data-theme="outline"
-            data-text="continue_with"
-            data-size="small"
-            data-width="164"
-            data-height="40"
-            data-logo_alignment="left">
+            <!-- USER STATUS TITLE -->
+            <p class="user-status-title"><span class="bold">Hi {{userProfile.givenName}}!</span></p>
+            <!-- /USER STATUS TITLE -->
+        
+            <!-- USER STATUS TEXT -->
+            <p class="user-status-text small"></p>
+            <!-- /USER STATUS TEXT -->
         </div>
-        <!-- /GOOGLE SING IN -->
+        <!-- /USER STATUS -->
     {{/userProfile}}
-
+    {{^userProfile}}
+        <!-- USER STATUS -->
+        <div class="user-status">
+            <!-- USER STATUS AVATAR -->
+            <a class="user-status-avatar" href="profile-timeline" data-navigo>
+            <!-- USER AVATAR -->
+            <div id="userProfile" class="user-avatar small no-outline">
+                <!-- USER AVATAR CONTENT -->
+                <div id="userProfile-content " class="user-avatar-content">
+                    <!-- HEXAGON -->
+                    <div class="hexagon-image-30-32 avatarPicture" data-src="/17.jpg"></div>
+                    <!-- /HEXAGON -->
+                </div>
+                <!-- /USER AVATAR CONTENT -->
+            
+                <!-- USER AVATAR PROGRESS -->
+                <div id="userProfile-progress" class="user-avatar-progress">
+                <!-- HEXAGON -->
+                <div class="hexagon-progress-40-44"></div>
+                <!-- /HEXAGON -->
+                </div>
+                <!-- /USER AVATAR PROGRESS -->
+            
+                <!-- USER AVATAR PROGRESS BORDER -->
+                <div id="userProfile-progress-border" class="user-avatar-progress-border">
+                <!-- HEXAGON -->
+                <div class="hexagon-border-40-44"></div>
+                <!-- /HEXAGON -->
+                </div>
+                <!-- /USER AVATAR PROGRESS BORDER -->
+            
+                <!-- USER AVATAR BADGE -->
+                <div id="userProfile-badge" class="user-avatar-badge">
+                <!-- USER AVATAR BADGE BORDER -->
+                <div id="userProfile-badge-border" class="user-avatar-badge-border">
+                    <!-- HEXAGON -->
+                    <div class="hexagon-22-24"></div>
+                    <!-- /HEXAGON -->
+                </div>
+                <!-- /USER AVATAR BADGE BORDER -->
+            
+                <!-- USER AVATAR BADGE CONTENT -->
+                <div id="userProfile-badge-content" class="user-avatar-badge-content">
+                    <!-- HEXAGON -->
+                    <div class="hexagon-dark-16-18"></div>
+                    <!-- /HEXAGON -->
+                </div>
+                <!-- /USER AVATAR BADGE CONTENT -->
+            
+                <!-- USER AVATAR BADGE TEXT -->
+                <p class="user-avatar-badge-text"></p>
+                <!-- /USER AVATAR BADGE TEXT -->
+                </div>
+                <!-- /USER AVATAR BADGE -->
+            </div>
+            <!-- /USER AVATAR -->
+            </a>
+            <!-- /USER STATUS AVATAR -->
+        
+            <!-- USER STATUS TITLE -->
+            <p class="user-status-title"><span class="bold">Hi Guess!</span></p>
+            <!-- /USER STATUS TITLE -->
+        
+            <!-- USER STATUS TEXT -->
+            <p class="user-status-text small"><a href="profile-timeline" data-navigo></a></p>
+            <!-- /USER STATUS TEXT -->
+        </div>
+        <!-- /USER STATUS -->
+    {{/userProfile}}
 </div>
-<!-- /DROPDOWN NAVIGATION -->
+
+{{#userProfile}}
+    <!-- /DROPDOWN NAVIGATION HEADER -->
+
+    <!-- DROPDOWN NAVIGATION CATEGORY -->
+    <p class="dropdown-navigation-category" data-i18n="menus.my_profile">My Profile</p>
+    <!-- /DROPDOWN NAVIGATION CATEGORY -->
+
+    <!-- DROPDOWN NAVIGATION LINK -->
+    <a class="dropdown-navigation-link" href="hub-profile-info" data-navigo>
+    <span data-i18n="menus.profile_info">Profile Info</span>
+    </a>
+    <!-- /DROPDOWN NAVIGATION LINK -->
+
+    <!-- DROPDOWN NAVIGATION LINK -->
+    <a class="dropdown-navigation-link" href="hub-profile-messages" data-navigo>
+    <span data-i18n="menus.profile_messages">Messages</span>
+    </a>
+    <!-- /DROPDOWN NAVIGATION LINK -->
+
+    <!-- DROPDOWN NAVIGATION LINK -->
+    <a class="dropdown-navigation-link" href="hub-profile-requests" data-navigo>
+    <span data-i18n="menus.profile_friend_requests">Friend Requests</span>
+    </a>
+    <!-- /DROPDOWN NAVIGATION LINK -->
+
+    <!-- DROPDOWN NAVIGATION CATEGORY -->
+    <p class="dropdown-navigation-category" data-i18n="menus.account_settings">
+    <span data-i18n="menus.account_settings">Account</span>
+    </p>
+    <!-- /DROPDOWN NAVIGATION CATEGORY -->
+
+    <!-- DROPDOWN NAVIGATION LINK -->
+    <a class="dropdown-navigation-link" href="hub-account-info" data-navigo>
+    <span data-i18n="menus.account_info">Account Info</span>
+    </a>
+    <!-- /DROPDOWN NAVIGATION LINK -->
+    
+    <!-- DROPDOWN NAVIGATION LINK -->
+    <a class="dropdown-navigation-link" href="hub-account-settings" data-navigo>
+    <span data-i18n="menus.account_general_settings">General Settings</span>
+    </a>
+    <!-- /DROPDOWN NAVIGATION LINK -->
+
+    <!-- DROPDOWN NAVIGATION CATEGORY -->
+    <p class="dropdown-navigation-category" data-i18n="menus.groups_settings">Groups</p>
+    <!-- /DROPDOWN NAVIGATION CATEGORY -->
+
+    <!-- DROPDOWN NAVIGATION LINK -->
+    <a class="dropdown-navigation-link" href="hub-group-management" data-navigo>
+    <span data-i18n="menus.groups_manage">Manage Groups</span>
+    </a>
+    <!-- /DROPDOWN NAVIGATION LINK -->
+
+    <!-- DROPDOWN NAVIGATION LINK -->
+    <a class="dropdown-navigation-link" href="hub-group-invitations" data-navigo>
+    <span data-i18n="menus.groups_invitations">Invitations</span>
+    </a>
+    <!-- /DROPDOWN NAVIGATION LINK -->
+    <!-- DROPDOWN NAVIGATION BUTTON -->
+    <button id="logoutButton" class="dropdown-navigation-button button small secondary">Logout</button>
+    <!-- /DROPDOWN NAVIGATION BUTTON -->
+{{/userProfile}}
+
+{{^userProfile}}
+    <!-- DROPDOWN NAVIGATION CATEGORY -->
+    <p class="dropdown-navigation-category" data-i18n="menus.user_access">USER ACCESS</p>
+    <!-- /DROPDOWN NAVIGATION CATEGORY -->
+    <!-- DROPDOWN NAVIGATION BUTTON -->
+    <button id="loginButton" class="dropdown-navigation-button button small primary">Login</button>
+    <!-- /DROPDOWN NAVIGATION BUTTON -->  
+{{/userProfile}}
+
