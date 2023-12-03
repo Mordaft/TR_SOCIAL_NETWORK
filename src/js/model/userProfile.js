@@ -3,7 +3,8 @@ import Identicon from 'identicon.js';
 const plugins = require('../utils/plugins');
 let mustache = require('mustache');
 let navigo = require('../utils/navigo');
-let db = require('../global/data-tables').getBD();
+let dataTables = require('../global/data-tables');
+let db = dataTables.getBD();
 const getUuid = require('uuid-by-string');
 
 const userProfile = {
@@ -57,18 +58,34 @@ const userProfile = {
         let current =db.cloud.currentUser._value;
         if (current != undefined && current.userId != "unauthorized"){
             console.log('userProfile render', current);
-
-            let uuid = getUuid(current.email);
-            let identicon = new Identicon(uuid.toString(), 64).toString();
-            userProfile.connectedUser = {
-                userProfile: {
-                    uid: current.userId,
-                    name: current.name,
-                    email: current.email,
-                    picture: identicon
-                }
-            };
-            sessionStorage.setItem('connectedUser', JSON.stringify(userProfile.connectedUser));
+            var bearer = 'Bearer ' + db.cloud.currentUser._value.accessToken;
+            var url = dataTables.getURL() + '/users/' + encodeURI(current.userId);
+            console.log('userProfile render', url); 
+            fetch( url, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': bearer,
+                        'Content-Type': 'application/json'
+                        }
+                    }
+                )
+                .then(response => response.json())
+                .then(data => {                   
+                    // console.log('userProfile render', data); 
+                    let uuid = getUuid(current.email);
+                    let identicon = new Identicon(uuid.toString(), 64).toString();
+                    userProfile.connectedUser = {
+                        userProfile: {
+                            uid: current.userId,
+                            name: data.data.displayName,
+                            email: current.email,
+                            picture: identicon
+                            }
+                        };
+                    // console.log('userProfile render', JSON.stringify(userProfile.connectedUser));
+                    sessionStorage.setItem('connectedUser', JSON.stringify(userProfile.connectedUser));
+                    }
+                )
         }
         userProfile.connectedUser = require('../global/connected-user');
         // console.log('userProfile renderComponents', userProfile.connectedUser);

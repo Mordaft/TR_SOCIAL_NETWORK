@@ -5,7 +5,7 @@ import dexieCloud from "dexie-cloud-addon";
 
 const PARTNERSHIP = 'partnership';
 const FRIENDSHIP = 'friendship';
-
+const DATABASEURL = "https://zww3rotfy.dexie.cloud";
 let db = new Dexie('socialNetworkDB', {addons: [dexieCloud]});
 db.version(1).stores({
     partners: 'name, &full_name',
@@ -16,18 +16,20 @@ db.version(1).stores({
     quests: '&title, relevant',
     requests: '&[type+from+to+timestamp], type, timestamp',         //resquest for friendship & request to join a group (partnership)
     messages: '&[conversationWith+from+messageTime], conversationWith', //conversation with a partner
+
+     // Access Control tables
+    realms: "@realmId",
+    members: "@id", 
+
 });
 
 
 // Connect your dexie-cloud database:
 db.cloud.configure({
-    databaseUrl: "https://zww3rotfy.dexie.cloud",
+    databaseUrl: DATABASEURL,
     requireAuth: false,
     disableWebSocket: true,
-    disableEagerSync: true,
-    periodicSync:{
-        minInterval: 60*1000 // 1 minute
-    } 
+    disableEagerSync: true
 });
 
 
@@ -37,6 +39,7 @@ db.open();
 // Define the database
 const dataTables = {
     getBD: () => db ,
+    getURL: () => DATABASEURL,
     // Define functions to query list and individual elements for each table
     partners: {
         getAll: () => db.partners.toArray(),
@@ -114,5 +117,4 @@ const dataTables = {
 
 }
 
-module.exports = dataTables;
-export { FRIENDSHIP, PARTNERSHIP as MEMBERSHIP };
+module.exports = dataTables, {FRIENDSHIP, PARTNERSHIP, DATABASEURL};
