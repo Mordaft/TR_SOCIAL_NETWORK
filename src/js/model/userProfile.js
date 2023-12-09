@@ -6,6 +6,7 @@ let navigo = require('../utils/navigo');
 let dataTables = require('../global/data-tables');
 let db = dataTables.getBD();
 const getUuid = require('uuid-by-string');
+const pageLoader = require('../global/page-loader');
 
 const userProfile = {
     timerSync: null,
@@ -46,10 +47,12 @@ const userProfile = {
                         navigo.default.home();
                         userProfile.timerSync = setInterval(async function () {
                             await db.cloud.sync();
-                        }, 60*1000);                
+                        }, 60*1000); 
+                        pageLoader.hidePageLoader();               
                     })
                 .catch(error => {
                     console.error(error);
+                    pageLoader.hidePageLoader();
                 });
     },
     renderLogin: async () => {           
@@ -57,6 +60,7 @@ const userProfile = {
         let current =db.cloud.currentUser._value;
         if (current != undefined && current.userId != "unauthorized"){
             // console.log('userProfile render', current);
+            pageLoader.showPageLoader();
             var bearer = 'Bearer ' + db.cloud.currentUser._value.accessToken;
             var url = dataTables.getURL() + '/users/' + encodeURI(current.userId);
             // console.log('userProfile render', url); 
@@ -247,6 +251,7 @@ const userProfile = {
         if (buttonLogout) {
             buttonLogout.addEventListener('click', async function (event) {
                 event.preventDefault();
+                pageLoader.showPageLoader();
                 // console.log('logout clicked');
                 await  db.cloud.logout();
                 db.cloud.logout().then(() => {

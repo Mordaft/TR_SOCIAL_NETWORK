@@ -1,13 +1,25 @@
 const app = require('../utils/core');
 
-app.querySelector('.page-loader', function (el) {
-  const pageLoader = el[0];
-
-  const hidePageLoader = function () {
-    pageLoader.classList.add('hidden');
-  };
+const pageLoader = {
   
-  window.addEventListener('load', function(){ 
+  hidePageLoader: function () {
+    let pageLoaderElement = document.querySelector('.page-loader');
+    pageLoaderElement.classList.add('hidden');
+  },
+  
+  showPageLoader: function () {
+    let pageLoaderElement = document.querySelector('.page-loader');
+    pageLoaderElement.classList.remove('hidden');
+  }
+
+}
+
+hidePageLoader = function () {
+  pageLoader.hidePageLoader();
+}
+
+window.addEventListener('load', function(){ 
      this.setTimeout(hidePageLoader, 250);
-  });
 });
+
+module.exports = pageLoader;
