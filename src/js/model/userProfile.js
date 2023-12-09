@@ -56,10 +56,10 @@ const userProfile = {
         await db.cloud.sync();
         let current =db.cloud.currentUser._value;
         if (current != undefined && current.userId != "unauthorized"){
-            console.log('userProfile render', current);
+            // console.log('userProfile render', current);
             var bearer = 'Bearer ' + db.cloud.currentUser._value.accessToken;
             var url = dataTables.getURL() + '/users/' + encodeURI(current.userId);
-            console.log('userProfile render', url); 
+            // console.log('userProfile render', url); 
             fetch( url, {
                     method: 'GET',
                     headers: {
@@ -70,7 +70,7 @@ const userProfile = {
                 )
                 .then(response => response.json())
                 .then(data => {                   
-                    console.log('userProfile render fetch response', data); 
+                    // console.log('userProfile render fetch response', data); 
                     let uuid = getUuid(current.email);
                     let identicon = new Identicon(uuid.toString(), 64).toString();
                     userProfile.connectedUser = {
@@ -82,22 +82,22 @@ const userProfile = {
                             }
                         };
                     sessionStorage.setItem('connectedUser', JSON.stringify(userProfile.connectedUser));
-                    console.log('userProfile render', JSON.stringify(userProfile.connectedUser));
+                    // console.log('userProfile render', JSON.stringify(userProfile.connectedUser));
                     userProfile.init();
                 })
         }
     },
     refreshAvatarPicture: (connectedUser) => {
-        console.log('userProfile refreshAvatarPicture', connectedUser);
+        // console.log('userProfile refreshAvatarPicture', connectedUser);
         let user = connectedUser.userProfile();
         var src = "/img/avatar/17.jpg";
         if (user) {
-            console.log('userProfile refreshAvatarPicture with user', user);
+            // console.log('userProfile refreshAvatarPicture with user', user);
             src = "data:image/png;base64,"+ user.userProfile.picture ;    
             // console.log('userProfile refreshAvatarPicture data-src =', "data:image/png;base64,"+ user.userProfile.picture);
         }
         else {
-            console.log('userProfile refreshAvatarPicture no user');
+            // console.log('userProfile refreshAvatarPicture no user');
         }
 
         document.querySelectorAll('.avatarPicture').forEach(function (element) {
@@ -243,14 +243,14 @@ const userProfile = {
     },
     createEventsHandlers: () => {
         buttonLogout = document.querySelector("#logoutButton");
-        console.log('createEventsHandlers' , buttonLogout);
+        // console.log('createEventsHandlers' , buttonLogout);
         if (buttonLogout) {
             buttonLogout.addEventListener('click', async function (event) {
                 event.preventDefault();
-                console.log('logout clicked');
+                // console.log('logout clicked');
                 await  db.cloud.logout();
                 db.cloud.logout().then(() => {
-                    console.log('logout done');
+                    // console.log('logout done');
                     sessionStorage.removeItem('connectedUser');
                     userProfile.connectedUser = null;
                     clearInterval(userProfile.timerSync);
@@ -260,16 +260,16 @@ const userProfile = {
             });
         }
         buttonLogin = document.querySelector("#loginButton");
-        console.log('createEventsHandlers' , buttonLogin);
+        // console.log('createEventsHandlers' , buttonLogin);
         if (buttonLogin) {
             buttonLogin.addEventListener('click', async function (event) {
                 event.preventDefault();
-                console.log('login clicked');
+                // console.log('login clicked');
                 await  db.cloud.login();
                 db.cloud.login().then(() => {
-                    console.log('login done');
+                    // console.log('login done');
                     db.cloud.sync().then(() => {
-                        console.log('sync after login done');
+                        // console.log('sync after login done');
                         userProfile.renderLogin();                            
                        });
                     });
