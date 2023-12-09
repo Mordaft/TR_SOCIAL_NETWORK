@@ -143,7 +143,7 @@ function loadVisualComponents() {
     /*-----------------
         USER AVATAR 
     -----------------*/
-    require('./global/user-avatar.hexagons');
+    //require('./global/user-avatar.hexagons');
 
     /*----------
         MAPS 

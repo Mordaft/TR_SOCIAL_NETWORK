@@ -12,53 +12,53 @@
         <a class="user-status-avatar">
             <!-- USER AVATAR -->
             <div id="post-{{id}}" class="user-avatar small no-outline">
-            <!-- USER AVATAR CONTENT -->
-            <div id="post-{{id}}-content" class="user-avatar-content">
-                <!-- HEXAGON -->
-                <div class="hexagon-image-30-32" data-src="{{avatar.image}}"></div>
-                <!-- /HEXAGON -->
-            </div>
-            <!-- /USER AVATAR CONTENT -->
-        
-            <!-- USER AVATAR PROGRESS -->
-            <div id="post-{{id}}-progress" class="user-avatar-progress">
-                <!-- HEXAGON -->
-                <div class="hexagon-progress-40-44" ></div>
-                <!-- /HEXAGON -->
-            </div>
-            <!-- /USER AVATAR PROGRESS -->
-        
-            <!-- USER AVATAR PROGRESS BORDER -->
-            <div id="post-{{id}}-progress-border" class="user-avatar-progress-border">
-                <!-- HEXAGON -->
-                <div class="hexagon-border-40-44"></div>
-                <!-- /HEXAGON -->
-            </div>
-            <!-- /USER AVATAR PROGRESS BORDER -->
-        
-            <!-- USER AVATAR BADGE -->
-            <div id="post-{{id}}-badge" class="user-avatar-badge">
-                <!-- USER AVATAR BADGE BORDER -->
-                <div id="post-{{id}}-badge-border" class="user-avatar-badge-border">
-                <!-- HEXAGON -->
-                <div class="hexagon-22-24"></div>
-                <!-- /HEXAGON -->
+                <!-- USER AVATAR CONTENT -->
+                <div id="post-{{id}}-content" class="user-avatar-content">
+                    <!-- HEXAGON -->
+                    <div class="hexagon-image-30-32" data-src="{{avatar.image}}"></div>
+                    <!-- /HEXAGON -->
                 </div>
-                <!-- /USER AVATAR BADGE BORDER -->
-        
-                <!-- USER AVATAR BADGE CONTENT -->
-                <div id="post-{{id}}-badge-content" class="user-avatar-badge-content">
-                <!-- HEXAGON -->
-                <div class="hexagon-dark-16-18"></div>
-                <!-- /HEXAGON -->
+                <!-- /USER AVATAR CONTENT -->
+            
+                <!-- USER AVATAR PROGRESS -->
+                <div id="post-{{id}}-progress" class="user-avatar-progress">
+                    <!-- HEXAGON -->
+                    <div class="hexagon-progress-40-44" ></div>
+                    <!-- /HEXAGON -->
                 </div>
-                <!-- /USER AVATAR BADGE CONTENT -->
-        
-                <!-- USER AVATAR BADGE TEXT -->
-                <p class="user-avatar-badge-text">{{avatar.level}}</p>
-                <!-- /USER AVATAR BADGE TEXT -->
-            </div>
-            <!-- /USER AVATAR BADGE -->
+                <!-- /USER AVATAR PROGRESS -->
+            
+                <!-- USER AVATAR PROGRESS BORDER -->
+                <div id="post-{{id}}-progress-border" class="user-avatar-progress-border">
+                    <!-- HEXAGON -->
+                    <div class="hexagon-border-40-44"></div>
+                    <!-- /HEXAGON -->
+                </div>
+                <!-- /USER AVATAR PROGRESS BORDER -->
+            
+                <!-- USER AVATAR BADGE -->
+                <div id="post-{{id}}-badge" class="user-avatar-badge">
+                    <!-- USER AVATAR BADGE BORDER -->
+                    <div id="post-{{id}}-badge-border" class="user-avatar-badge-border">
+                    <!-- HEXAGON -->
+                    <div class="hexagon-22-24"></div>
+                    <!-- /HEXAGON -->
+                    </div>
+                    <!-- /USER AVATAR BADGE BORDER -->
+            
+                    <!-- USER AVATAR BADGE CONTENT -->
+                    <div id="post-{{id}}-badge-content" class="user-avatar-badge-content">
+                    <!-- HEXAGON -->
+                    <div class="hexagon-dark-16-18"></div>
+                    <!-- /HEXAGON -->
+                    </div>
+                    <!-- /USER AVATAR BADGE CONTENT -->
+            
+                    <!-- USER AVATAR BADGE TEXT -->
+                    <p class="user-avatar-badge-text">{{avatar.level}}</p>
+                    <!-- /USER AVATAR BADGE TEXT -->
+                </div>
+                <!-- /USER AVATAR BADGE -->
             </div>
             <!-- /USER AVATAR -->
         </a>

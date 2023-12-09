@@ -76,10 +76,10 @@ const posts = {
     },
     createPostsHexagons: (selector) => {
         let topElement = document.querySelector(selector);
-        // console.log("createMemberHexagons 1", topElement);
+        // console.log("Post createMemberHexagons 1", topElement);
         topElement.querySelectorAll('.user-avatar').forEach(function (parentElement) {;
             if (parentElement != null) {
-                // console.log("createMemberHexagons 2", parentElement, '#' + parentElement.getAttribute('id') + '-border');
+                // console.log("Post createMemberHexagons 2", parentElement, '#' + parentElement.getAttribute('id') + '-border');
                 // let element = parentElement.querySelector('#' + parentElement.getAttribute('id') + '-border div');
                 // console.log("createMemberHexagons 3", element);
                 plugins.createHexagon({

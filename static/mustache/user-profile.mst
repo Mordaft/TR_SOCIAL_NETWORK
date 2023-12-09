@@ -6,7 +6,7 @@
             <!-- USER STATUS AVATAR -->
             <a class="user-status-avatar" href="profile-timeline" data-navigo>
             <!-- USER AVATAR -->
-            <div id="userProfile" class="user-avatar small no-outline">
+            <div id="userProfile" class="user-avatar small no-outline online">
                 <!-- USER AVATAR CONTENT -->
                 <div id="userProfile-content" class="user-avatar-content">
                 <!-- HEXAGON -->
@@ -75,11 +75,12 @@
             <!-- USER STATUS AVATAR -->
             <a class="user-status-avatar" href="profile-timeline" data-navigo>
             <!-- USER AVATAR -->
-            <div id="userProfile" class="user-avatar small no-outline">
+            <div id="userProfile" class="user-avatar small no-outline online">
                 <!-- USER AVATAR CONTENT -->
                 <div id="userProfile-content " class="user-avatar-content">
                     <!-- HEXAGON -->
-                    <div class="hexagon-image-30-32 avatarPicture" data-src="/17.jpg"></div>
+                    <div class="hexagon-image-30-32 avatarPicture" data-src=/img/avatar/17.jpg">
+                    </div>
                     <!-- /HEXAGON -->
                 </div>
                 <!-- /USER AVATAR CONTENT -->

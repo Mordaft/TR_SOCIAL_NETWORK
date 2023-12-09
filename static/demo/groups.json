@@ -1,9 +1,9 @@
 [
-    {"id": 1, "image": "/img/avatar/24.jpg", "background": "img/cover/29.jpg", "name": "Cosplayers of the World", "description": "ALL COSPLAYERS WELCOME!", "members": 139, "posts": 105, "visits": 7.300},
-    {"id": 2, "image": "/img/avatar/29.jpg", "background": "img/cover/08.jpg", "name": "Twitch Streamers", "description": "TWITCH GAMING STREAMERS GROUP", "members": 265, "posts": 168, "visits": 11.200},
-    {"id": 3, "image": "/img/avatar/25.jpg", "background": "img/cover/27.jpg", "name": "Stream Designers", "description": "DESIGNERS ASSEMBLE!", "members": 466, "posts": 205, "visits": 7.900},
-    {"id": 4, "image": "/img/avatar/28.jpg", "background": "img/cover/48.jpg", "name": "Street Artists", "description": "SHARING THE ART!", "members": 951, "posts": 408, "visits": 9.200},
-    {"id": 5, "image": "/img/avatar/27.jpg", "background": "img/cover/05.jpg", "name": "Gaming Watchtower", "description": "NEWS, RELEASES AND MORE!", "members": 2.365, "posts": 618, "visits": 14.200},
-    {"id": 6, "image": "/img/avatar/26.jpg", "background": "img/cover/41.jpg", "name": "Retro Arcade", "description": "ALL RELATED TO OLD GAMES", "members": 307, "posts": 558, "visits": 7.300},
-    {"id": 7, "image": "/img/avatar/30.jpg", "background": "img/cover/46.jpg", "name": "Living in Japan", "description": "SHARE YOUR EXPERIENCES ABROAD!", "members": 66, "posts": 101, "visits": 2.400}
+    {"id": 1, "image": "/img/avatar/24.jpg", "background": "img/cover/29.jpg", "name": "Cosplayers of the World", "description": "ALL COSPLAYERS WELCOME!", "members": 139, "posts": 105, "visits": 7.300, "realmId": "rlm-public"},
+    {"id": 2, "image": "/img/avatar/29.jpg", "background": "img/cover/08.jpg", "name": "Twitch Streamers", "description": "TWITCH GAMING STREAMERS GROUP", "members": 265, "posts": 168, "visits": 11.200, "realmId": "rlm-public"},
+    {"id": 3, "image": "/img/avatar/25.jpg", "background": "img/cover/27.jpg", "name": "Stream Designers", "description": "DESIGNERS ASSEMBLE!", "members": 466, "posts": 205, "visits": 7.900, "realmId": "rlm-public"},
+    {"id": 4, "image": "/img/avatar/28.jpg", "background": "img/cover/48.jpg", "name": "Street Artists", "description": "SHARING THE ART!", "members": 951, "posts": 408, "visits": 9.200, "realmId": "rlm-public"},
+    {"id": 5, "image": "/img/avatar/27.jpg", "background": "img/cover/05.jpg", "name": "Gaming Watchtower", "description": "NEWS, RELEASES AND MORE!", "members": 2.365, "posts": 618, "visits": 14.200, "realmId": "rlm-public"},
+    {"id": 6, "image": "/img/avatar/26.jpg", "background": "img/cover/41.jpg", "name": "Retro Arcade", "description": "ALL RELATED TO OLD GAMES", "members": 307, "posts": 558, "visits": 7.300, "realmId": "rlm-public"},
+    {"id": 7, "image": "/img/avatar/30.jpg", "background": "img/cover/46.jpg", "name": "Living in Japan", "description": "SHARE YOUR EXPERIENCES ABROAD!", "members": 66, "posts": 101, "visits": 2.400, "realmId": "rlm-public"}
 ]
