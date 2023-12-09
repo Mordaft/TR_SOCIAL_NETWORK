@@ -8,6 +8,7 @@ let db = dataTables.getBD();
 const getUuid = require('uuid-by-string');
 
 const userProfile = {
+    timerSync: null,
     connectedUser: null,
     init: async () => {
         console.log('userProfile init');
@@ -39,13 +40,13 @@ const userProfile = {
                         // console.log('userProfile render 2' , rendered);
                         document.querySelector('#userProfileDropdownMenu').innerHTML = rendered;
                         // console.log('userProfile render 3');
-                        userProfile.renderLogin();
+                        userProfile.renderComponents();    
                         navigo.default.createAllRoutes();
                         userProfile.createEventsHandlers();
                         navigo.default.home();
-                        setInterval(async function () {
+                        userProfile.timerSync = setInterval(async function () {
                             await db.cloud.sync();
-                        }, 60*1000);
+                        }, 60*1000);                
                     })
                 .catch(error => {
                     console.error(error);
@@ -69,7 +70,7 @@ const userProfile = {
                 )
                 .then(response => response.json())
                 .then(data => {                   
-                    // console.log('userProfile render', data); 
+                    console.log('userProfile render fetch response', data); 
                     let uuid = getUuid(current.email);
                     let identicon = new Identicon(uuid.toString(), 64).toString();
                     userProfile.connectedUser = {
@@ -80,21 +81,18 @@ const userProfile = {
                             picture: identicon
                             }
                         };
-                    // console.log('userProfile render', JSON.stringify(userProfile.connectedUser));
                     sessionStorage.setItem('connectedUser', JSON.stringify(userProfile.connectedUser));
-                    }
-                )
+                    console.log('userProfile render', JSON.stringify(userProfile.connectedUser));
+                    userProfile.init();
+                })
         }
-        userProfile.connectedUser = require('../global/connected-user');
-        // console.log('userProfile renderComponents', userProfile.connectedUser);
-        userProfile.renderComponents();    
     },
     refreshAvatarPicture: (connectedUser) => {
         console.log('userProfile refreshAvatarPicture', connectedUser);
         let user = connectedUser.userProfile();
         var src = "/img/avatar/17.jpg";
         if (user) {
-            console.log('userProfile refreshAvatarPicture no user');
+            console.log('userProfile refreshAvatarPicture with user', user);
             src = "data:image/png;base64,"+ user.userProfile.picture ;    
             // console.log('userProfile refreshAvatarPicture data-src =', "data:image/png;base64,"+ user.userProfile.picture);
         }
@@ -103,30 +101,9 @@ const userProfile = {
         }
 
         document.querySelectorAll('.avatarPicture').forEach(function (element) {
-            console.log('userProfile change data-src', element.parentElement.parentElement.getAttribute('class'), element.getAttribute('data-src'), src);
+            // console.log('userProfile change data-src', element.parentElement.parentElement.getAttribute('class'), element.getAttribute('data-src'), src);
             element.setAttribute('data-src', src);
         });
-
-        // let userImage = new Image();
-        // userImage.src = src ;    
-        // userImage.addEventListener("load", function () {
-        //     console.log('userProfile refreshAvatarPicture load user image');
-        //     document.querySelectorAll('.avatarPicture').forEach(function (element) {
-        //         canvas = element.children[0];
-        //         if (canvas == undefined) {
-        //             canvas = document.createElement('canvas');
-        //             element.appendChild(canvas);
-        //         }
-        //         let ctx = canvas.getContext('2d');
-        //         var t = Math.max(canvas.width, canvas.height),
-        //             i = (Math.abs(canvas.width - canvas.height), canvas.width < canvas.height ? (canvas.width - canvas.height) / 2 : 0),
-        //             e = canvas.height < canvas.width ? (canvas.height - canvas.width) / 2 : 0;
-        //             console.log('userProfile refreshAvatarPicture drawImage', i, e, t, t);
-        //         ctx.drawImage(userImage, i, e, t, t);
-        //     });
-        // });    
-
-
     },
     createHexagonsUserProfile: (selector ) => {
         var updatableElement;
@@ -276,6 +253,8 @@ const userProfile = {
                     console.log('logout done');
                     sessionStorage.removeItem('connectedUser');
                     userProfile.connectedUser = null;
+                    clearInterval(userProfile.timerSync);
+                    userProfile.timerSync = null;
                     userProfile.init();
                 });
             });
@@ -285,14 +264,17 @@ const userProfile = {
         if (buttonLogin) {
             buttonLogin.addEventListener('click', async function (event) {
                 event.preventDefault();
-                console.log('logout clicked');
+                console.log('login clicked');
                 await  db.cloud.login();
                 db.cloud.login().then(() => {
-                    userProfile.init();
+                    console.log('login done');
+                    db.cloud.sync().then(() => {
+                        console.log('sync after login done');
+                        userProfile.renderLogin();                            
+                       });
+                    });
                 });
-            });
         }
-
     }
 
 
