@@ -21,7 +21,7 @@ const quests = {
         // console.info('Render Quests Table');
         return dataTables.quests.getAll()
             .then(data => {
-                return fetch('/mustache/quests-table.mst')
+                return fetch('/mustache/questsTable.mst')
                 .then(response => response.text())
                     .then(template => {
                         let list = { allQuestsList: data };
@@ -43,7 +43,7 @@ const quests = {
         // console.info('Render Quests Relevant');
         return dataTables.quests.getRelevant()
             .then(data => {
-                return fetch('/mustache/quests-relevant.mst')
+                return fetch('/mustache/questsRelevant.mst')
                 .then(response => response.text())
                     .then(template => {
                         let list = { relevantQuestList: data };

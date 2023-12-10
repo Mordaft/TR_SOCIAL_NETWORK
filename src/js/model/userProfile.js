@@ -31,7 +31,7 @@ const userProfile = {
     },
     render: (connectedUser) => {
         // console.log('userProfile render');
-        return fetch('/mustache/user-profile.mst')
+        return fetch('/mustache/userProfile.mst')
                 .then(response => response.text())
                     .then(template => {
                         // console.log('userProfile render 0');
